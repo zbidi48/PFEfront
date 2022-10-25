@@ -1,0 +1,67 @@
+<div class="container-fluid px-4">
+  <h1 class="mt-4">Liste de contrat</h1>
+
+  <div class="card mb-4">
+    <div class="card-body">
+      cliquer sur ce bouton pour ajouter un contrat
+      <a class="btn btn-outline-primary" routerLink="/rh/addcontrat" >Ajouter contrat</a>
+    </div>
+  </div>
+
+  <hr>
+  <div >
+
+
+
+    <form   >
+
+      <div class="form-group mb-5">
+        <button class="btn btn-info" type="submit">Rechercher</button>
+      </div>
+    </form>
+
+
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th>#</th>
+          <th>code</th>
+          <th>libelle</th>
+          <th>date debut</th>
+          <th>date fin</th>
+          <th>nom employee</th>
+          <th>prenom employee</th>
+          <th>post</th>
+          <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let i of contras">
+          <td>{{i.id}}</td>
+          <td>{{i.code}}</td>
+          <td>{{i.libelle}}</td>
+          <td>{{i.datedebut | date}}</td>
+          <td>{{i.datefin  | date}}</td>
+          <td>{{i.nom}}</td>
+          <td>{{i.prenom}}</td>
+          <td>{{i.post}}</td>
+          <td>{{i.jobid}}</td>
+
+          <td>
+            <a class="btn btn-sm btn-primary" style="margin-right:5px;" [routerLink]="['/rh/editcontrat/'+i.id]" >update</a>
+            <a class="btn btn-sm btn-danger" (click)="deletecontrat(i.id)">delete</a>
+          </td>
+
+        </tr>
+
+
+        </tbody>
+      </table>
+    </div>
+
+
+
+  </div>
+
+</div>

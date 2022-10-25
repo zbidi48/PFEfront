@@ -1,0 +1,57 @@
+<div class="container-fluid px-4">
+  <h1 class="mt-4">Liste de entretient</h1>
+
+  <div class="card mb-4">
+    <div class="card-body">
+      cliquer sur ce bouton pour ajouter un entretient au list
+      <a class="btn btn-outline-primary" routerLink="/rh/addentretient" >Ajouter entretient</a>
+    </div>
+  </div>
+
+  <hr>
+  <div >
+
+
+
+    <form >
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group ">
+            <label>Visa:</label>
+            <select class="form-control" >
+              <option value="-1">Tous les entretients</option>
+
+            </select>
+          </div>
+        </div>
+
+      </div>
+      <div class="form-group mb-5">
+        <button class="btn btn-info" type="submit">Rechercher</button>
+      </div>
+    </form>
+
+
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th>nom&&prenom:condidat</th>
+          <th>date</th>
+          <th>heure</th>
+          <th>validepar</th>
+          <th>equipe manager</th>
+          <th>compétence</th>
+
+
+        </tr>
+        </thead>
+
+      </table>
+    </div>
+
+
+
+  </div>
+
+</div>

@@ -1,0 +1,32 @@
+<form class="forms-sample" [formGroup]="maoffreemplform" (ngSubmit)="editoffreemploie()">
+  <div class="form-group">
+    <label >datelimite</label>
+    <input type="date" class="form-control" id="datelimite" placeholder="datelimite"
+           name="datelimite" formControlName="datelimite">
+  </div>
+  <div class="form-group">
+    <label >lieux de travail</label>
+    <input type="text" class="form-control" id="lieuxdetravail" placeholder="lieux de travail"
+           name="lieuxdetravail" formControlName="lieuxdetravail">
+  </div>
+  <div class="form-group">
+    <label >nom entreprise</label>
+    <input type="text" class="form-control" id="nomentreprise" placeholder="nom entreprise"
+           name="nomentreprise" formControlName="nomentreprise">
+  </div>
+  <div class="form-group">
+    <label >poste demande</label>
+    <input type="text" class="form-control" id="postedemande" placeholder="poste demande"
+           name="postedemande" formControlName="postedemande">
+  </div>
+  <div class="form-group">
+    <label >type d offre</label>
+    <input type="text" class="form-control" id="typedoffre" placeholder="type d offre"
+           name="typedoffre" formControlName="typedoffre">
+  </div>
+
+
+
+  <button type="submit" class="btn btn-gradient-primary mr-2">edit</button>
+  <button class="btn btn-light" routerLink="/rh/offreemploie">Cancel</button>
+</form>

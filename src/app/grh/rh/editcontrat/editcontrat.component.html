@@ -1,0 +1,21 @@
+<form class="forms-sample" [formGroup]="macontratform" (ngSubmit)="editcontrat()">
+  <div class="form-group">
+    <label >code</label>
+    <input type="text" class="form-control" id="code" placeholder="code" name="code" formControlName="code">
+  </div>
+  <div class="form-group">
+    <label >libelle</label>
+    <input type="text" class="form-control" id="libelle" placeholder="libelle" name="libelle" formControlName="libelle">
+  </div>
+  <div class="form-group">
+    <label >datedebut</label>
+    <input type="date" class="form-control" id="datedebut" placeholder="date debut" name="datedebut" formControlName="datedebut">
+  </div>
+  <div class="form-group">
+    <label >datefin</label>
+    <input type="date" class="form-control" id="datefin" placeholder="date fin" name="datefin" formControlName="datefin">
+  </div>
+
+  <button type="submit" class="btn btn-gradient-primary mr-2">edit</button>
+  <button class="btn btn-light" routerLink="/rh/contrat">Cancel</button>
+</form>

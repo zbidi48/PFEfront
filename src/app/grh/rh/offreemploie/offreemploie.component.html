@@ -1,0 +1,77 @@
+<div class="container-fluid px-4">
+  <h1 class="mt-4">Liste de offre d emploies</h1>
+
+  <div class="card mb-4">
+    <div class="card-body">
+      cliquer sur ce bouton pour ajouter offre emploie
+      <a class="btn btn-outline-primary" routerLink="/rh/addoffreemploie" >Ajouter offre emploie</a>
+    </div>
+  </div>
+
+  <hr>
+  <div >
+
+
+
+    <form [formGroup]="searchoffreempl" (ngSubmit)="search()" >
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group ">
+            <label>offre d emploie par type d offre:</label>
+            <input type="text" id=" typedoffre"  class="form-control"
+                   name="typedoffre" placeholder="type d offre" formControlName="typedoffre">
+          </div>
+        </div>
+
+      </div>
+      <div class="form-group mb-5">
+        <button class="btn btn-info" type="submit">Rechercher</button>
+      </div>
+    </form>
+
+
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th>#</th>
+          <th>titredoffre</th>
+          <th>datelimite</th>
+          <th>description</th>
+          <th>langue</th>
+          <th> experience</th>
+          <th>exigence d'emploie</th>
+          <th>datecreation</th>
+          <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let i of offreemploies">
+          <td>{{i.id}}</td>
+          <td>{{i.titredoffre}}</td>
+          <td>{{i.datelimite|date}}</td>
+          <td>{{i.description}}</td>
+          <td>{{i.langue}}</td>
+          <td>{{i.experience}}</td>
+          <td>{{i.exigenceemploie}}</td>
+          <td>{{i.datecreation|date}}</td>
+
+
+
+
+          <td>
+            <a class="btn btn-sm btn-primary" style="margin-right:5px;" [routerLink]="['/rh/editoffreemploie/'+i.id]">mise a jour</a>
+            <a class="btn btn-sm btn-danger" (click)="deleteoffreempl(i.id)">supprimer</a>
+          </td>
+
+        </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+
+
+  </div>
+
+</div>

@@ -1,0 +1,18 @@
+import { Injectable } from '@angular/core';
+import {HttpClient, HttpResponse} from "@angular/common/http";
+import {environment} from "../../../environments/environment";
+import {Observable} from "rxjs";
+import {ICondidat} from "../models/ICondidat.model";
+
+@Injectable({
+  providedIn: 'root'
+})
+export class CondidatService {
+  api_url=environment.server_url;
+  constructor(private http: HttpClient) { }
+  getcondidat():Observable<HttpResponse<ICondidat[]>>
+{
+  return  this.http.get<ICondidat[]>(this.api_url+'/condidats/affichercondidats',
+    {observe: 'response'})
+}
+}

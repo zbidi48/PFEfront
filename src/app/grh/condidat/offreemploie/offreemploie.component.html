@@ -1,0 +1,49 @@
+<div class="container-fluid px-4">
+  <h1 class="mt-4">bien venue dans nos offre emploie</h1>
+
+
+
+
+  <div >
+
+
+    <form >
+
+      <div class="form-group mb-5">
+        <button class="btn btn-info" type="submit">Rechercher</button>
+      </div>
+    </form>
+
+
+   <div >
+     <div class="table-responsive" >
+       <table class="table table-hover">
+         <thead>
+         <tr>
+
+           <th>titredoffre</th>
+           <th>datelimite</th>
+           <th> experience</th>
+
+         </tr>
+         </thead>
+         <tbody>
+         <tr *ngFor="let offre of offreemploies">
+           <td>{{offre.titredoffre}}</td>
+           <td>{{offre.datelimite}}</td>
+           <td>{{offre.experience}}</td>
+           <td>
+             <button class="btn btn-sm btn-link" [routerLink]="['/espacecondidat/applayoffre/'+offre.id]" >postuler</button>
+             <button class="btn btn-sm btn-link" [routerLink]="['/espacecondidat/detailoffre/'+offre.id]" >voir plus</button>
+           </td>
+         </tr>
+         </tbody>
+       </table>
+     </div>
+   </div>
+
+
+
+  </div>
+
+</div>

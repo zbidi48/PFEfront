@@ -1,0 +1,16 @@
+<form class="forms-sample" [formGroup]="formationform" (ngSubmit)="ajouterformation()">
+  <div class="form-group">
+    <label >nom de formation</label>
+    <input type="text" class="form-control" id="nomdeforamtion" placeholder="nom de formation"
+           name="nomdeforamtion" formControlName="nomdeforamtion">
+  </div>
+  <div class="form-group">
+    <label >type de formation</label>
+    <input type="text" class="form-control" id="typedeformation" placeholder="type de formation"
+           name="typedeformation" formControlName="typedeformation">
+  </div>
+
+
+  <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
+  <button class="btn btn-light" routerLink="/rh/formation">Cancel</button>
+</form>

@@ -1,0 +1,66 @@
+<div class="container-fluid px-4">
+  <h1 class="mt-4">liste demande conge de tout les employees</h1>
+
+
+  <div class="table-responsive pt-3">
+    <table class="table table-dark">
+      <thead>
+      <tr>
+        <th>
+          #
+        </th>
+        <th>
+          date debut
+        </th>
+        <th>
+          date fin
+        </th>
+        <th>
+          status conge
+        </th>
+        <th>
+          type conge
+        </th>
+        <th>
+          nom employee
+        </th>
+        <th>
+          prenom employee
+        </th>
+        <th>
+          post
+        </th>
+        <th>
+          jobid
+        </th>
+        <th>
+          action
+        </th>
+
+
+
+      </tr >
+      </thead>
+      <tbody>
+      <tr *ngFor="let i of conges">
+        <td>{{i.id}}</td>
+        <td>{{i.datedebut}}</td>
+        <td>{{i.datefin}}</td>
+        <td>{{i.statusConge}}</td>
+        <td>{{i.typeConge}}</td>
+        <td>{{i.nom}}</td>
+        <td>{{i.prenom}}</td>
+        <td>{{i.post}}</td>
+        <td>{{i.jobid}}</td>
+        <td>
+          <a class="btn btn-sm btn-danger" (click)="deleteconge(i.id)">supprimer</a>
+          <a class="btn btn-sm btn-primary"[routerLink]="['/rh/accordconge/'+i.id]">accord</a>
+        </td>
+
+
+      </tr>
+      </tbody>
+
+    </table>
+  </div>
+</div>

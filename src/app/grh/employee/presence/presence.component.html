@@ -1,0 +1,47 @@
+<div class="container-fluid px-4">
+  <h1 class="mt-4">Liste de presence</h1>
+  <div class="card mb-4">
+    <div class="card-body">
+      cliquer sur ce bouton pour ajouter un presence
+      <a class="btn btn-outline-primary" routerLink="/espaceemployee/addpresence">Ajouter presence</a>
+    </div>
+  </div>
+
+  <div class="table-responsive pt-3">
+    <table class="table table-dark">
+      <thead>
+      <tr>
+        <th>
+          #
+        </th>
+        <th>
+         jour
+        </th>
+        <th>
+       nombre d heures
+        </th>
+        <th>
+          nom employee
+        </th>
+        <th>
+          prenom employee
+        </th>
+
+
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let i of presences">
+        <td>{{i.id}}</td>
+        <td>{{i.date}}</td>
+        <td>{{i.nbreheure}}</td>
+        <td>{{i.nom}}</td>
+        <td>{{i.prenom}}</td>
+
+      </tr>
+      </tbody>
+
+    </table>
+  </div>
+</div>
+

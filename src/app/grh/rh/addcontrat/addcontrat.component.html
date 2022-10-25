@@ -1,0 +1,27 @@
+<form class="forms-sample" [formGroup]="contratform" (ngSubmit)="Addcontrat()">
+  <div class="form-group">
+    <label >code</label>
+    <input type="text" class="form-control" id="code" placeholder="code" name="code" formControlName="code">
+  </div>
+  <div class="form-group">
+    <label >libelle</label>
+    <input type="text" class="form-control" id="libelle" placeholder="libelle" name="libelle" formControlName="libelle">
+  </div>
+  <div class="form-group">
+    <label >datedebut</label>
+    <input type="date" class="form-control" id="datedebut" placeholder="date debut" name="datedebut" formControlName="datedebut">
+  </div>
+  <div class="form-group">
+    <label >datefin</label>
+    <input type="date" class="form-control" id="datefin" placeholder="date fin" name="datefin" formControlName="datefin">
+  </div>
+  <div class="form-group>">
+    <select class="form-control" formControlName="employee_id" >
+      <option value="">CHoisir un employee  convenable</option>
+      <option value="{{e.id}}" *ngFor="let e of employees ">{{e.prenom}} {{e.nom}} {{e.post}} {{e.jobid}}</option>
+    </select>
+
+  </div>
+  <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
+  <button class="btn btn-light" routerLink="/rh/contrat">Cancel</button>
+</form>

@@ -1,0 +1,62 @@
+<div class="container-fluid px-4">
+  <h1 class="mt-4">Liste de formation</h1>
+
+  <div class="card mb-4">
+    <div class="card-body">
+      cliquer sur ce bouton pour ajouter une formation
+      <a class="btn btn-outline-primary" routerLink="/rh/addformation" >Ajouter formation</a>
+    </div>
+  </div>
+
+  <hr>
+  <div >
+
+
+
+    <form [formGroup]="cherchform" (ngSubmit)="search()" >
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group ">
+            <label>formations:</label>
+            <input type="text" id=" typedeformation"  class="form-control"
+                   name="typedeformation" placeholder=" type de formation" formControlName="typedeformation">
+          </div>
+        </div>
+
+      </div>
+      <div class="form-group mb-5">
+        <button class="btn btn-info" type="submit">Rechercher</button>
+      </div>
+    </form>
+
+
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th>#</th>
+          <th>nom de formation</th>
+          <th>type de formation</th>
+        </tr>
+        </thead>
+         <tbody>
+         <tr *ngFor="let i of formations">
+           <td>{{i.id}}</td>
+           <td>{{i.nomdeforamtion}}</td>
+           <td>{{i.typedeformation}}</td>
+           <td>
+             <a class="btn btn-sm btn-primary" style="margin-right:5px;" [routerLink]="['/rh/editformation/'+i.id]" >mise a jour</a>
+             <a class="btn btn-sm btn-danger" (click)="deleteformation(i.id)"  >supprimer</a>
+           </td>
+
+         </tr>
+
+         </tbody>
+      </table>
+    </div>
+
+
+
+  </div>
+
+</div>

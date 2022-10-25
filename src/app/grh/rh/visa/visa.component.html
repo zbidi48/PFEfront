@@ -1,0 +1,59 @@
+<div class="container-fluid px-4">
+  <h1 class="mt-4">Liste de visa</h1>
+  <div class="card mb-4">
+    <div class="card-body">
+      cliquer sur ce bouton pour ajouter visa
+      <a class="btn btn-outline-primary" routerLink="/rh/addvisa">Ajouter visa</a>
+    </div>
+  </div>
+  <form  >
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group ">
+          <label>Visa:</label>
+          <select class="form-control" >
+            <option value="-1">Tous les visas</option>
+
+          </select>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group ">
+          <label>Type de conge</label>
+          <select class="form-control"  >
+            <option value="maladie">MALADIE</option>
+            <option value="mission">MISSION</option>
+            <option value="etude">ETUDE</option>
+            <option value="touristique">TOURISTIQUE</option>
+
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="form-group mb-5">
+      <button class="btn btn-info" type="submit">Rechercher</button>
+    </div>
+  </form>
+  <div class="table-responsive pt-3">
+    <table class="table table-dark">
+      <thead>
+      <tr>
+        <th>
+          #
+        </th>
+        <th>
+          date depot
+        </th>
+        <th>
+          date recu
+        </th>
+        <th>
+          user id
+        </th>
+      </tr>
+      </thead>
+
+    </table>
+  </div>
+</div>
+

@@ -1,0 +1,83 @@
+<div class="container-fluid px-4">
+  <h1 class="mt-4">Liste de fiche de paie</h1>
+
+  <div class="card mb-4">
+    <div class="card-body">
+      cliquer sur ce bouton pour ajouter une fiche de paie
+      <a class="btn btn-outline-primary" routerLink="/rh/addfichdepaie">Ajouter une fiche de paie</a>
+    </div>
+  </div>
+
+  <hr>
+  <div >
+
+
+
+    <form  >
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group ">
+            <label>fich de paie:</label>
+            <select class="form-control" >
+              <option value="-1">Tous les fiche de paie</option>
+
+            </select>
+          </div>
+        </div>
+
+      </div>
+      <div class="form-group mb-5">
+        <button class="btn btn-info" type="submit">Rechercher</button>
+      </div>
+    </form>
+
+
+    <div class="card mb-4">
+      <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        DataTable
+      </div>
+      <div class="card-body">
+        <table class="table table-bordered">
+          <thead>
+          <tr>
+            <th>#</th>
+            <th>date</th>
+            <th>salairebrut</th>
+            <th>salairenet</th>
+            <th>nom</th>
+            <th>prenom</th>
+            <th>post</th>
+            <th>jobid</th>
+
+            <th>Action</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let i of fiches">
+            <td>{{i.id}}</td>
+            <td>{{i.date}}</td>
+            <td>{{i.salairebrut}}</td>
+            <td>{{i.salairenet}}</td>
+            <td>{{i.nom}}</td>
+            <td>{{i.prenom}}</td>
+            <td>{{i.post}}</td>
+            <td>{{i.jobid}}</td>
+
+            <td>
+              <a class="btn btn-sm btn-primary" style="margin-right:5px;" [routerLink]="['/rh/editfichedepaie/'+i.id]" >mise a jour</a>
+              <a class="btn btn-sm btn-danger" (click)="Deletefichedepaie(i.id)" >supprimer</a>
+            </td>
+
+          </tr>
+          </tbody>
+
+        </table>
+      </div>
+    </div>
+
+
+
+  </div>
+
+</div>

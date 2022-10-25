@@ -1,0 +1,12 @@
+<form class="forms-sample" [formGroup]="satuscongeform" (ngSubmit)="accordconge()">
+
+  <div class="form-group ">
+    <label>status conge</label>
+    <select class="form-control"  name="statusConge" formControlName="statusConge">
+      <option value="ACCEPTEDEMANDE">ACCEPTEDEMANDE</option>
+      <option value="REFUSEDEMANDE">REFUSEDEMANDE</option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-gradient-primary mr-2">status</button>
+  <button class="btn btn-light" routerLink="/rh/conge">Cancel</button>
+</form>
