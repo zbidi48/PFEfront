@@ -22,10 +22,10 @@ export class AccordcongeComponent implements OnInit {
   }
  accordconge():void
  {
-   console.log(this.satuscongeform.value)
+   //console.log(this.satuscongeform.value)
 
    const id=this.path.snapshot.params.id;
-   console.log(id);
+   //console.log(id);
    this.congeservice.statusconge(this.satuscongeform.value,id).subscribe((value:any) => {
      this.router.navigate(['/rh/conge'])
 

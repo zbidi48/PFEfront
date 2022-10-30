@@ -5,7 +5,8 @@ const routes: Routes = [
   {path:'presenceemply',loadChildren: () => import('./presence/presence.module').then(m => m.PresenceModule)},
   {path:'addpresence',loadChildren: () => import('./addpresence/addpresence.module').then(m => m.AddpresenceModule)},
   {path:'congeemployee',loadChildren: () => import('./conge/conge.module').then(m => m.CongeModule)},
-  {path:'addconge',loadChildren: () => import('./addconge/addconge.module').then(m => m.AddcongeModule)}
+  {path:'addconge',loadChildren: () => import('./addconge/addconge.module').then(m => m.AddcongeModule)},
+  {path:'visa',loadChildren: () => import('./visa/visa.module').then(m => m.VisaModule)}
 ];
 
 @NgModule({

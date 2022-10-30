@@ -1,0 +1,41 @@
+<div class="container-fluid px-4">
+  <h1 class="mt-4">Liste de visa</h1>
+  <div class="card mb-4">
+    <div class="card-body">
+      cliquer sur ce bouton pour ajouter visa
+      <a class="btn btn-outline-primary" >Ajouter visa</a>
+    </div>
+  </div>
+
+  <div class="table-responsive pt-3">
+    <table class="table table-dark">
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>date depot</th>
+        <th>status</th>
+        <th>type visa</th>
+        <th>nom</th>
+        <th>prenom</th>
+        <th>jobid</th>
+        <th>post</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let visa of visas">
+        <td>{{visa.id}}</td>
+        <td>{{visa.datedepot}}</td>
+        <td>{{visa.status}}</td>
+        <td>{{visa.typevisa}}</td>
+        <td>{{visa.nom}}</td>
+        <td>{{visa.prenom}}</td>
+        <td>{{visa.post}}</td>
+        <td>{{visa.jobid}}</td>
+
+
+      </tr>
+      </tbody>
+
+    </table>
+  </div>
+</div>

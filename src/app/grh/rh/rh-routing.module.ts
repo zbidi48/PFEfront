@@ -3,7 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
  {path:'visa',loadChildren: () => import('./visa/visa.module').then(m => m.VisaModule)},
- {path:'addvisa',loadChildren: () => import('./addvisa/addvisa.module').then(m => m.AddvisaModule)},
+  {path:'accordvisa/:id',loadChildren: () => import('./accordvisa/accordvisa.module')
+      .then(m => m.AccordvisaModule)},
+ //{path:'addvisa',loadChildren: () => import('./addvisa/addvisa.module').then(m => m.AddvisaModule)},
   {path:'fichdepaie',loadChildren: () => import('./fichdepaie/fichdepaie.module').
     then(m => m.FichdepaieModule)},
   {path:'addfichdepaie',loadChildren: () => import('./addfichdepaie/addfichdepaie.module').
@@ -41,12 +43,6 @@ const routes: Routes = [
       .then(m => m.AccordcongeModule)},
   {path:'notedefraie',loadChildren: () => import('./notedefraie/notedefraie.module').
     then(m => m.NotedefraieModule)},
-
-
-
-
-
-
 ];
 
 @NgModule({

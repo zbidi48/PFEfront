@@ -15,8 +15,8 @@ export class DetailoffreComponent implements OnInit {
 
 
   constructor(private offreemploieservice:OffreemploieService,
-              private path:ActivatedRoute,
-               private fb:FormBuilder) { }
+              private path:ActivatedRoute
+               ) { }
 
   ngOnInit(): void {
 

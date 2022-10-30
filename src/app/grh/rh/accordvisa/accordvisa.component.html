@@ -1,0 +1,12 @@
+<form class="forms-sample" [formGroup]="satusvisaform" (ngSubmit)="statusvisas()">
+
+  <div class="form-group ">
+    <label>status visa</label>
+    <select class="form-control" name="status" formControlName="status">
+      <option value="accepte">accepte</option>
+      <option value="refuse">refuse</option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-gradient-primary mr-2">status</button>
+  <button class="btn btn-light" routerLink="/rh/visa">Cancel</button>
+</form>
