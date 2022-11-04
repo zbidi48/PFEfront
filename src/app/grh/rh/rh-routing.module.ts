@@ -43,6 +43,10 @@ const routes: Routes = [
       .then(m => m.AccordcongeModule)},
   {path:'notedefraie',loadChildren: () => import('./notedefraie/notedefraie.module').
     then(m => m.NotedefraieModule)},
+  {path:'candidatinfo',loadChildren: () => import('./candidatinfo/candidatinfo.module').
+    then(m => m.CandidatinfoModule)},
+  {path:'candidatdetail/:id',loadChildren: () => import('./candidatdetail/candidatdetail.module').
+    then(m => m.CandidatdetailModule)},
 ];
 
 @NgModule({

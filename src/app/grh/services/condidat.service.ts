@@ -15,4 +15,9 @@ export class CondidatService {
   return  this.http.get<ICondidat[]>(this.api_url+'/condidats/affichercondidats',
     {observe: 'response'})
 }
+detaillcandidat(id:number):Observable<HttpResponse<ICondidat>>
+{
+  return this.http.get<ICondidat>(this.api_url+'/condidats/detaillecandidats/'+id,
+    {observe: 'response'})
+}
 }

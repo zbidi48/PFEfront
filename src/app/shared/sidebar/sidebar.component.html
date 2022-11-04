@@ -173,6 +173,13 @@
         <i class="mdi mdi-account-convert menu-icon"></i>
       </a>
     </li>
+    <li class="nav-item" [ngClass]="{ 'active': dashboard.isActive }" *ngIf="authority === 'ROLE_serviceRH'">
+      <a class="nav-link" routerLink="/rh/candidatinfo" routerLinkActive #dashboard="routerLinkActive">
+        <span class="menu-title">candidat info </span>
+
+        <i class="mdi mdi-account-convert menu-icon"></i>
+      </a>
+    </li>
 
   </ul>
 </nav>

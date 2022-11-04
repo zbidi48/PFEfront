@@ -1,0 +1,51 @@
+<div class="container-fluid px-4">
+  <h1 class="mt-4">voila les candidat</h1>
+
+
+
+
+  <div >
+
+
+    <form >
+
+      <div class="form-group mb-5">
+        <button class="btn btn-info" type="submit">Rechercher</button>
+      </div>
+    </form>
+
+
+    <div >
+      <div class="table-responsive" >
+        <table class="table table-hover">
+          <thead>
+          <tr>
+            <th>nomcandidat</th>
+            <th>prenomcandidat</th>
+            <th>post</th>
+            <th>action</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let condidat of candidats" >
+            <td>{{condidat.nom}}</td>
+            <td>{{condidat.prenom}}</td>
+            <td>{{condidat.post}}</td>
+            <td>
+
+              <button class="btn btn-sm btn-link" [routerLink]="['/rh/candidatdetail/'+condidat.id]" >detaille</button>
+              <a>email
+                <i class="mdi mdi-email"></i></a>
+            </td>
+
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+
+
+  </div>
+
+</div>

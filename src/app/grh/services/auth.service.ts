@@ -5,6 +5,7 @@ import {ILoginReponse} from "../models/loginReponse.model";
 import {StorageService} from "./storage.service";
 import {JwtHelperService} from '@auth0/angular-jwt';
 import {Router} from "@angular/router";
+import {IMessageReponse} from "../models/messageReponse.model";
 
 
 @Injectable({
@@ -19,6 +20,12 @@ export class AuthService {
 
   login(data: any):Observable<HttpResponse<ILoginReponse>> {
     return this.http.post<ILoginReponse>("http://127.0.0.1:8081/api/auth/signin", data, {observe: 'response'})
+  }
+  register(data:any):Observable<HttpResponse<IMessageReponse>>
+  {
+    return this.http.post<IMessageReponse>("http://127.0.0.1:8081/api/auth/condidat/signup",
+      data,{observe: 'response'})
+
   }
 
   isAuthenticated(): boolean {
