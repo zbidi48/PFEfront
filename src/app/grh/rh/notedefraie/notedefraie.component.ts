@@ -15,8 +15,8 @@ export class NotedefraieComponent implements OnInit {
   employees:IEmployee[]=[];
   searchnotedefraieform: FormGroup = this.fb.group({
 
-    nom: ['',Validators.required],
-    prenom:['',Validators.required]
+    jobid: ['',Validators.required]
+
 
   })
 
@@ -53,7 +53,7 @@ export class NotedefraieComponent implements OnInit {
 
 
 
-      this.notedefraieservice.searchnotedefraie(this.searchnotedefraieform.value
+      this.notedefraieservice.searchnotedefraie(this.searchnotedefraieform.value.jobid
 
         ).subscribe((value:any) => {
         this.notedefraies=value.body})

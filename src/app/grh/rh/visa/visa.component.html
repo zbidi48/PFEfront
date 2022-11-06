@@ -1,21 +1,22 @@
 <div class="container-fluid px-4">
   <h1 class="mt-4">Liste de visa</h1>
 
-  <form  >
+  <form  [formGroup]="searchvisaform" (ngSubmit)="searchvisas()" >
     <div class="row">
       <div class="col-sm-6">
         <div class="form-group ">
-          <label>Visa:</label>
-          <select class="form-control" >
-            <option value="-1">Tous les visas</option>
-
-          </select>
+          <label>visas:</label>
+          <input type="text" id=" jobid"
+                 class="form-control"
+                 name="jobid"
+                 placeholder="jobid"
+                 formControlName="jobid">
         </div>
       </div>
 
     </div>
     <div class="form-group mb-5">
-      <button class="btn btn-info" type="submit">Rechercher</button>
+      <button class="btn btn-info" type="submit">chercher jobid employee</button>
     </div>
   </form>
 
@@ -28,8 +29,8 @@
         <th>type visa</th>
         <th>nom</th>
         <th>prenom</th>
-        <th>jobid</th>
         <th>post</th>
+        <th>jobid</th>
         <th>Action</th>
       </tr>
       </thead>
@@ -74,7 +75,7 @@
       </tbody>
 
     </table>
-    <span *ngIf="visas.length==0">table is empty</span>
+    <span *ngIf="visas.length==0">table vide</span>
   </div>
 </div>
 

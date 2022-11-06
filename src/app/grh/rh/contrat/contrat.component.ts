@@ -3,6 +3,9 @@ import {IContrat} from "../../models/IContrat.model";
 import {ContratService} from "../../services/contrat.service";
 import {EmployeeService} from "../../services/employee.service";
 import {IEmployee} from "../../models/IEmployee.model";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {HttpResponse} from "@angular/common/http";
+import {IContratSearch} from "../../models/IContratSearch.model";
 
 @Component({
   selector: 'app-contrat',
@@ -12,7 +15,18 @@ import {IEmployee} from "../../models/IEmployee.model";
 export class ContratComponent implements OnInit {
   contras:IContrat[]=[];
   employees:IEmployee[]=[];
-  constructor(private contratservice:ContratService,private employeeservice:EmployeeService) { }
+  contrat:IContratSearch=null;
+  cherchcontratform: FormGroup = this.fb.group({
+
+    code: ['', Validators.required]
+
+  })
+  chercherparjobid:FormGroup = this.fb.group({
+    jobid: ['', Validators.required]
+  })
+  constructor(private contratservice:ContratService,
+              private employeeservice:EmployeeService,
+              private fb:FormBuilder) { }
 
   ngOnInit(): void {
     this.getcontrat()
@@ -47,6 +61,27 @@ export class ContratComponent implements OnInit {
         }
       )
     }
+  }
+  searchcontratbycode():void
+  {
+    //console.log(this.cherchcontratform.value.code)
+
+    this.contratservice.searchcontratbycode(this.cherchcontratform.value.code).subscribe(
+      (value:HttpResponse<IContrat>) => {
+        this.contrat=value.body
+
+      }
+    )
+
+  }
+  searchcontratbyjobid():void
+  {
+    this.contratservice.searchcontratbyjobid(this.chercherparjobid.value.jobid).subscribe(
+      (value:HttpResponse<IContrat>) => {
+        this.contrat=value.body
+
+      }
+    )
   }
 
 }

@@ -38,6 +38,11 @@ export class FichedepaieService {
    return  this.http.delete<IMessageReponse>(this.api_url+'/fichedepaie/supprimerfiche/'+id,
       {observe:'response'})
   }
+  searchfiche(data):Observable<HttpResponse<IFichdepaie[]>>
+  {
+    return this.http.get<IFichdepaie[]>(this.api_url+'/fichedepaie/chercherfichedepaie/'+data,
+      {observe:'response'} )
+  }
 
 
 

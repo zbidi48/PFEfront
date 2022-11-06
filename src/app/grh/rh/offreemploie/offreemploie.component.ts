@@ -12,7 +12,7 @@ export class OffreemploieComponent implements OnInit {
   offreemploies:IOffreemploie[]=[];
   searchoffreempl: FormGroup = this.fb.group({
 
-    typedoffre: ['', Validators.required]
+    titredoffre: ['', Validators.required]
 
   })
   constructor(private fb: FormBuilder,private offresemploieservice:OffreemploieService) { }
@@ -41,7 +41,7 @@ export class OffreemploieComponent implements OnInit {
   }
   search():void
   {
-    this.offresemploieservice.searchoffre(this.searchoffreempl.value.typedoffre).subscribe((value:any) => {
+    this.offresemploieservice.searchoffre(this.searchoffreempl.value.titredoffre).subscribe((value:any) => {
       this.offreemploies=value.body
 
     },(err) => {

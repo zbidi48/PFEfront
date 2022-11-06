@@ -47,6 +47,8 @@ const routes: Routes = [
     then(m => m.CandidatinfoModule)},
   {path:'candidatdetail/:id',loadChildren: () => import('./candidatdetail/candidatdetail.module').
     then(m => m.CandidatdetailModule)},
+  {path:'sendmail/:id',loadChildren: () => import('./sendmail/sendmail.module').
+    then(m => m.SendmailModule)}
 ];
 
 @NgModule({

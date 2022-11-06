@@ -27,12 +27,22 @@ export class ContratService {
   }
   updatecontrat(data,id):Observable<HttpResponse<IMessageReponse>>
   {
-    return  this.http.put<IMessageReponse>(this.api_url+'/contrat/miseajourcontrat/'+id,data,{observe: 'response'})
+    return  this.http.put<IMessageReponse>(this.api_url+'/contrat/miseajourcontrat/'+id,data,
+      {observe: 'response'})
   }
   deletecontrat(id):Observable<HttpResponse<IMessageReponse>>
   {
     return this.http.delete<IMessageReponse>(this.api_url + '/contrat/supprimercontrat/' + id, {observe: 'response'});
   }
-
+  searchcontratbycode(data:any):Observable<HttpResponse<IContrat>>
+  {
+    return this.http.get<IContrat>(this.api_url+'/contrat/cherchercontrat/'+data,
+      {observe: 'response'})
+  }
+searchcontratbyjobid(data:any):Observable<HttpResponse<IContrat>>
+{
+  return this.http.get<IContrat>(this.api_url+'/contrat/cherchercontratparjobid/'+data,
+    {observe: 'response'} )
+}
 
 }

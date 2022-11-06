@@ -17,9 +17,9 @@
       <div class="row">
         <div class="col-sm-6">
           <div class="form-group ">
-            <label>offre d emploie par type d offre:</label>
-            <input type="text" id=" typedoffre"  class="form-control"
-                   name="typedoffre" placeholder="type d offre" formControlName="typedoffre">
+            <label>offre d emploie par titre d offre:</label>
+            <input type="text" id="titredoffre"  class="form-control"
+                   name="titredoffre" placeholder="titre d offre" formControlName="titredoffre">
           </div>
         </div>
 
@@ -31,7 +31,7 @@
 
 
     <div class="table-responsive">
-      <table class="table table-hover">
+      <table class="table table-hover" *ngIf="offreemploies.length>0">
         <thead>
         <tr>
           <th>#</th>
@@ -49,12 +49,12 @@
         <tr *ngFor="let i of offreemploies">
           <td>{{i.id}}</td>
           <td>{{i.titredoffre}}</td>
-          <td>{{i.datelimite|date}}</td>
+          <td>{{i.datelimite}}</td>
           <td>{{i.description}}</td>
           <td>{{i.langue}}</td>
           <td>{{i.experience}}</td>
           <td>{{i.exigenceemploie}}</td>
-          <td>{{i.datecreation|date}}</td>
+          <td>{{i.datecreation}}</td>
 
 
 
@@ -68,6 +68,7 @@
 
         </tbody>
       </table>
+      <span *ngIf="offreemploies.length<0"></span>
     </div>
 
 

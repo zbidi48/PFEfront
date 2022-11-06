@@ -3,6 +3,8 @@ import {FichedepaieService} from "../../services/fichedepaie.service";
 import {IFichdepaie} from "../../models/IFichdepaie.model";
 import {IEmployee} from "../../models/IEmployee.model";
 import {EmployeeService} from "../../services/employee.service";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {HttpResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-fichdepaie',
@@ -12,7 +14,14 @@ import {EmployeeService} from "../../services/employee.service";
 export class FichdepaieComponent implements OnInit {
   fiches:IFichdepaie[]=[];
   employees:IEmployee[]=[];
-  constructor(private fichedepaieservice:FichedepaieService,private employeeservice:EmployeeService) { }
+  cherchficheform: FormGroup = this.fb.group({
+
+    jobid: ['', Validators.required]
+
+  })
+  constructor(private fichedepaieservice:FichedepaieService,
+              private employeeservice:EmployeeService,
+              private fb:FormBuilder) { }
 
   ngOnInit(): void {
     this.getfichedepaie()
@@ -45,6 +54,15 @@ export class FichdepaieComponent implements OnInit {
     },(error)=>{
       alert(('eurreure'));
     })
+  }
+  searchfichedepaie():void
+  {
+    this.fichedepaieservice.searchfiche(this.cherchficheform.value.jobid).subscribe(
+      (value:HttpResponse<IFichdepaie[]>) => {
+        this.fiches=value.body
+
+      }
+    )
   }
 
 }

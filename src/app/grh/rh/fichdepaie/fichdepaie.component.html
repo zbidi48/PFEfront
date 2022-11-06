@@ -13,21 +13,22 @@
 
 
 
-    <form  >
+    <form   [formGroup]="cherchficheform" (ngSubmit)="searchfichedepaie()"  >
       <div class="row">
         <div class="col-sm-6">
           <div class="form-group ">
-            <label>fich de paie:</label>
-            <select class="form-control" >
-              <option value="-1">Tous les fiche de paie</option>
-
-            </select>
+            <label>fiche de paies:</label>
+            <input type="text" id=" jobid"
+                   class="form-control"
+                   name="jobid"
+                   placeholder="jobid"
+                   formControlName="jobid">
           </div>
         </div>
 
       </div>
       <div class="form-group mb-5">
-        <button class="btn btn-info" type="submit">Rechercher</button>
+        <button class="btn btn-info" type="submit">chercher fiche de paie</button>
       </div>
     </form>
 
@@ -38,7 +39,7 @@
         DataTable
       </div>
       <div class="card-body">
-        <table class="table table-bordered">
+        <table class="table table-bordered" *ngIf="fiches.length>0">
           <thead>
           <tr>
             <th>#</th>
@@ -73,6 +74,7 @@
           </tbody>
 
         </table>
+        <span *ngIf="fiches.length<0">table vide</span>
       </div>
     </div>
 

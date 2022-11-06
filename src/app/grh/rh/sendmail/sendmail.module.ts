@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { VisaRoutingModule } from './visa-routing.module';
-import { VisaComponent } from './visa.component';
+import { SendmailRoutingModule } from './sendmail-routing.module';
+import { SendmailComponent } from './sendmail.component';
 import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
-  declarations: [VisaComponent],
+  declarations: [SendmailComponent],
     imports: [
         CommonModule,
-        VisaRoutingModule,
+        SendmailRoutingModule,
         ReactiveFormsModule
     ]
 })
-export class VisaModule { }
+export class SendmailModule { }

@@ -7,6 +7,7 @@ import {IEmployee} from "../../models/IEmployee.model";
 import {HttpErrorResponse, HttpResponse} from "@angular/common/http";
 import {IMessageReponse} from "../../models/messageReponse.model";
 import Swal from 'sweetalert2'
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 @Component({
   selector: 'app-visa',
   templateUrl: './visa.component.html',
@@ -17,8 +18,15 @@ export class VisaComponent implements OnInit {
   employees:IEmployee[]=[];
   id:number;
   msg:string = '';
+  searchvisaform: FormGroup = this.fb.group({
+
+    jobid: ['',Validators.required]
+
+
+  })
   constructor(private path:ActivatedRoute,
-              private visaservice:VisaService) { }
+              private visaservice:VisaService,
+              private fb:FormBuilder) { }
 
   ngOnInit(): void {
     this.getvisas()
@@ -68,5 +76,14 @@ export class VisaComponent implements OnInit {
       }
     })
 
+  }
+  searchvisas():void
+  {
+    this.visaservice.searchvisa(this.searchvisaform.value.jobid).subscribe(
+      (value:HttpResponse<IVisa[]>) => {
+        this.visas=value.body
+
+      }
+    )
   }
 }

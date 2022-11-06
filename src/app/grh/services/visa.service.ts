@@ -17,24 +17,29 @@ export class VisaService {
   {
     return this.http.get<IVisa[]>(this.api_url+'/visa/listvisas',{observe: 'response'})
   }
-  addvisa(data) :Observable<HttpResponse<IMessageReponse>>
+  addvisa(data:any) :Observable<HttpResponse<IMessageReponse>>
   {
     return this.http.post<IMessageReponse>(this.api_url+'/visa/ajoutervisa/',data,
       {observe: 'response'})
   }
-  deletevisa(id):Observable<HttpResponse<IMessageReponse>>
+  deletevisa(id:number):Observable<HttpResponse<IMessageReponse>>
   {
     return this.http.delete<IMessageReponse>(this.api_url+'/visa/supprimervisa/'+id,
       {observe: 'response'})
   }
-  statusvisa(id,status: string):Observable<HttpResponse<IMessageReponse>>
+  statusvisa(id:number,status: string):Observable<HttpResponse<IMessageReponse>>
   {
     return this.http.put<IMessageReponse>(this.api_url+'/visa/accordvisa/'+id+"/"+status,null,
       {observe: 'response'})
   }
-  getvisabymail(email):Observable<HttpResponse<IVisa[]>>
+  getvisabymail(email:string):Observable<HttpResponse<IVisa[]>>
   {
     return this.http.get<IVisa[]>(this.api_url+'/visa/affichervisaemployee/'+email,
+      {observe: 'response'})
+  }
+  searchvisa(data:any):Observable<HttpResponse<IVisa[]>>
+  {
+    return this.http.get<IVisa[]>(this.api_url+'/visa/cherchervisa/'+data,
       {observe: 'response'})
   }
 }

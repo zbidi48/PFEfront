@@ -12,17 +12,49 @@
   <div >
 
 
+<div>
 
-    <form   >
-
-      <div class="form-group mb-5">
-        <button class="btn btn-info" type="submit">Rechercher</button>
+  <form  [formGroup]="cherchcontratform" (ngSubmit)="searchcontratbycode()" >
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group ">
+          <label>taper le code de conrat:</label>
+          <input type="text" id="code"
+                 class="form-control"
+                 name="code"
+                 placeholder="entrer le code de contrat"
+                 formControlName="code">
+        </div>
       </div>
-    </form>
+
+    </div>
+    <div class="form-group mb-5">
+      <button class="btn btn-info" type="submit">chercher contrat par code </button>
+    </div>
+  </form>
+  <form  [formGroup]="chercherparjobid" (ngSubmit)="searchcontratbyjobid()" >
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group ">
+          <label>taper le jobid employee:</label>
+          <input type="text" id="jobid"
+                 class="form-control"
+                 name="jobid"
+                 placeholder="entrer le job de l employee"
+                 formControlName="jobid">
+        </div>
+      </div>
+
+    </div>
+    <div class="form-group mb-5">
+      <button class="btn btn-info" type="submit">chercher contrat par jobid </button>
+    </div>
+  </form>
+</div>
 
 
     <div class="table-responsive">
-      <table class="table table-hover">
+      <table class="table table-hover" *ngIf="contras.length>0">
         <thead>
         <tr>
           <th>#</th>
@@ -33,6 +65,7 @@
           <th>nom employee</th>
           <th>prenom employee</th>
           <th>post</th>
+          <th>jobid</th>
           <th>Action</th>
         </tr>
         </thead>
@@ -47,10 +80,9 @@
           <td>{{i.prenom}}</td>
           <td>{{i.post}}</td>
           <td>{{i.jobid}}</td>
-
           <td>
-            <a class="btn btn-sm btn-primary" style="margin-right:5px;" [routerLink]="['/rh/editcontrat/'+i.id]" >update</a>
-            <a class="btn btn-sm btn-danger" (click)="deletecontrat(i.id)">delete</a>
+            <a class="btn btn-sm btn-primary" style="margin-right:5px;" [routerLink]="['/rh/editcontrat/'+i.id]" >modifier</a>
+            <a class="btn btn-sm btn-danger" (click)="deletecontrat(i.id)">supprimer</a>
           </td>
 
         </tr>
@@ -58,6 +90,7 @@
 
         </tbody>
       </table>
+      <span *ngIf="contras.length<0"> table vide</span>
     </div>
 
 
