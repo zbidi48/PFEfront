@@ -4,6 +4,10 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {IOffreemploie} from "../../models/IOffreemploie.model";
 import {HttpErrorResponse, HttpResponse} from "@angular/common/http";
+import {OffreemploiecondidatService} from "../../services/offreemploiecondidat.service";
+import {StorageService} from "../../services/storage.service";
+import {IMessageReponse} from "../../models/messageReponse.model";
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-detailoffre',
@@ -12,10 +16,13 @@ import {HttpErrorResponse, HttpResponse} from "@angular/common/http";
 })
 export class DetailoffreComponent implements OnInit {
   offresemploie:IOffreemploie = null;
+  msg:string = '';
 
 
   constructor(private offreemploieservice:OffreemploieService,
-              private path:ActivatedRoute
+              private path:ActivatedRoute,
+              private postuleroffreservice:OffreemploiecondidatService,
+              private storageservice:StorageService
                ) { }
 
   ngOnInit(): void {
@@ -37,6 +44,40 @@ export class DetailoffreComponent implements OnInit {
   console.log(value.body)
 
 })*/
+ }
+ applayoffre():void
+ {
+   Swal.fire({
+     title: 'vous ete sure?',
+     text: "aprés le clic sur boutton ok l'offre sera postuler!",
+     icon: 'warning',
+     showCancelButton: true,
+     confirmButtonColor: '#3085d6',
+     cancelButtonColor: '#d33',
+     confirmButtonText: 'ok'
+   }).then((result) => {
+     if (result.isConfirmed) {
+       this.postuleroffreservice.addoffrecondidat(this.path.snapshot.params.id,this.storageservice.getId())
+         .subscribe((value:HttpResponse<IMessageReponse>) => {
+
+           }
+
+         )
+       Swal.fire(
+         'postuler!',
+         'l offre a éte postuler avec succé.',
+         'success'
+       )
+     }
+   })
+   /*
+  this.postuleroffreservice.addoffrecondidat(this.path.snapshot.params.id,this.storageservice.getId())
+    .subscribe((value:HttpResponse<IMessageReponse>) => {
+
+    }
+
+  )
+  */
  }
 
 }

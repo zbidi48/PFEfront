@@ -6,6 +6,8 @@ import {IOffrecondidat} from "../../models/IOffrecondidat.model";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {StorageService} from "../../services/storage.service";
 import {ActivatedRoute} from "@angular/router";
+import {HttpResponse} from "@angular/common/http";
+import {IMessageReponse} from "../../models/messageReponse.model";
 
 @Component({
   selector: 'app-applayoffreemploie',
@@ -16,10 +18,7 @@ export class ApplayoffreemploieComponent implements OnInit {
 condidats:ICondidat[]=[];
 offrescondidats:IOffrecondidat[]=[];
   apllayoffreform: FormGroup = this.fb.group({
-
-
-    status:['ENCOUR'],
-    condidats_id:[this.storageservice.getId,Validators.required],
+    condidats_id:[this.storageservice.getId(),Validators.required],
     offreemploie_id:[this.path.snapshot.params.id,Validators.required]
   })
   formSubmitted: boolean = false;
@@ -36,10 +35,10 @@ offrescondidats:IOffrecondidat[]=[];
 
   ngOnInit(): void {
     this.getcondidats()
-    this.idcond=this.storageservice.getId
+
 
   }
-  idcond;
+
 
   getcondidats():void
   {
@@ -47,28 +46,18 @@ offrescondidats:IOffrecondidat[]=[];
       this.condidats=value.body
     })
   }
+  /*
   applayoffreempl():void
   {
-    console.log(this.apllayoffreform.value)
-    //console.log(this.idcond)
-   /*
-    this.formSubmitted=true;
+    //console.log(this.apllayoffreform.value)
+    this.applayoffreservice.addoffrecondidat(this.apllayoffreform.value).subscribe(
+      (value:HttpResponse<IMessageReponse>) => {
+        this.apllayoffreform.reset(true);
 
-   if(this.apllayoffreform.valid)
-   {
+      }
+    )
 
-
-
-
-     this.applayoffreservice.addoffrecondidat(this.apllayoffreform.value).subscribe(value => {
-       this.apllayoffreform.reset(true);
-     })
-
-
-
-
-   }
-    */
   }
 
+   */
 }

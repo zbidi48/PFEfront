@@ -4,7 +4,8 @@ export  interface  IPresence
   date:Date,
   nbreheure:number,
   nom:string,
-  prenom:string
+  prenom:string,
+  jobid:string
 
 
 }

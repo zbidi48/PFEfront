@@ -48,4 +48,11 @@ export class PresenceService {
       {observe:'response'})
   }
 
+  searchpresence(data:any):Observable<HttpResponse<IPresence[]>>
+  {
+    return this.http.get<IPresence[]>(this.api_url+'/presence/checherpresence/'+data,
+      {observe:'response'})
+  }
+
+
 }

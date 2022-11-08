@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {PresenceService} from "../../services/presence.service";
 import {IPresence} from "../../models/IPresence.model";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {HttpResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-presence',
@@ -9,7 +11,13 @@ import {IPresence} from "../../models/IPresence.model";
 })
 export class PresenceComponent implements OnInit {
   presences:IPresence[]=[]
-  constructor(private presenceservice:PresenceService) { }
+  searchpresence: FormGroup = this.fb.group({
+
+    jobid: ['', Validators.required]
+
+  })
+  constructor(private presenceservice:PresenceService,
+              private fb: FormBuilder) { }
 
   ngOnInit(): void {
     this.afficherpresence()
@@ -37,5 +45,14 @@ export class PresenceComponent implements OnInit {
     }
 
 
+  }
+  searchpresencebyajobid():void
+  {
+    this.presenceservice.searchpresence(this.searchpresence.value.jobid).subscribe(
+      (value:HttpResponse<IPresence[]>) => {
+        this.presences=value.body
+
+      }
+    )
   }
 }

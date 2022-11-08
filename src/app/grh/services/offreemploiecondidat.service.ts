@@ -17,14 +17,14 @@ export class OffreemploiecondidatService {
     return this.http.get<IOffrecondidat[]>(this.api_url+'/inscritoffre/afficherinscripoffre',
       {observe: 'response'})
   }
-  addoffrecondidat(data): Observable<HttpResponse<IMessageReponse>>
+  addoffrecondidat(idoffe:number,idcondidat:number): Observable<HttpResponse<IMessageReponse>>
   {
-    return  this.http.post<IMessageReponse>(this.api_url+'/inscritoffre/postuleroffre',data,
+    return  this.http.post<IMessageReponse>(this.api_url+'/inscritoffre/postuleroffre/'+idoffe+"/"+idcondidat,null,
       {observe: 'response'})
   }
   updateoffrecondidat(id,data): Observable<HttpResponse<IMessageReponse>>
   {
-    return this.http.put<IMessageReponse>(this.api_url+'/inscritoffre/miseajourinscript'+id,data,
+    return this.http.put<IMessageReponse>(this.api_url+'/inscritoffre/miseajourinscript/'+id,data,
       {observe: 'response'})
   }
   deleteoffrecondidat(id): Observable<HttpResponse<IMessageReponse>>

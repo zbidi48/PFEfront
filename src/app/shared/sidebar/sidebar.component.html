@@ -180,6 +180,13 @@
         <i class="mdi mdi-account-convert menu-icon"></i>
       </a>
     </li>
+    <li class="nav-item" [ngClass]="{ 'active': dashboard.isActive }" *ngIf="authority === 'ROLE_Employee'">
+      <a class="nav-link" routerLink="/espaceemployee/notedefraie" routerLinkActive #dashboard="routerLinkActive">
+        <span class="menu-title">note de fraie</span>
+
+        <i class="mdi mdi-account-convert menu-icon"></i>
+      </a>
+    </li>
 
   </ul>
 </nav>

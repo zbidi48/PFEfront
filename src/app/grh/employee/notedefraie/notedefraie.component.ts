@@ -10,6 +10,8 @@ import {NotedefraieService} from "../../services/notedefraie.service";
 })
 export class NotedefraieComponent implements OnInit {
   notedefraies:INotedefraie[]=[];
+
+
   constructor(private storageservice:StorageService,
               private notedefraieservice:NotedefraieService) { }
 

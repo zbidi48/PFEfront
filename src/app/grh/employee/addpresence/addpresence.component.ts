@@ -4,8 +4,9 @@ import {PresenceService} from "../../services/presence.service";
 import {IPresence} from "../../models/IPresence.model";
 import {IEmployee} from "../../models/IEmployee.model";
 import {EmployeeService} from "../../services/employee.service";
-import {HttpErrorResponse} from "@angular/common/http";
+import {HttpErrorResponse, HttpResponse} from "@angular/common/http";
 import {StorageService} from "../../services/storage.service";
+import {IMessageReponse} from "../../models/messageReponse.model";
 
 
 
@@ -15,13 +16,13 @@ import {StorageService} from "../../services/storage.service";
   styleUrls: ['./addpresence.component.scss']
 })
 export class AddpresenceComponent implements OnInit {
-  presences:IPresence[]=[];
+  //presences:IPresence[]=[];
   employees:IEmployee[]=[];
  presenceform: FormGroup = this.fb.group({
 
    nbreheure: ['', Validators.required],
-    date:['',Validators.required],
-    user_id:[this.storageService.getId(),Validators.required]
+
+   employee_id:[this.storageService.getId(),Validators.required]
  })
 
   formSubmitted:boolean=false;
@@ -42,11 +43,11 @@ export class AddpresenceComponent implements OnInit {
     //console.log(this.presenceform.value)
 
     this.formSubmitted = true;
-    console.log(this.presenceform.value)
+
     if (this.presenceform.valid) {
-      this.presenceservice.addpresence(this.presenceform.value).subscribe( data=>
+      this.presenceservice.addpresence(this.presenceform.value).subscribe( (data:HttpResponse<IMessageReponse>)=>
           {
-            console.log(data.body)
+            //console.log(data.body)
             this.showMsg = true;
             this.presenceform.reset(true);
 

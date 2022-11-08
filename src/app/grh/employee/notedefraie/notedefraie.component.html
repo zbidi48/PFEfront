@@ -1,1 +1,58 @@
-<p>notedefraie works!</p>
+<div class="container-fluid px-4">
+  <h1 class="mt-4">liste notes de frais</h1>
+
+
+
+  <hr>
+  <div >
+    <div class="card mb-4">
+      <div class="card-body">
+        cliquer sur ce bouton pour ajouter note de fraie
+        <a class="btn btn-outline-primary" routerLink="/espaceemployee/addnotedefraie">Ajouter une note de fraie</a>
+      </div>
+    </div>
+
+
+
+
+
+
+    <div class="table-responsive">
+      <table class="table table-hover" *ngIf="notedefraies.length>0">
+        <thead>
+        <tr>
+
+          <th>description</th>
+          <th>datecreation</th>
+          <th>fraie</th>
+          <th>nom employee</th>
+          <th>prenom employee</th>
+          <th>jobid</th>
+          <th>action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let i of notedefraies">
+
+          <td>{{i.description}}</td>
+          <td>{{i.datecreation}}</td>
+          <td>{{i.fraie}}</td>
+          <td>{{i.nom}}</td>
+          <td>{{i.prenom}}</td>
+          <td>{{i.jobid}}</td>
+          <td>
+            <a class="btn btn-sm btn-link" >modifier</a>
+          </td>
+
+        </tr>
+
+        </tbody>
+      </table>
+      <span *ngIf="notedefraies.length==0">table vide</span>
+    </div>
+
+
+
+  </div>
+
+</div>

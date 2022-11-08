@@ -8,16 +8,26 @@
 
 
 
-    <form   >
+    <form [formGroup]="searchpresence" (ngSubmit)="searchpresencebyajobid()" >
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group ">
+           <label>chercher presence par job id</label>
+            <input type="text" id="jobid"  class="form-control"
+                   name="jobid" placeholder="
+                  entrer jobid" formControlName="jobid">
+          </div>
+        </div>
 
+      </div>
       <div class="form-group mb-5">
-        <button class="btn btn-info" type="submit">Rechercher</button>
+        <button class="btn btn-info" type="submit">chercher presence </button>
       </div>
     </form>
 
 
     <div class="table-responsive">
-      <table class="table table-hover">
+      <table class="table table-hover" *ngIf="presences.length>0">
         <thead>
         <tr>
           <th>#</th>
@@ -25,6 +35,8 @@
           <th>nombre heure</th>
           <th>nom</th>
           <th>prenom</th>
+          <th>jobid</th>
+          <th>action</th>
         </tr>
         </thead>
         <tbody>
@@ -34,6 +46,7 @@
           <td>{{i.nbreheure}}</td>
           <td>{{i.nom}}</td>
           <td>{{i.prenom}}</td>
+          <td>{{i.jobid}}</td>
           <td>
             <a class="btn btn-sm btn-primary" style="margin-right:5px;" [routerLink]="['/rh/editpresence/'+i.id]" >mise a jour</a>
             <a class="btn btn-sm btn-danger" (click)="deletepresence(i.id)"  >supprimer</a>
@@ -44,6 +57,7 @@
 
         </tbody>
       </table>
+      <span *ngIf="presences.length==0">table vide</span>
     </div>
 
 

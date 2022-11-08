@@ -4,6 +4,8 @@ import {StorageService} from "../../services/storage.service";
 import {CongeService} from "../../services/conge.service";
 import {IEmployee} from "../../models/IEmployee.model";
 import {IConge} from "../../models/IConge.model";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {HttpResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-conge',
@@ -13,10 +15,15 @@ import {IConge} from "../../models/IConge.model";
 export class CongeComponent implements OnInit {
   employee:IEmployee[]=[];
   conges:IConge[]=[];
+  cherchcongeform: FormGroup = this.fb.group({
 
+    jobid: ['', Validators.required]
+
+  })
   constructor(private path:ActivatedRoute
     ,private router:Router,
-              private congeservice:CongeService) { }
+              private congeservice:CongeService,
+              private fb:FormBuilder) { }
 
   ngOnInit(): void {
     this.getallconge()
@@ -38,6 +45,17 @@ export class CongeComponent implements OnInit {
    })
  }
  }
+searchcongebyjobid():void
+{
+  //console.log(this.cherchcongeform.value)
 
+
+  this.congeservice.searchconge(this.cherchcongeform.value.jobid).
+  subscribe((value:HttpResponse<IConge[]>) => {
+    this.conges=value.body
+
+  })
+
+}
 
 }

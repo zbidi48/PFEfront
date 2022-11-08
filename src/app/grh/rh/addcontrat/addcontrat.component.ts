@@ -38,7 +38,7 @@ Addcontrat():void
   {
     this.contratservice.addcontrat(this.contratform.value).subscribe(
       res=>{
-        console.log(res.body.message);
+        //console.log(res.body.message);
         this.showMsg = true;
         this.contratform.reset(true);
       }

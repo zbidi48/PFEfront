@@ -10,7 +10,7 @@ import {StorageService} from "../../services/storage.service";
   styleUrls: ['./presence.component.scss']
 })
 export class PresenceComponent implements OnInit {
-  presences:IPresence[]=[]
+  presences:IPresence[]=null;
   constructor(private presenceservice:PresenceService,
               private path:ActivatedRoute,private router:Router,
               private storageservice:StorageService ) { }

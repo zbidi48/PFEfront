@@ -14,7 +14,7 @@ export class EditpresenceComponent implements OnInit {
   employees:IEmployee[]=[];
   mapresenceform:FormGroup = this.fb.group({
 
-    date: ['', Validators.required],
+
     nbreheure: ['', Validators.required]
   })
   id;
@@ -49,7 +49,7 @@ getprsencedata():void
   {
     this.mapresenceform.setValue(
       {
-        date:data.date,
+
         nbreheure:data.nbreheure
 
 
