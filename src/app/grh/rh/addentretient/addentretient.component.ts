@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {IEntretient} from "../../models/IEntretient.model";
+import {ICondidat} from "../../models/ICondidat.model";
 
 @Component({
   selector: 'app-addentretient',
@@ -7,13 +9,13 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
   styleUrls: ['./addentretient.component.scss']
 })
 export class AddentretientComponent implements OnInit {
+
+ candidats:ICondidat[]=[];
  entretientform: FormGroup = this.fb.group({
-   nometprenomdecondidat: ['', Validators.required],
-    date: ['', Validators.required],
+
+   date: ['', Validators.required],
    heure: ['', Validators.required],
-   compétence: ['', Validators.required],
-   equipemanager: ['', Validators.required],
-   validepar: ['', Validators.required],
+   condidats_id: ['', Validators.required],
 
   })
   formSubmitted: boolean = false;
@@ -22,10 +24,13 @@ export class AddentretientComponent implements OnInit {
   ngOnInit(): void {
   }
   ajouterentretient(): void {
+    //console.log(this.entretientform.value);
+    /*
     this.formSubmitted = true;
     if (this.entretientform.valid) {
-      console.log(this.entretientform.value);
+
     }
+     */
 
   }
 

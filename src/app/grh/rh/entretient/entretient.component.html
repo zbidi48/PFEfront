@@ -30,26 +30,62 @@
         <button class="btn btn-info" type="submit">Rechercher</button>
       </div>
     </form>
+    <div class="card mb-4">
+      <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+       entretient table
+      </div>
+      <div class="card-body">
+        <table class="table table-bordered" *ngIf="entretients.length>0">
+          <thead>
+          <tr>
 
+            <th>date</th>
+            <th>heure</th>
+            <th>status</th>
+            <th>nom</th>
+            <th>prenom</th>
+            <th>Action</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let i of entretients">
+            <td>{{i.date}}</td>
+            <td>{{i.heure}}</td>
+            <td>{{i.status}}</td>
+            <td>{{i.nom}}</td>
+            <td>{{i.prenom}}</td>
+            <td>
+              <a class="btn btn-sm btn-primary" style="margin-right:5px;"  >mise a jour</a>
+              <a class="btn btn-sm btn-danger"  (click)="deleteentret(i.id)">
+                <i class="mdi mdi-delete"></i>
+              </a>
+              <ng-container *ngIf="i.status =='ENCOUR'" >
+                <a class="btn btn-sm btn-success" (click)="changestatus(i.id,'accepte')">
+                  <i class="mdi mdi-marker-check"></i>
+                </a>
+                <a class="btn btn-sm btn-warning" (click)="changestatus(i.id,'refuse')">
+                  <i class="mdi mdi-folder-remove"></i>
+                </a>
+              </ng-container>
+              <ng-container *ngIf="i.status =='ACCEPTE'" >
+                <a class="btn btn-sm btn-warning" (click)="changestatus(i.id,'refuse')">
+                  <i class="mdi mdi-folder-remove"></i>
+                </a>
+              </ng-container>
+              <ng-container *ngIf="i.status =='REFUSE'" >
+                <a class="btn btn-sm btn-success" (click)="changestatus(i.id,'accepte')">
+                  <i class="mdi mdi-marker-check"></i>
+                </a>
 
-    <div class="table-responsive">
-      <table class="table table-hover">
-        <thead>
-        <tr>
-          <th>nom&&prenom:condidat</th>
-          <th>date</th>
-          <th>heure</th>
-          <th>validepar</th>
-          <th>equipe manager</th>
-          <th>compétence</th>
-
-
-        </tr>
-        </thead>
-
-      </table>
+              </ng-container>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <span *ngIf="entretients.length==0">table vide</span>
+      </div>
     </div>
-
 
 
   </div>
