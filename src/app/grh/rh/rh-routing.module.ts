@@ -48,7 +48,11 @@ const routes: Routes = [
   {path:'candidatdetail/:id',loadChildren: () => import('./candidatdetail/candidatdetail.module').
     then(m => m.CandidatdetailModule)},
   {path:'sendmail/:id',loadChildren: () => import('./sendmail/sendmail.module').
-    then(m => m.SendmailModule)}
+    then(m => m.SendmailModule)},
+  {path:'sendrefumail/:id',loadChildren: () => import('./sendmailrefus/sendmailrefus.module').
+    then(m => m.SendmailrefusModule)},
+  {path:'creationemployee',loadChildren: () => import('./creationemployee/creationemployee.module').
+    then(m => m.CreationemployeeModule)}
 ];
 
 @NgModule({

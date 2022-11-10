@@ -27,9 +27,9 @@ export class CongeComponent implements OnInit {
 
   ngOnInit(): void {
     this.getallconge()
-    this.id=this.path.snapshot.params.id
+    //this.id=this.path.snapshot.params.id
   }
-  id;
+  //id;
   getallconge():void
   {
     this.congeservice.getconge().subscribe((value:any) => {
@@ -40,7 +40,7 @@ export class CongeComponent implements OnInit {
  {
    if (confirm('vous ete sure d efface' + id + '!!'))
  {
-   this.congeservice.deleteconge(this.id).subscribe((value:any) => {
+   this.congeservice.deleteconge(id).subscribe((value:any) => {
      this.getallconge()
    })
  }

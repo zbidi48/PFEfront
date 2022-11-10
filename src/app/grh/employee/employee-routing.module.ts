@@ -10,7 +10,9 @@ const routes: Routes = [
   {path:'notedefraie',loadChildren: () => import('./notedefraie/notedefraie.module')
       .then(m => m.NotedefraieModule)},
   {path:'addnotedefraie',loadChildren: () => import('./addnotedefraie/addnotedefraie.module')
-      .then(m => m.AddnotedefraieModule)}
+      .then(m => m.AddnotedefraieModule)},
+  {path:'editnotedefraie/:id',loadChildren: () => import('./editnotedefraie/editnotedefraie.module')
+      .then(m => m.EditnotedefraieModule)}
 ];
 
 @NgModule({

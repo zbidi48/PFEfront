@@ -3,6 +3,8 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {FormationService} from "../../services/formation.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {IFormation} from "../../models/IFormation.model";
+import {HttpResponse} from "@angular/common/http";
+import {IMessageReponse} from "../../models/messageReponse.model";
 
 @Component({
   selector: 'app-editformation',
@@ -29,7 +31,7 @@ editformation()
 
 
   const id=this.path.snapshot.params.id;
-  this.formationservice.updateformation(this.maformationform.value,id).subscribe((data:any)=>{
+  this.formationservice.updateformation(this.maformationform.value,id).subscribe((data:HttpResponse<IMessageReponse>)=>{
     this.router.navigate(['/rh/formation'])
   });
 
@@ -37,10 +39,10 @@ editformation()
    getformationdata():void
    {
      const id=this.path.snapshot.data.params.id;
-     this.formationservice.getformationid(id).subscribe((data:any)=> {
+     this.formationservice.getformationid(id).subscribe((data:HttpResponse<IFormation>)=> {
        this.maformationform.setValue({
-         nomdeforamtion:data.nomdeforamtion,
-         typedeformation:data.typedeformation
+         nomdeforamtion:data.body.nomdeforamtion,
+         typedeformation:data.body.typedeformation
 
        })
      })

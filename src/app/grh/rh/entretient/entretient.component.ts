@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {EntretientService} from "../../services/entretient.service";
 import {HttpErrorResponse, HttpResponse} from "@angular/common/http";
 import {IEntretient} from "../../models/IEntretient.model";
@@ -13,6 +13,12 @@ import Swal from "sweetalert2";
 })
 export class EntretientComponent implements OnInit {
   entretients:IEntretient[]=[];
+  cherchentretientform: FormGroup = this.fb.group({
+
+    nom: ['', Validators.required],
+    prenom:['', Validators.required]
+
+  })
   msg:string = '';
   constructor( private fb:FormBuilder,
                private entrtientservice:EntretientService) { }
@@ -78,6 +84,15 @@ export class EntretientComponent implements OnInit {
 
       }
     })
+  }
+  searchentetient():void
+  {
+    this.entrtientservice.
+    searchentretient(this.cherchentretientform.value.nom,this.cherchentretientform.value.prenom).subscribe(
+      (value:HttpResponse<IEntretient[]>) => {
+        this.entretients=value.body
+      }
+    )
   }
 
 }

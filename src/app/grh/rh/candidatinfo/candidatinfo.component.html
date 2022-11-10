@@ -33,8 +33,10 @@
             <td>{{condidat.post}}</td>
             <td>
 
-              <button class="btn btn-sm btn-link" [routerLink]="['/rh/candidatdetail/'+condidat.id]" >detaille</button>
-              <a class="btn btn-sm btn-link" [routerLink]="['/rh/sendmail/'+condidat.id]" >email
+              <button class="btn btn-sm btn-link" [routerLink]="['/rh/candidatdetail/'+condidat.id]" >voir plus</button>
+              <a class="btn btn-sm btn-link" style="color: #28a745" [routerLink]="['/rh/sendmail/'+condidat.id]" >mail d acceptation
+                <i class="mdi mdi-email"></i></a>
+              <a class="btn btn-sm btn-link" style="color:#c21d17;" [routerLink]="['/rh/sendrefumail/'+condidat.id]" >mail de refus
                 <i class="mdi mdi-email"></i></a>
             </td>
 

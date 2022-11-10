@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CondidatService} from "../../services/condidat.service";
 import {ICondidat} from "../../models/ICondidat.model";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-candidatinfo',
@@ -9,8 +10,15 @@ import {ICondidat} from "../../models/ICondidat.model";
 })
 export class CandidatinfoComponent implements OnInit {
   candidats:ICondidat[]=[];
+  cherchcandidatform: FormGroup = this.fb.group({
 
-  constructor(private condidatservice:CondidatService) { }
+    nom: ['', Validators.required],
+    prenom:['', Validators.required]
+
+  })
+
+  constructor(private condidatservice:CondidatService,
+              private fb:FormBuilder) { }
 
   ngOnInit(): void {
     this.condidatservice.getcondidat().subscribe(value => {
@@ -18,5 +26,11 @@ export class CandidatinfoComponent implements OnInit {
 
     })
   }
+  /*
+  searchcandidat():void
+  {
+
+  }
+   */
 
 }

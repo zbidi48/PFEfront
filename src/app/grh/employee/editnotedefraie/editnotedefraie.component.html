@@ -1,0 +1,25 @@
+<form class="forms-sample" [formGroup]="updatenotedefraieform" (ngSubmit)="editnotedefraie()">
+  <div class="alert-success" *ngIf="showMsg">
+    {{message}}
+  </div>
+  <div class="alert-success" *ngIf="has_error">
+    {{error_message}}
+  </div>
+  <div class="form-group row">
+    <label  class="col-sm-3 col-form-label">description note de fraie</label>
+    <div class="col-sm-9">
+      <input type="text" class="form-control" id="description" placeholder="description"
+             formControlName="description" >
+    </div>
+  </div>
+  <div class="form-group row">
+    <label  class="col-sm-3 col-form-label">cout de note de fraie en dt</label>
+    <div class="col-sm-9">
+      <input type="text" class="form-control" id="fraie" placeholder="fraie"
+             formControlName="fraie" >
+    </div>
+  </div>
+
+  <button class="btn btn-gradient-primary mr-2" type="submit">Submit</button>
+  <button class="btn btn-light" routerLink="/espaceemployee/notedefraie">Cancel</button>
+</form>

@@ -1,9 +1,10 @@
-<form [formGroup]="mailaccepform" (ngSubmit)="sendaccepmail()" >
+<form [formGroup]="mailrefusform" (ngSubmit)="sendrefusepmail()" >
   <div class="row">
     <div class="col-sm-6">
       <div class="form-group ">
 
         <select class="form-control" formControlName="to">
+          <label>choisir l email convenable</label>
           <option value="-1">Tous les emails de candidats</option>
           <option value="{{c.id}}" *ngFor="let c of candidats">{{c.email}}</option>
         </select>

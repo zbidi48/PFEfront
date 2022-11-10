@@ -13,15 +13,26 @@
 
 
 
-    <form >
+    <form [formGroup]="cherchentretientform"  (ngSubmit)="searchentetient()">
       <div class="row">
         <div class="col-sm-6">
           <div class="form-group ">
-            <label>Visa:</label>
-            <select class="form-control" >
-              <option value="-1">Tous les entretients</option>
-
-            </select>
+            <label>taper le nom de candidat:</label>
+            <input type="text" id="nom"
+                   class="form-control"
+                   name="nom"
+                   placeholder="entrer le nom de candidat"
+                   formControlName="nom">
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group ">
+            <label >taper le prenom de candidat:</label>
+            <input type="text" id="prenom"
+                   class="form-control"
+                   name="prenom"
+                   placeholder="entrer le prenom de candidat"
+                   formControlName="prenom">
           </div>
         </div>
 
