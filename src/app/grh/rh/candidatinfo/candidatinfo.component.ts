@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {CondidatService} from "../../services/condidat.service";
 import {ICondidat} from "../../models/ICondidat.model";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {HttpResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-candidatinfo',
@@ -26,11 +27,15 @@ export class CandidatinfoComponent implements OnInit {
 
     })
   }
-  /*
+
   searchcandidat():void
   {
+    this.condidatservice.searchcandidat(this.cherchcandidatform.value.nom,
+      this.cherchcandidatform.value.prenom).subscribe((value:HttpResponse<ICondidat[]>) => {
+        this.candidats=value.body
+    })
 
   }
-   */
+
 
 }

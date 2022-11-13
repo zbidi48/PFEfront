@@ -56,16 +56,18 @@
             <th>status</th>
             <th>nom</th>
             <th>prenom</th>
+            <th>carte identite</th>
             <th>Action</th>
           </tr>
           </thead>
           <tbody>
           <tr *ngFor="let i of entretients">
-            <td>{{i.date}}</td>
+            <td>{{i.date | date}}</td>
             <td>{{i.heure}}</td>
             <td>{{i.status}}</td>
             <td>{{i.nom}}</td>
             <td>{{i.prenom}}</td>
+            <td>{{i.cin}}</td>
             <td>
               <a class="btn btn-sm btn-primary" style="margin-right:5px;"  >mise a jour</a>
               <a class="btn btn-sm btn-danger"  (click)="deleteentret(i.id)">

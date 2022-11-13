@@ -32,6 +32,10 @@ export class EmployeeService {
   {
     return this.http.get<IEmployee>(this.api_url+'/employee/detailempl/'+id,{observe: 'response'})
   }
+  searchemployee(jobid:string):Observable<HttpResponse<IEmployee>>
+  {
+    return this.http.get<IEmployee>(this.api_url+'/employee/chercheremployee/'+jobid,{observe: 'response'})
+  }
 
 
 }

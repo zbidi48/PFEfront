@@ -15,6 +15,7 @@ export class AddentretientComponent implements OnInit {
 
    date: ['', Validators.required],
    heure: ['', Validators.required],
+   cin:['', Validators.required],
    condidats_id: ['', Validators.required],
 
   })

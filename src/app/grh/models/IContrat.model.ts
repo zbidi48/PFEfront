@@ -2,7 +2,7 @@ export  interface IContrat
 {
   id:number
   code:string,
-  libelle:string,
+  type:string,
   datedebut:Date,
   datefin:Date,
   nom:string,

@@ -90,8 +90,22 @@
       </a>
     </li>
     <li class="nav-item" [ngClass]="{ 'active': dashboard.isActive }" *ngIf="authority === 'ROLE_serviceRH'">
+      <a class="nav-link" routerLink="/rh/inscritoffre" routerLinkActive #dashboard="routerLinkActive">
+        <span class="menu-title">list inscrit offreemploie</span>
+
+        <i class="mdi mdi-account-convert menu-icon"></i>
+      </a>
+    </li>
+    <li class="nav-item" [ngClass]="{ 'active': dashboard.isActive }" *ngIf="authority === 'ROLE_serviceRH'">
       <a class="nav-link" routerLink="/rh/notedefraie" routerLinkActive #dashboard="routerLinkActive">
         <span class="menu-title">note de fraie </span>
+
+        <i class="mdi mdi-account-convert menu-icon"></i>
+      </a>
+    </li>
+    <li class="nav-item" [ngClass]="{ 'active': dashboard.isActive }" *ngIf="authority === 'ROLE_serviceRH'">
+      <a class="nav-link" routerLink="/rh/listemployee" routerLinkActive #dashboard="routerLinkActive">
+        <span class="menu-title">employee info</span>
 
         <i class="mdi mdi-account-convert menu-icon"></i>
       </a>
@@ -134,6 +148,13 @@
     <li class="nav-item" [ngClass]="{ 'active': dashboard.isActive }" *ngIf="authority === 'ROLE_serviceRH'">
       <a class="nav-link" routerLink="/rh/presence" routerLinkActive #dashboard="routerLinkActive">
         <span class="menu-title">presence</span>
+
+        <i class="mdi mdi-account-convert menu-icon"></i>
+      </a>
+    </li>
+    <li class="nav-item" [ngClass]="{ 'active': dashboard.isActive }" *ngIf="authority === 'ROLE_serviceRH'">
+      <a class="nav-link" routerLink="/rh/creationemployee" routerLinkActive #dashboard="routerLinkActive">
+        <span class="menu-title">creation employee</span>
 
         <i class="mdi mdi-account-convert menu-icon"></i>
       </a>
@@ -187,6 +208,5 @@
         <i class="mdi mdi-account-convert menu-icon"></i>
       </a>
     </li>
-
   </ul>
 </nav>

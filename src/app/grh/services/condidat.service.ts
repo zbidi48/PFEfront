@@ -20,4 +20,9 @@ detaillcandidat(id:number):Observable<HttpResponse<ICondidat>>
   return this.http.get<ICondidat>(this.api_url+'/condidats/detaillecandidats/'+id,
     {observe: 'response'})
 }
+searchcandidat(nom:string,prenom:string):Observable<HttpResponse<ICondidat[]>>
+{
+  return this.http.post<ICondidat[]>(this.api_url+'/condidats/cherchercandidat/'+nom+"/"+prenom,null,
+    {observe: 'response'})
+}
 }

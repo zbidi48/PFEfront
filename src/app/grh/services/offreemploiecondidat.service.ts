@@ -14,7 +14,7 @@ export class OffreemploiecondidatService {
   constructor(private http: HttpClient) { }
   getoffrecondidat():Observable<HttpResponse<IOffrecondidat[]>>
   {
-    return this.http.get<IOffrecondidat[]>(this.api_url+'/inscritoffre/afficherinscripoffre',
+    return this.http.get<IOffrecondidat[]>(this.api_url+'/inscritoffre/afficherinscripoffre/',
       {observe: 'response'})
   }
   addoffrecondidat(idoffe:number,idcondidat:number): Observable<HttpResponse<IMessageReponse>>

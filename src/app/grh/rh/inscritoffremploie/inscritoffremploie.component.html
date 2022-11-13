@@ -1,0 +1,52 @@
+<div class="container-fluid px-4">
+  <h1 class="mt-4">Liste de les inscrits pour les offres d emploies</h1>
+  <hr>
+  <div >
+    <form   >
+
+      <div class="form-group mb-5">
+        <button class="btn btn-info" type="submit">cherche inscit offre</button>
+      </div>
+    </form>
+    <div class="card mb-4">
+      <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        inscrit offre table
+      </div>
+      <div class="card-body">
+        <table class="table table-bordered" *ngIf="inscritoffreemploies.length>0">
+          <thead>
+          <tr>
+            <th>date creation offre</th>
+            <th>nom candidat</th>
+            <th>prenom candidat</th>
+            <th>carte identité</th>
+            <th>poste</th>
+            <th>Action</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let inscrit of inscritoffreemploies">
+            <td>{{inscrit.datecreation}}</td>
+            <td>{{inscrit.nom}}</td>
+            <td>{{inscrit.prenom}}</td>
+            <td>{{inscrit.cin}}</td>
+            <td>{{inscrit.poste}}</td>
+            <td>
+              <a class="btn btn-link" >voir detaille</a>
+            </td>
+
+          </tr>
+
+
+          </tbody>
+        </table>
+        <span *ngIf="inscritoffreemploies.length==0">table vide</span>
+      </div>
+    </div>
+
+
+  </div>
+
+</div>
+

@@ -13,7 +13,7 @@ export class AddcontratComponent implements OnInit {
   employees:IEmployee[]=[];
  contratform: FormGroup = this.fb.group({
     code:['', Validators.required],
-    libelle:['', Validators.required],
+    type:['', Validators.required],
     datedebut:['', Validators.required],
     datefin:['', Validators.required],
    employee_id:[Validators.required]

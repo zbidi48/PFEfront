@@ -11,7 +11,7 @@ import {ContratService} from "../../services/contrat.service";
 export class EditcontratComponent implements OnInit {
   macontratform: FormGroup = this.fb.group({
     code:['', Validators.required],
-    libelle:['', Validators.required],
+    type:['', Validators.required],
     datedebut:['', Validators.required],
     datefin:['', Validators.required]
 
@@ -40,7 +40,7 @@ export class EditcontratComponent implements OnInit {
       this.macontratform.setValue(
         {
           code:data.code,
-          libelle:data.libelle,
+          type:data.type,
           datedebut:data.datedebut,
           datefin:data.datefin
         }

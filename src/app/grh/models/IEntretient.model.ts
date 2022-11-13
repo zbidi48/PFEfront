@@ -4,5 +4,6 @@ export interface IEntretient{
    heure?:string,
    status?:string,
    nom?:string,
-   prenom?:string
+   prenom?:string,
+   cin?:string
 }

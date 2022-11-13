@@ -1,0 +1,72 @@
+<div class="container-fluid px-4">
+  <h1 class="mt-4">Liste de employees</h1>
+
+  <div class="card mb-4">
+    <div class="card-body">
+      cliquer sur ce bouton pour crier un employee
+      <a class="btn btn-outline-primary" routerLink="/rh/creationemployee">creation employee</a>
+    </div>
+  </div>
+
+  <hr>
+  <div >
+
+
+    <div>
+      <form   [formGroup]="searchemployee" (ngSubmit)="serchemployee()"  >
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group ">
+              <label>employee job id:</label>
+              <input type="text" id=" jobid"
+                     class="form-control"
+                     name="jobid"
+                     placeholder="jobid"
+                     formControlName="jobid">
+            </div>
+          </div>
+
+        </div>
+        <div class="form-group mb-5">
+          <button class="btn btn-info" type="submit">chercher fiche de paie</button>
+        </div>
+      </form>
+
+    </div>
+
+
+    <div class="table-responsive">
+      <table class="table table-hover" *ngIf="employees.length>0">
+        <thead>
+        <tr>
+
+
+          <th>nom employee</th>
+          <th>prenom employee</th>
+          <th>post</th>
+          <th>jobid</th>
+          <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let i of employees">
+          <td>{{i.nom}}</td>
+          <td>{{i.prenom}}</td>
+          <td>{{i.post}}</td>
+          <td>{{i.jobid}}</td>
+          <td>
+            <a class="btn btn-sm btn-link" [routerLink]="['/rh/detailemployee/'+i.id]" >voir plus</a>
+            <a class="btn btn-sm btn-primary" style="margin-right:5px;"  >modifier</a>
+            <a class="btn btn-sm btn-danger" (click)="deleteemployee(i.id)">supprimer</a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <span *ngIf="employees.length==0"> table vide</span>
+    </div>
+
+
+
+  </div>
+
+</div>
