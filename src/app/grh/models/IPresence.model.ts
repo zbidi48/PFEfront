@@ -1,11 +1,15 @@
+import {Time} from "@angular/common";
+
 export  interface  IPresence
 {
   id:number,
   date:Date,
-  nbreheure:number,
+  tempentre:Time,
+  tempsortie:Time,
   nom:string,
   prenom:string,
   jobid:string
 
 
 }
+

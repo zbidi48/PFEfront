@@ -1,4 +1,10 @@
 <form class="forms-sample" [formGroup]="formationform" (ngSubmit)="ajouterformation()">
+  <div class="alert-success" *ngIf="showMsg">
+    {{message}}
+  </div>
+  <div class="alert-success" *ngIf="has_error">
+    {{error_message}}
+  </div>
   <div class="form-group">
     <label >nom de formation</label>
     <input type="text" class="form-control" id="nomdeforamtion" placeholder="nom de formation"
@@ -8,6 +14,16 @@
     <label >type de formation</label>
     <input type="text" class="form-control" id="typedeformation" placeholder="type de formation"
            name="typedeformation" formControlName="typedeformation">
+  </div>
+  <div class="form-group">
+    <label >date debut de formation:</label>
+    <input type="date" class="form-control" id="datedebut" placeholder="type de formation"
+           name="datedebut" formControlName="datedebut">
+  </div>
+  <div class="form-group">
+    <label >heure de formation </label>
+    <input type="time" class="form-control" id="heure" placeholder="heure dd formation"
+           name="heure" formControlName="heure" step="2">
   </div>
 
 

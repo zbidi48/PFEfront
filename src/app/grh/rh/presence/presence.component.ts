@@ -3,6 +3,7 @@ import {PresenceService} from "../../services/presence.service";
 import {IPresence} from "../../models/IPresence.model";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {HttpResponse} from "@angular/common/http";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-presence',
@@ -24,27 +25,34 @@ export class PresenceComponent implements OnInit {
   }
   afficherpresence():void
   {
-    this.presenceservice.getpresence().subscribe((data:any)=>
-
+    this.presenceservice.getpresence().subscribe((data:HttpResponse<IPresence[]>)=>
       {
         this.presences=data.body
-      },(error)=>{
-        alert(('eurreure'));
       }
-
-
-    )
+      )
   }
   deletepresence(id)
   {
-    if (confirm('vous ete sure d efface' + id + '!!'))
-    {
-      this.presenceservice.deletepresence(id).subscribe((data:any)=>{
-        this.afficherpresence()
-      })
-    }
-
-
+    Swal.fire({
+      title: 'vous ete sure de supprimer',
+      text: "avant de supprimer faite attention!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'oui, supprimer'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'su!',
+          'suppresion faite avec succé !.',
+          'success'
+        )
+        this.presenceservice.deletepresence(id).subscribe((data:any)=>{
+          this.afficherpresence()
+        })
+      }
+    })
   }
   searchpresencebyajobid():void
   {

@@ -16,12 +16,12 @@ export class DetailloffreinscritComponent implements OnInit {
               private path:ActivatedRoute) { }
 
   ngOnInit(): void {
+   /*
     this.inscritoffreservice.Detailoffrecondidat(this.path.snapshot.params.id).subscribe(
       (value:HttpResponse<IOffrecondidat>) => {
         this.inscritoffre=value.body
-
-      }
-    )
+      })
+    */
   }
 
 }

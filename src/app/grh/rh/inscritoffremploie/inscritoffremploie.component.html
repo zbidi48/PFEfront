@@ -33,12 +33,9 @@
             <td>{{inscrit.cin}}</td>
             <td>{{inscrit.poste}}</td>
             <td>
-              <a class="btn btn-link" >voir detaille</a>
+              <a class="btn btn-link" [routerLink]="['/rh/detaillinscritoffre/'+inscrit.id]" >voir detaille</a>
             </td>
-
           </tr>
-
-
           </tbody>
         </table>
         <span *ngIf="inscritoffreemploies.length==0">table vide</span>

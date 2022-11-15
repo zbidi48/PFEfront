@@ -34,14 +34,14 @@ export class ContratService {
   {
     return this.http.delete<IMessageReponse>(this.api_url + '/contrat/supprimercontrat/' + id, {observe: 'response'});
   }
-  searchcontratbycode(data:any):Observable<HttpResponse<IContrat>>
+  searchcontratbycode(data:any):Observable<HttpResponse<IContrat[]>>
   {
-    return this.http.get<IContrat>(this.api_url+'/contrat/cherchercontrat/'+data,
+    return this.http.get<IContrat[]>(this.api_url+'/contrat/cherchercontrat/'+data,
       {observe: 'response'})
   }
-searchcontratbyjobid(data:any):Observable<HttpResponse<IContrat>>
+searchcontratbyjobid(data:any):Observable<HttpResponse<IContrat[]>>
 {
-  return this.http.get<IContrat>(this.api_url+'/contrat/cherchercontratparjobid/'+data,
+  return this.http.get<IContrat[]>(this.api_url+'/contrat/cherchercontratparjobid/'+data,
     {observe: 'response'} )
 }
 

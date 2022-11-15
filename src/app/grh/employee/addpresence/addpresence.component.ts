@@ -20,7 +20,7 @@ export class AddpresenceComponent implements OnInit {
   employees:IEmployee[]=[];
  presenceform: FormGroup = this.fb.group({
 
-   nbreheure: ['', Validators.required],
+   tempsortie: ['', Validators.required],
 
    employee_id:[this.storageService.getId(),Validators.required]
  })

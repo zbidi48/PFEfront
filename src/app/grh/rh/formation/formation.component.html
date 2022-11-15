@@ -40,6 +40,9 @@
           <th>#</th>
           <th>nom de formation</th>
           <th>type de formation</th>
+          <th>date debut</th>
+          <th>heure</th>
+          <th>action</th>
         </tr>
         </thead>
          <tbody>
@@ -47,6 +50,8 @@
            <td>{{i.id}}</td>
            <td>{{i.nomdeforamtion}}</td>
            <td>{{i.typedeformation}}</td>
+           <td>{{i.datedebut}}</td>
+           <td>{{i.heure}}</td>
            <td>
              <a class="btn btn-sm btn-primary" style="margin-right:5px;" [routerLink]="['/rh/editformation/'+i.id]" >mise a jour</a>
              <a class="btn btn-sm btn-danger" (click)="deleteformation(i.id)"  >supprimer</a>

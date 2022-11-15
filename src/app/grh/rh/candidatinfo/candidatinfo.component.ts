@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import {CondidatService} from "../../services/condidat.service";
 import {ICondidat} from "../../models/ICondidat.model";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {HttpResponse} from "@angular/common/http";
+import {HttpErrorResponse, HttpResponse} from "@angular/common/http";
+import {MailingService} from "../../services/mailing.service";
+import {error} from "protractor";
+import Swal, {SweetAlertResult} from "sweetalert2";
 
 @Component({
   selector: 'app-candidatinfo',
@@ -18,7 +21,8 @@ export class CandidatinfoComponent implements OnInit {
 
   })
 
-  constructor(private condidatservice:CondidatService,
+
+  constructor(private condidatservice:CondidatService, private mailingService:MailingService,
               private fb:FormBuilder) { }
 
   ngOnInit(): void {
@@ -38,4 +42,23 @@ export class CandidatinfoComponent implements OnInit {
   }
 
 
+  sendMail(id: number, typeEmail: string) {
+    Swal.fire({
+      title: 'Sweet!',
+      text: 'voulez vous envoyé un email?',
+      imageUrl: 'https://upload.wikimedia.org/wikipedia/fr/a/a7/Mail_%28Apple%29_logo.png',
+      imageWidth: 400,
+      imageHeight: 200,
+      imageAlt: 'Custom image',
+    }).then(value => {
+      if(typeEmail === 'A'){
+        this.mailingService.sendsucce(id).subscribe((value:HttpResponse<string>) => {
+        })
+      } else  if (typeEmail === 'R'){
+        this.mailingService.sendfailed(id).subscribe((value:HttpResponse<string>) => {
+        })
+      }
+    })
+
+  }
 }

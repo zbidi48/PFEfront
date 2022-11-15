@@ -13,7 +13,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 })
 export class ListemployeeComponent implements OnInit {
  employees:IEmployee[]=[];
- employee:IEmployee=null;
+ //employee:IEmployee=null;
   searchemployee: FormGroup = this.fb.group({
 
     jobid: ['', Validators.required]
@@ -53,8 +53,8 @@ export class ListemployeeComponent implements OnInit {
  serchemployee():void
  {
    this.employeeservice.searchemployee(this.searchemployee.value.jobid).
-   subscribe((value:HttpResponse<IEmployee>) => {
-     this.employee=value.body
+   subscribe((value:HttpResponse<IEmployee[]>) => {
+     this.employees=value.body
 
    })
  }

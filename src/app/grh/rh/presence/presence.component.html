@@ -32,7 +32,8 @@
         <tr>
           <th>#</th>
           <th>jour</th>
-          <th>nombre heure</th>
+          <th>heure entre</th>
+          <th>heure de sorie</th>
           <th>nom</th>
           <th>prenom</th>
           <th>jobid</th>
@@ -42,8 +43,9 @@
         <tbody>
         <tr *ngFor="let i of presences">
           <td>{{i.id}}</td>
-          <td>{{i.date}}</td>
-          <td>{{i.nbreheure}}</td>
+          <td>{{i.date | date}}</td>
+          <td>{{i.tempentre}}</td>
+          <td>{{i.tempsortie}}</td>
           <td>{{i.nom}}</td>
           <td>{{i.prenom}}</td>
           <td>{{i.jobid}}</td>

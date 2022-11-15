@@ -15,7 +15,6 @@ import {IContratSearch} from "../../models/IContratSearch.model";
 export class ContratComponent implements OnInit {
   contras:IContrat[]=[];
   employees:IEmployee[]=[];
-  contrat:IContratSearch=null;
   cherchcontratform: FormGroup = this.fb.group({
 
     code: ['', Validators.required]
@@ -67,8 +66,8 @@ export class ContratComponent implements OnInit {
     //console.log(this.cherchcontratform.value.code)
 
     this.contratservice.searchcontratbycode(this.cherchcontratform.value.code).subscribe(
-      (value:HttpResponse<IContrat>) => {
-        this.contrat=value.body
+      (value:HttpResponse<IContrat[]>) => {
+        this.contras=value.body
 
       }
     )
@@ -77,8 +76,8 @@ export class ContratComponent implements OnInit {
   searchcontratbyjobid():void
   {
     this.contratservice.searchcontratbyjobid(this.chercherparjobid.value.jobid).subscribe(
-      (value:HttpResponse<IContrat>) => {
-        this.contrat=value.body
+      (value:HttpResponse<IContrat[]>) => {
+        this.contras=value.body
 
       }
     )

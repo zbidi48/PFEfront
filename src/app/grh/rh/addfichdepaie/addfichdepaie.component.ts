@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {EmployeeService} from "../../services/employee.service";
 import {IEmployee} from "../../models/IEmployee.model";
 import {FichedepaieService} from "../../services/fichedepaie.service";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-addfichdepaie',
@@ -21,6 +22,8 @@ export class AddfichdepaieComponent implements OnInit {
   formSubmitted: boolean = false;
   message="Ajout avec success!";
   showMsg:boolean = false;
+  has_error:boolean = false;
+  error_message:string ='';
   constructor(private fb: FormBuilder
               ,private  employeeservice:EmployeeService
               ,private  fichedepaieService:FichedepaieService) { }
@@ -38,6 +41,10 @@ export class AddfichdepaieComponent implements OnInit {
         this.showMsg = true;
         this.fichepform.reset(true);
 
+      },(error: HttpErrorResponse)=>{
+        this.showMsg = false;
+        this.has_error = true;
+        this.error_message = error.message
       })
 
     }

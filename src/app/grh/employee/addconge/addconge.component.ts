@@ -57,7 +57,8 @@ if (this.congeform.valid)
     this.has_error = true;
     this.error_message = error.message
 
-  })
+  }
+  )
 }
 
 

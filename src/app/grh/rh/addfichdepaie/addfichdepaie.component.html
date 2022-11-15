@@ -1,4 +1,10 @@
 <form class="forms-sample" [formGroup]="fichepform" (ngSubmit)="ajouterfichep()">
+  <div class="alert-success" *ngIf="showMsg">
+    {{message}}
+  </div>
+  <div class="alert-success" *ngIf="has_error">
+    {{error_message}}
+  </div>
   <div class="form-group row">
     <label  class="col-sm-3 col-form-label">date</label>
     <div class="col-sm-9">
