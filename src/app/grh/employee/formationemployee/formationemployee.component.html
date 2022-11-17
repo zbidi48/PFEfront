@@ -1,0 +1,57 @@
+<div class="container-fluid px-4">
+  <h1 class="mt-4">Liste de formation proposé par l entreprise</h1>
+  <hr>
+  <div >
+    <form [formGroup]="cherchform" (ngSubmit)="search()" >
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group ">
+            <label>formations:</label>
+            <input type="text" id=" typedeformation"
+                   class="form-control"
+                   name="typedeformation"
+                   placeholder=" type de formation"
+                   formControlName="typedeformation">
+          </div>
+        </div>
+
+      </div>
+      <div class="form-group mb-5">
+        <button class="btn btn-info" type="submit">Rechercher</button>
+      </div>
+    </form>
+    <div class="table-responsive">
+      <table class="table table-hover" *ngIf="formations.length>0">
+        <thead>
+        <tr>
+          <th>nom de formation</th>
+          <th>type de formation</th>
+          <th>date debut</th>
+          <th>heure</th>
+          <th>action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let i of formations">
+          <td>{{i.nomdeforamtion}}</td>
+          <td>{{i.typedeformation}}</td>
+          <td>{{i.datedebut}}</td>
+          <td>{{i.heure}}</td>
+          <td>
+            <button class="btn btn-success" style="margin-right:5px;" (click)="applayformation(i.id)">inscrit a
+              cette formation</button>
+
+          </td>
+
+        </tr>
+
+        </tbody>
+      </table>
+      <span *ngIf="formations.length==0">table vide</span>
+    </div>
+
+
+
+  </div>
+
+</div>

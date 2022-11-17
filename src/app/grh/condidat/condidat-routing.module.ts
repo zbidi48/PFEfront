@@ -8,8 +8,7 @@ const routes: Routes = [
   {path:'b', component:BComponent},
   {path:'offreemploie',loadChildren: () => import('./offreemploie/offreemploie.module')
       .then(m => m.OffreemploieModule)},
-  {path:'applayoffre/:id',loadChildren: () => import('./applayoffreemploie/applayoffreemploie.module')
-      .then(m => m.ApplayoffreemploieModule)},
+
   {path:'detailoffre/:id',loadChildren: () => import('./detailoffre/detailoffre.module')
       .then(m => m.DetailoffreModule)}
 

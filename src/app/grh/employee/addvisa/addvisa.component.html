@@ -1,1 +1,19 @@
-<p>addvisa works!</p>
+<form class="forms-sample" [formGroup]="visaaddform" (ngSubmit)="addvisa()">
+  <div class="alert-success" *ngIf="showMsg">
+    {{message}}
+  </div>
+  <div class="alert-success" *ngIf="has_error">
+    {{error_message}}
+  </div>
+  <div class="form-group ">
+    <label>typevisa:</label>
+    <select class="form-control"  name="typevisa" formControlName="typevisa"
+            ><option value="TOURISTIQUE">TOURISTIQUE</option>
+      <option value="ETUDE">ETUDE</option>
+      <option value="MALADIE">MALADIE</option>
+      <option value="MISSION">MISSION</option>
+    </select>
+  </div>
+  <button class="btn btn-gradient-primary mr-2" type="submit">Submit</button>
+  <button class="btn btn-light" routerLink="/espaceemployee/visa">Cancel</button>
+</form>

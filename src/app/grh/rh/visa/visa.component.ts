@@ -42,15 +42,26 @@ export class VisaComponent implements OnInit {
   }
   deletevisa(id):void
   {
-    if (confirm('vous ete sure d efface' + id+ '!!'))
-    {
-      this.visaservice.deletevisa(id).subscribe(
-        (value:HttpResponse<IMessageReponse>) => {
-          this.getvisas()
+    Swal.fire({
+      title: 'vous ete sure de supprimer?',
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'oui',
+      denyButtonText: `non`,
+    }).then((result) => {
 
-        }
-      )
-    }
+      if (result.isConfirmed) {
+        this.visaservice.deletevisa(id).subscribe(
+          (value:HttpResponse<IMessageReponse>) => {
+            this.getvisas()
+          })
+        Swal.fire('supprimer!', '', 'success')
+      } else if (result.isDenied) {
+        Swal.fire('lo peration ne sera pas fait', '', 'info')
+      }
+    })
+
+
 
   }
 

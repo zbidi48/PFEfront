@@ -28,8 +28,6 @@ export class FormationComponent implements OnInit {
   {
    this.formationservice.getformations().subscribe((value:any) => {
      this.formations = value.body
-   }, (err) => {
-     alert(('eurreure'));
    })
   }
   deleteformation(id)

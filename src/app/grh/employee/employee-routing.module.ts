@@ -2,17 +2,20 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
-  {path:'presenceemply',loadChildren: () => import('./presence/presence.module').then(m => m.PresenceModule)},
-  {path:'addpresence',loadChildren: () => import('./addpresence/addpresence.module').then(m => m.AddpresenceModule)},
   {path:'congeemployee',loadChildren: () => import('./conge/conge.module').then(m => m.CongeModule)},
   {path:'addconge',loadChildren: () => import('./addconge/addconge.module').then(m => m.AddcongeModule)},
   {path:'visa',loadChildren: () => import('./visa/visa.module').then(m => m.VisaModule)},
   {path:'notedefraie',loadChildren: () => import('./notedefraie/notedefraie.module')
       .then(m => m.NotedefraieModule)},
+  {path:'addvisa',loadChildren: () => import('./addvisa/addvisa.module')
+      .then(m => m.AddvisaModule)},
   {path:'addnotedefraie',loadChildren: () => import('./addnotedefraie/addnotedefraie.module')
       .then(m => m.AddnotedefraieModule)},
   {path:'editnotedefraie/:id',loadChildren: () => import('./editnotedefraie/editnotedefraie.module')
-      .then(m => m.EditnotedefraieModule)}
+      .then(m => m.EditnotedefraieModule)},
+  {path:'formationemployee',loadChildren: () => import('./formationemployee/formationemployee.module')
+      .then(m => m.FormationemployeeModule)}
+
 ];
 
 @NgModule({

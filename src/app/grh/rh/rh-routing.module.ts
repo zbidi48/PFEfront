@@ -28,10 +28,7 @@ const routes: Routes = [
     then(m => m.AddcontratModule)},
   {path:'editcontrat/:id',loadChildren: () => import('./editcontrat/editcontrat.module').
     then(m => m.EditcontratModule)},
-  {path:'presence',loadChildren: () => import('./presence/presence.module').
-    then(m => m.PresenceModule)},
-  {path:'editpresence/:id',loadChildren: () => import('./editpresence/editpresence.module').
-    then(m => m.EditpresenceModule)},
+
   {path:'offreemploie',loadChildren: () => import('./offreemploie/offreemploie.module').
     then(m => m.OffreemploieModule)},
   {path:'addoffreemploie',loadChildren: () => import('./addoffreemploie/addoffreemploie.module')
