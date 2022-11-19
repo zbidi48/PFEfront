@@ -1,0 +1,55 @@
+<div class="container-fluid px-4">
+  <h1 class="mt-4">Liste de planification de meeting</h1>
+
+  <div class="card mb-4">
+    <div class="card-body">
+      cliquer sur ce bouton pour ajouter un meeting
+      <a class="btn btn-outline-primary" routerLink="/rh/addmeeting" >Ajouter meeting</a>
+    </div>
+  </div>
+
+  <hr>
+  <div >
+    <div class="card mb-4">
+      <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        DataTable
+      </div>
+      <div class="card-body">
+        <table class="table table-bordered" *ngIf="meetings.length>0">
+          <thead>
+          <tr>
+            <th>date meeting</th>
+            <th>heure meeting</th>
+            <th>lien meeting</th>
+            <th>type meeting</th>
+            <th>status</th>
+            <th>Action</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let i of meetings">
+            <td>{{i.date }}</td>
+            <td>{{i.heure}}</td>
+            <td>{{i.lienmeet}}</td>
+            <td>{{i.typemeeting}}</td>
+            <td>{{i.status}}</td>
+            <td>
+              <a  class="glyphicon glyphicon-refresh" style="margin-right:5px;"  >
+                miseajour
+                <i class="mdi mdi-rewind"></i>
+              </a>
+            </td>
+          </tr>
+          </tbody>
+
+        </table>
+        <span *ngIf="meetings.length==0">table vide</span>
+      </div>
+    </div>
+
+
+
+  </div>
+
+</div>

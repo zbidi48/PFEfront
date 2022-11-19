@@ -30,7 +30,7 @@ export class AddformationComponent implements OnInit {
   }
   ajouterformation(): void {
     this.formSubmitted = true;
-    console.log(this.formationform.value);
+    //console.log(this.formationform.value);
     if (this.formationform.valid) {
       //console.log(this.formationform.value);
        this.formationService.addformation(this.formationform.value).subscribe(res => {

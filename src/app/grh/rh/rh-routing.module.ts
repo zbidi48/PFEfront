@@ -57,8 +57,11 @@ const routes: Routes = [
   {path:'inscritoffre',loadChildren: () => import('./inscritoffremploie/inscritoffremploie.module').
     then(m => m.InscritoffremploieModule)},
   {path:'detaillinscritoffre/:id',loadChildren: () => import('./detailloffreinscrit/detailloffreinscrit.module').
-    then(m => m.DetailloffreinscritModule)}
-
+    then(m => m.DetailloffreinscritModule)},
+  {path:'meeting',loadChildren: () => import('./meeting/meeting.module').
+    then(m => m.MeetingModule)},
+  {path:'addmeeting',loadChildren: () => import('./addmeeting/addmeeting.module').
+    then(m => m.AddmeetingModule)}
 ];
 
 @NgModule({
