@@ -39,13 +39,12 @@
       <table class="table table-hover" *ngIf="employees.length>0">
         <thead>
         <tr>
-
-
           <th>nom employee</th>
           <th>prenom employee</th>
           <th>post</th>
           <th>jobid</th>
           <th>Action</th>
+          <th>mailmeeting</th>
         </tr>
         </thead>
         <tbody>
@@ -56,16 +55,34 @@
           <td>{{i.jobid}}</td>
           <td>
             <a class="btn btn-sm btn-link" [routerLink]="['/rh/detailemployee/'+i.id]" >voir plus</a>
-            <a class="btn btn-sm btn-primary" style="margin-right:5px;"  >modifier</a>
-            <a class="btn btn-sm btn-danger" (click)="deleteemployee(i.id)">supprimer</a>
+            <a class="btn btn-sm btn-primary" style="margin-right:5px;"  >
+              <i class="mdi mdi-rewind"></i>
+            </a>
+            <a class="btn btn-sm btn-danger" (click)="deleteemployee(i.id)">
+              <i class="mdi mdi-delete"></i>
+            </a>
+          </td>
+          <td>
+            <a class="btn btn-link" style="color: #28a745" (click)="sendemail(i.id,'confirm')">
+
+              <i class="mdi mdi-email"></i>
+            </a>
+            <a class="btn btn-link" style="color: red" (click)="sendemail(i.id,'anulle')">
+
+              <i class="mdi mdi-email"></i>
+            </a>
           </td>
         </tr>
         </tbody>
       </table>
       <span *ngIf="employees.length==0"> table vide</span>
     </div>
-
-
+  </div>
+  <div>
+   <h3 style="color: red">NB:</h3>
+    <p>dans la menu emailmeeting la couleur vert indique la mail de confirmation de meet
+      l autre mail d annulation
+    </p>
 
   </div>
 

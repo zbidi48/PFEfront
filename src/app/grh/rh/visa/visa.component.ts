@@ -60,9 +60,6 @@ export class VisaComponent implements OnInit {
         Swal.fire('lo peration ne sera pas fait', '', 'info')
       }
     })
-
-
-
   }
 
   changeStatus(id,status: string) {

@@ -35,10 +35,28 @@
             <td>{{i.typemeeting}}</td>
             <td>{{i.status}}</td>
             <td>
-              <a  class="glyphicon glyphicon-refresh" style="margin-right:5px;"  >
-                miseajour
-                <i class="mdi mdi-rewind"></i>
+              <a  class="glyphicon glyphicon-refresh" style="margin-right:5px;"
+                  [routerLink]="['/rh/editmeeting/'+i.id]" ><i class="mdi mdi-rewind"></i>
               </a>
+              <ng-container *ngIf="i.status =='OK'" >
+                <a class="btn btn-sm btn-success" (click)="statusmeeting(i.id,'anulle')">
+                  <i class="mdi mdi-marker-check"></i>
+                </a>
+                <a class="btn btn-sm btn-warning" (click)="statusmeeting(i.id,'suspendu')">
+                  <i class="mdi mdi-folder-remove"></i>
+                </a>
+              </ng-container>
+              <ng-container *ngIf="i.status =='ANULLE'" >
+                <a class="btn btn-sm btn-warning" (click)="statusmeeting(i.id,'suspendu')">
+                  <i class="mdi mdi-folder-remove"></i>
+                </a>
+              </ng-container>
+              <ng-container *ngIf="i.status =='SUSPENDU'" >
+                <a class="btn btn-sm btn-warning" (click)="statusmeeting(i.id,'anulle')">
+                  <i class="mdi mdi-folder-remove"></i>
+                </a>
+              </ng-container>
+
             </td>
           </tr>
           </tbody>

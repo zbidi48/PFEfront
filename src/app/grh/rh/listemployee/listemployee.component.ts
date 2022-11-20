@@ -5,6 +5,7 @@ import {HttpResponse} from "@angular/common/http";
 import Swal from "sweetalert2";
 import {IMessageReponse} from "../../models/messageReponse.model";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {MailingService} from "../../services/mailing.service";
 
 @Component({
   selector: 'app-listemployee',
@@ -20,7 +21,8 @@ export class ListemployeeComponent implements OnInit {
 
   })
   constructor(private employeeservice:EmployeeService,
-              private fb:FormBuilder) { }
+              private fb:FormBuilder,
+              private mailingService:MailingService ) { }
 
   ngOnInit(): void {
     this.employeeservice.getemployee().subscribe((value:HttpResponse<IEmployee[]>) => {
@@ -58,5 +60,23 @@ export class ListemployeeComponent implements OnInit {
 
    })
  }
-
+ sendemail(id:number,typemail:string)
+ {
+   Swal.fire({
+     title: 'Sweet!',
+     text: 'voulez vous envoyé un email?',
+     imageUrl: 'https://upload.wikimedia.org/wikipedia/fr/a/a7/Mail_%28Apple%29_logo.png',
+     imageWidth: 400,
+     imageHeight: 200,
+     imageAlt: 'Custom image',
+   }).then(value => {
+     if(typemail === 'confirm'){
+       this.mailingService.sendconfirmmeet(id).subscribe((value:HttpResponse<IMessageReponse>) => {
+       })
+     } else  if (typemail === 'anulle'){
+       this.mailingService.sendcancledmeet(id).subscribe((value:HttpResponse<IMessageReponse>) => {
+       })
+     }
+   })
+ }
 }

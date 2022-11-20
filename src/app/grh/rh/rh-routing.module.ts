@@ -52,6 +52,8 @@ const routes: Routes = [
     then(m => m.CreationemployeeModule)},
   {path:'listemployee',loadChildren: () => import('./listemployee/listemployee.module').
     then(m => m.ListemployeeModule)},
+  {path:'editemployee/:id',loadChildren: () => import('./editemployee/editemployee.module').
+    then(m => m.EditemployeeModule)},
   {path:'detailemployee/:id',loadChildren: () => import('./detailemployee/detailemployee.module').
     then(m => m.DetailemployeeModule)},
   {path:'inscritoffre',loadChildren: () => import('./inscritoffremploie/inscritoffremploie.module').
@@ -61,7 +63,9 @@ const routes: Routes = [
   {path:'meeting',loadChildren: () => import('./meeting/meeting.module').
     then(m => m.MeetingModule)},
   {path:'addmeeting',loadChildren: () => import('./addmeeting/addmeeting.module').
-    then(m => m.AddmeetingModule)}
+    then(m => m.AddmeetingModule)},
+  {path:'editmeeting/:id',loadChildren: () => import('./editmeeting/editmeeting.module').
+    then(m => m.EditmeetingModule)}
 ];
 
 @NgModule({
