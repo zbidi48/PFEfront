@@ -10,18 +10,21 @@ import {IOffrecondidat} from "../../models/IOffrecondidat.model";
   styleUrls: ['./detailloffreinscrit.component.scss']
 })
 export class DetailloffreinscritComponent implements OnInit {
-  inscritoffre:IOffrecondidat=null;
+  inscritoffre:IOffrecondidat;
 
   constructor(private inscritoffreservice:OffreemploiecondidatService,
               private path:ActivatedRoute) { }
 
   ngOnInit(): void {
-   /*
+
     this.inscritoffreservice.Detailoffrecondidat(this.path.snapshot.params.id).subscribe(
       (value:HttpResponse<IOffrecondidat>) => {
         this.inscritoffre=value.body
       })
-    */
+
+
   }
 
-}
+  }
+
+

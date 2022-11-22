@@ -1,3 +1,5 @@
+import {Time} from "@angular/common";
+
 export interface Iinscritformation
 {
   id?:number,
@@ -6,7 +8,10 @@ export interface Iinscritformation
   prenom?:string,
   jobid?:string,
   nomdeforamtion?:string,
-  typedeformation?:string
+  typedeformation?:string,
+  dateinscrit?:Date,
+  datedebut?:Date,
+  heure?:Time
 
 
 }

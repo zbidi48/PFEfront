@@ -12,7 +12,7 @@ import {HttpResponse} from "@angular/common/http";
 export class DetailemployeeComponent implements OnInit {
 employee:IEmployee=null;
   constructor(private employeeservice:EmployeeService,
-              private path:ActivatedRoute,) { }
+              private path:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.employeeservice.getemployeebyid(this.path.snapshot.params.id).

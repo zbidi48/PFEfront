@@ -1,11 +1,11 @@
 <div class="container-fluid px-4">
-  <h1 class="mt-4">Liste de les inscrits pour les offres d emploies</h1>
+  <h1 class="mt-4">Liste de les inscrits des formations des employees</h1>
   <hr>
   <div >
     <form   >
 
       <div class="form-group mb-5">
-        <button class="btn btn-info" type="submit">cherche inscit offre</button>
+        <button class="btn btn-info" type="submit">cherche inscit formation</button>
       </div>
     </form>
     <div class="card mb-4">
@@ -14,42 +14,39 @@
         inscrit offre table
       </div>
       <div class="card-body">
-        <table class="table table-bordered" *ngIf="inscritoffreemploies.length>0">
+        <table class="table table-bordered" *ngIf="inscritformtions.length>0">
           <thead>
           <tr>
-
-            <th>nom candidat</th>
-            <th>prenom candidat</th>
-            <th>carte identité</th>
-            <th>poste</th>
+            <th>nom employee</th>
+            <th>prenom employee</th>
+            <th>jobid</th>
             <th>status</th>
             <th>Action</th>
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let inscrit of inscritoffreemploies">
+          <tr *ngFor="let inscrit of inscritformtions">
             <td>{{inscrit.nom}}</td>
             <td>{{inscrit.prenom}}</td>
-            <td>{{inscrit.cin}}</td>
-            <td>{{inscrit.poste}}</td>
+            <td>{{inscrit.jobid}}</td>
             <td>{{inscrit.status}}</td>
             <td>
-              <a class="btn btn-link" [routerLink]="['/rh/detaillinscritoffre/'+inscrit.id]" >voir detaille</a>
+              <a class="btn btn-link" [routerLink]="['/rh/detaillinscritformation/'+inscrit.id]" >voir plus</a>
               <ng-container *ngIf="inscrit.status =='ENCOUR'" >
-                <a class="btn btn-sm btn-success" (click)="statusinscrit(inscrit.id,'accepte')">
+                <a class="btn btn-sm btn-success" (click)="changestatus(inscrit.id,'accepte')">
                   <i class="mdi mdi-marker-check"></i>
                 </a>
-                <a class="btn btn-sm btn-warning" (click)="statusinscrit(inscrit.id,'refuse')">
+                <a class="btn btn-sm btn-warning" (click)="changestatus(inscrit.id,'refuse')">
                   <i class="mdi mdi-folder-remove"></i>
                 </a>
               </ng-container>
               <ng-container *ngIf="inscrit.status =='ACCEPTE'" >
-                <a class="btn btn-sm btn-warning" (click)="statusinscrit(inscrit.id,'refuse')">
+                <a class="btn btn-sm btn-warning" (click)="changestatus(inscrit.id,'refuse')">
                   <i class="mdi mdi-folder-remove"></i>
                 </a>
               </ng-container>
               <ng-container *ngIf="inscrit.status =='REFUSE'" >
-                <a class="btn btn-sm btn-success" (click)="statusinscrit(inscrit.id,'accepte')">
+                <a class="btn btn-sm btn-success" (click)="changestatus(inscrit.id,'accepte')">
                   <i class="mdi mdi-marker-check"></i>
                 </a>
 
@@ -58,12 +55,12 @@
           </tr>
           </tbody>
         </table>
-        <span *ngIf="inscritoffreemploies.length==0">table vide</span>
+        <span *ngIf="inscritformtions.length==0">table vide</span>
       </div>
     </div>
 
 
   </div>
 
-</div>
 
+</div>

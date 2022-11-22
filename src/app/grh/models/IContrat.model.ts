@@ -8,5 +8,6 @@ export  interface IContrat
   nom:string,
   prenom:string,
   post:string,
-  jobid:string
+  jobid:string,
+  url:string
 }

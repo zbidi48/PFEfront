@@ -81,8 +81,14 @@
           <td>{{i.post}}</td>
           <td>{{i.jobid}}</td>
           <td>
-            <a class="btn btn-sm btn-primary" style="margin-right:5px;" [routerLink]="['/rh/editcontrat/'+i.id]" >modifier</a>
-            <a class="btn btn-sm btn-danger" (click)="deletecontrat(i.id)">supprimer</a>
+            <a class="btn btn-sm btn-primary" style="margin-right:5px;" [routerLink]="['/rh/editcontrat/'+i.id]" >
+              <i class="mdi mdi-rewind"></i>
+            </a>
+            <a class="btn btn-sm btn-danger" (click)="deletecontrat(i.id)">
+              <i class="mdi mdi-delete"></i>
+            </a>
+
+
           </td>
 
         </tr>

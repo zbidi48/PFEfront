@@ -33,21 +33,17 @@ export class ContratComponent implements OnInit {
   }
   getcontrat():void
   {
-    this.contratservice.getcontrats().subscribe(data=>
+    this.contratservice.getcontrats().subscribe((data:HttpResponse<IContrat[]>)=>
       {
+
       this.contras=data.body
-        //console.log(this.contras)
-    },(error)=>{
-      alert(('eurreure'));
-    })
+      })
     }
     getemploy():void
     {
-      this.employeeservice.getemployee().subscribe(value => {
+      this.employeeservice.getemployee().subscribe((value:HttpResponse<IEmployee[]>) => {
         this.employees=value.body
 
-      },(error)=>{
-        alert(('eurreure'));
       })
     }
   deletecontrat(id):void
@@ -83,4 +79,7 @@ export class ContratComponent implements OnInit {
     )
   }
 
+  download(url: string) {
+   console.log( URL.createObjectURL(url))
+  }
 }

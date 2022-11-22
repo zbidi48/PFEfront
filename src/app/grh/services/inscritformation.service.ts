@@ -11,11 +11,7 @@ import {Iinscritformation} from "../models/Iinscritformation.model";
 export class InscritformationService {
   api_url=environment.server_url;
   constructor(private http: HttpClient) { }
-  addinscritformation(idemployee:number,idformatio:number):Observable<HttpResponse<IMessageReponse>>
-  {
-    return this.http.post<IMessageReponse>(this.api_url+'/inscritformation/chercherinscritformation/'+idemployee+"/"
-      +idformatio,null,{observe: 'response'})
-  }
+
   getinscritformation():Observable<HttpResponse<Iinscritformation[]>>
   {
     return this.http.get<Iinscritformation[]>(this.api_url+'/inscritformation/afficherinscritformation',
@@ -31,10 +27,20 @@ export class InscritformationService {
     return  this.http.post<Iinscritformation[]>(this.api_url+'/inscritformation/inscritformation/'+idempl+"/"+idformation,
       null,{observe: 'response'})
   }
+  getinscritformationbyid(id:number):Observable<HttpResponse<Iinscritformation>>
+  {
+    return this.http.get<Iinscritformation>(this.api_url+'/inscritformation/deatilleinscrit/'+id,
+      {observe: 'response'} )
+  }
   searchinscritformation(jobid:string):Observable<HttpResponse<Iinscritformation[]>>
   {
     return this.http.get<Iinscritformation[]>(this.api_url+'/inscritformation/chercherinscritformation/'+jobid,
       {observe: 'response'})
+  }
+  satatusinscritformation(id:number,status:string):Observable<HttpResponse<IMessageReponse>>
+  {
+    return this.http.put<IMessageReponse>(this.api_url+'/inscritformation/changerstatusinscritformation/'
+      +id+"/"+status,null,{observe: 'response'})
   }
 
 }

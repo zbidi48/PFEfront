@@ -33,16 +33,21 @@ export class OffreemploiecondidatService {
     return  this.http.delete<IMessageReponse>(this.api_url+'/inscritoffre/supprimernscritoffre/'+id,
       {observe: 'response'})
   }
-  /*
+
   Detailoffrecondidat(id):Observable<HttpResponse<IOffrecondidat>>
   {
-    return this.http.get<IOffrecondidat>(this.api_url+'/inscritoffre/detailinscriptoffre/'+id,
+    return this.http.get<IOffrecondidat>(this.api_url+'/inscritoffre/inscritoffredetail/'+id,
       {observe: 'response'})
   }
-   */
+
   searchoffrecondidat(data):Observable<HttpResponse<IOffrecondidat[]>>
   {
     return this.http.get<IOffrecondidat[]>(this.api_url+'/inscritoffre/afficherinscroffreparmail/'+data,{observe: 'response'})
+  }
+  statusinscritoffre(id:number,status:string):Observable<HttpResponse<IMessageReponse>>
+  {
+    return this.http.put<IMessageReponse>(this.api_url+'/inscritoffre/chagestatus/'+id+"/"+status,null,
+      {observe: 'response'})
   }
 
 }
