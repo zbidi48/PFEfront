@@ -4,6 +4,9 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {INotedefraie} from "../../models/INotedefraie.model";
 import {IEmployee} from "../../models/IEmployee.model";
 import {EmployeeService} from "../../services/employee.service";
+import Swal from "sweetalert2";
+import {HttpResponse} from "@angular/common/http";
+import {IMessageReponse} from "../../models/messageReponse.model";
 
 @Component({
   selector: 'app-notedefraie',
@@ -37,14 +40,33 @@ export class NotedefraieComponent implements OnInit {
   }
   deletenotedefraie(id):void
   {
-    if (confirm('vous ete sure d efface' + id + '!!'))
-    {
-      this.notedefraieservice.deletenotedefraie(id).subscribe(value => {
-        this.getnotedefraie()
-      })
-    }
+    Swal.fire({
+      title: 'vous ete sure de supprimer note de fraie ?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'ok, supprimer!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.notedefraieservice.deletenotedefraie(id).
+        subscribe((value:HttpResponse<IMessageReponse>) => {
+          this.getnotedefraie()
+        })
+        Swal.fire(
+          'supprimer!',
+          'note de fraie est supprimé.',
+          'success'
+        )
+      }
+    })
 
-
+   /*
+    this.notedefraieservice.deletenotedefraie(id).
+    subscribe((value:HttpResponse<IMessageReponse>) => {
+      this.getnotedefraie()
+    })
+    */
   }
   searchnotedefraie():void
   {

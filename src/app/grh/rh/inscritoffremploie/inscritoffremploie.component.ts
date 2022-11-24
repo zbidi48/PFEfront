@@ -4,7 +4,8 @@ import {IOffrecondidat} from "../../models/IOffrecondidat.model";
 import {HttpErrorResponse, HttpResponse} from "@angular/common/http";
 import Swal from "sweetalert2";
 import {IMessageReponse} from "../../models/messageReponse.model";
-import {Iinscritformation} from "../../models/Iinscritformation.model";
+
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-inscritoffremploie',
@@ -13,8 +14,16 @@ import {Iinscritformation} from "../../models/Iinscritformation.model";
 })
 export class InscritoffremploieComponent implements OnInit {
   inscritoffreemploies:IOffrecondidat[]=[];
+  searchinscritoffreform: FormGroup = this.fb.group({
+
+    cin: ['', Validators.required]
+
+  })
+
+
   msg:string='';
-  constructor(private inscritoffreemploieservice:OffreemploiecondidatService) { }
+  constructor(private inscritoffreemploieservice:OffreemploiecondidatService,
+              private fb:FormBuilder) { }
 
   ngOnInit(): void {
     this.inscritoffreemploieservice.getoffrecondidat().
@@ -50,5 +59,12 @@ export class InscritoffremploieComponent implements OnInit {
      }
    })
  }
+searchinscrit()
+{
+this.inscritoffreemploieservice.searchoffrecondidatbycin(this.searchinscritoffreform.value.cin).
+subscribe((value:HttpResponse<IOffrecondidat[]>) => {
+  this.inscritoffreemploies=value.body
 
+})
+}
 }

@@ -3,6 +3,8 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ContratService} from "../../services/contrat.service";
 import {EmployeeService} from "../../services/employee.service";
 import {IEmployee} from "../../models/IEmployee.model";
+import {HttpResponse} from "@angular/common/http";
+import {IMessageReponse} from "../../models/messageReponse.model";
 
 @Component({
   selector: 'app-addcontrat',
@@ -37,7 +39,7 @@ Addcontrat():void
   if(this.contratform.valid)
   {
     this.contratservice.addcontrat(this.contratform.value).subscribe(
-      res=>{
+      (res:HttpResponse<IMessageReponse>)=>{
         //console.log(res.body.message);
         this.showMsg = true;
         this.contratform.reset(true);

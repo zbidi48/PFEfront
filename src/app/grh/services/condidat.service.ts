@@ -25,4 +25,9 @@ searchcandidat(nom:string,prenom:string):Observable<HttpResponse<ICondidat[]>>
   return this.http.post<ICondidat[]>(this.api_url+'/condidats/cherchercandidat/'+nom+"/"+prenom,null,
     {observe: 'response'})
 }
+searchbycin(cin:string):Observable<HttpResponse<ICondidat[]>>
+{
+  return this.http.get<ICondidat[]>(this.api_url+'/condidats/cherchercandidatparcin/'+cin,
+    {observe: 'response'} )
+}
 }

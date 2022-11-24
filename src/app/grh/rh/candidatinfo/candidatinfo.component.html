@@ -1,5 +1,5 @@
 <div class="container-fluid px-4">
-  <h1 class="mt-4">voila les candidat</h1>
+  <h3 class="mt-4">liste de  candidat</h3>
 
 
 
@@ -28,9 +28,26 @@
 
       </div>
       <div class="form-group mb-5">
-        <button class="btn btn-info" type="submit">cherche candidat</button>
+        <button class="btn btn-info" type="submit">cherche candidat par nom&prenom</button>
       </div>
     </form>
+    <form [formGroup]="cherchcandidatform" (ngSubmit)="searchbyCIN()" >
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group ">
+            <label>taper CIN employee:</label>
+            <input type="text" id="cin"  class="form-control"
+                   name="cin" placeholder="CIN de candidats" formControlName="cin">
+          </div>
+        </div>
+
+      </div>
+
+      <div class="form-group mb-5">
+        <button class="btn btn-info" type="submit">cherche candidat par CIN</button>
+      </div>
+    </form>
+
 
 
     <div >
@@ -52,10 +69,10 @@
             <td>
 
               <button class="btn btn-sm btn-link" [routerLink]="['/rh/candidatdetail/'+condidat.id]" >voir plus</button>
-              <a class="btn btn-sm btn-link" style="color: #28a745" (click)="sendMail(condidat.id,'A')" >
+              <a class="btn btn-sm btn-link" style="color: green" (click)="sendMail(condidat.id,'A')" >
                 mail d acceptation
                 <i class="mdi mdi-email"></i></a>
-              <a class="btn btn-sm btn-link" style="color:#c21d17;" (click)="sendMail(condidat.id,'R')" >
+              <a class="btn btn-sm btn-link" style="color: red" (click)="sendMail(condidat.id,'R')" >
                 mail de refus
                 <i class="mdi mdi-email"></i></a>
             </td>

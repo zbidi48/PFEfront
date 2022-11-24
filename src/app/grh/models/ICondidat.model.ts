@@ -4,6 +4,7 @@ export interface ICondidat
   nom?:string,
   prenom?:string,
   post?:string,
+  cin?:string,
   email?:string,
   dateOfBirth?:Date,
   phone?:string,

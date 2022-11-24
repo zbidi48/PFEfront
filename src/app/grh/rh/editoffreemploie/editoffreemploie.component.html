@@ -1,32 +1,34 @@
 <form class="forms-sample" [formGroup]="maoffreemplform" (ngSubmit)="editoffreemploie()">
   <div class="form-group">
+    <label >titredoffre</label>
+    <input type="text" class="form-control" id="titre d offre" placeholder="titredoffre"
+           name="titredoffre" formControlName="titredoffre">
+  </div>
+  <div class="form-group">
     <label >datelimite</label>
-    <input type="date" class="form-control" id="datelimite" placeholder="datelimite"
+    <input type="date" class="form-control" id="datelimite" placeholder="date limite"
            name="datelimite" formControlName="datelimite">
   </div>
   <div class="form-group">
-    <label >lieux de travail</label>
-    <input type="text" class="form-control" id="lieuxdetravail" placeholder="lieux de travail"
-           name="lieuxdetravail" formControlName="lieuxdetravail">
+    <label >description</label>
+    <input type="text" class="form-control" id="description" placeholder="description"
+           name="description" formControlName="description">
   </div>
   <div class="form-group">
-    <label >nom entreprise</label>
-    <input type="text" class="form-control" id="nomentreprise" placeholder="nom entreprise"
-           name="nomentreprise" formControlName="nomentreprise">
+    <label >langue</label>
+    <input type="text" class="form-control" id="langue" placeholder="langue"
+           name="langue" formControlName="langue">
   </div>
   <div class="form-group">
-    <label >poste demande</label>
-    <input type="text" class="form-control" id="postedemande" placeholder="poste demande"
-           name="postedemande" formControlName="postedemande">
+    <label >experience</label>
+    <input type="text" class="form-control" id="experience" placeholder="experience"
+           name="experience" formControlName="experience">
   </div>
   <div class="form-group">
-    <label >type d offre</label>
-    <input type="text" class="form-control" id="typedoffre" placeholder="type d offre"
-           name="typedoffre" formControlName="typedoffre">
+    <label >exigenceemploie</label>
+    <input type="text" class="form-control" id="exigenceemploie" placeholder="exigence emploie"
+           name="exigenceemploie" formControlName="exigenceemploie">
   </div>
-
-
-
   <button type="submit" class="btn btn-gradient-primary mr-2">edit</button>
   <button class="btn btn-light" routerLink="/rh/offreemploie">Cancel</button>
 </form>

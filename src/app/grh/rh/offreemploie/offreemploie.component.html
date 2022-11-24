@@ -22,14 +22,11 @@
                    name="titredoffre" placeholder="titre d offre" formControlName="titredoffre">
           </div>
         </div>
-
       </div>
       <div class="form-group mb-5">
         <button class="btn btn-info" type="submit">Rechercher</button>
       </div>
     </form>
-
-
     <div class="table-responsive">
       <table class="table table-hover" *ngIf="offreemploies.length>0">
         <thead>
@@ -55,24 +52,15 @@
           <td>{{i.experience}}</td>
           <td>{{i.exigenceemploie}}</td>
           <td>{{i.datecreation}}</td>
-
-
-
-
           <td>
             <a class="btn btn-sm btn-primary" style="margin-right:5px;" [routerLink]="['/rh/editoffreemploie/'+i.id]">mise a jour</a>
             <a class="btn btn-sm btn-danger" (click)="deleteoffreempl(i.id)">supprimer</a>
           </td>
-
         </tr>
-
         </tbody>
       </table>
-      <span *ngIf="offreemploies.length==0"></span>
+      <span *ngIf="offreemploies.length==0" >le table est vide</span>
     </div>
-
-
-
   </div>
 
 </div>

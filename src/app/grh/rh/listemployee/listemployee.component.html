@@ -36,15 +36,15 @@
 
 
     <div class="table-responsive">
-      <table class="table table-hover" *ngIf="employees.length>0">
+      <table class="table table-bordered table-dark" *ngIf="employees.length>0">
         <thead>
         <tr>
-          <th>nom employee</th>
-          <th>prenom employee</th>
-          <th>post</th>
-          <th>jobid</th>
-          <th>Action</th>
-          <th>mailmeeting</th>
+          <th scope="col">nom employee</th>
+          <th scope="col">prenom employee</th>
+          <th scope="col">post</th>
+          <th scope="col">jobid</th>
+          <th scope="col">Action</th>
+          <th scope="col">mailmeeting</th>
         </tr>
         </thead>
         <tbody>
@@ -55,7 +55,7 @@
           <td>{{i.jobid}}</td>
           <td>
             <a class="btn btn-sm btn-link" [routerLink]="['/rh/detailemployee/'+i.id]" >voir plus</a>
-            <a class="btn btn-sm btn-primary" style="margin-right:5px;"  >
+            <a class="btn btn-sm btn-primary" style="margin-right:5px;" [routerLink]="['/rh/editemployee/'+i.id]" >
               <i class="mdi mdi-rewind"></i>
             </a>
             <a class="btn btn-sm btn-danger" (click)="deleteemployee(i.id)">
@@ -80,8 +80,8 @@
   </div>
   <div>
    <h3 style="color: red">NB:</h3>
-    <p>dans la menu emailmeeting la couleur vert indique la mail de confirmation de meet
-      l autre mail d annulation
+    <p> dans la colone "mailmeeting" coleur vert indique la comfirmation de meet
+      et l autre l annulation
     </p>
 
   </div>

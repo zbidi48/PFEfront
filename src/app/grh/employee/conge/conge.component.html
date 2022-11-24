@@ -3,41 +3,41 @@
   <div class="card mb-4">
     <div class="card-body">
       cliquer sur ce bouton pour ajouter demande conge
-      <a class="btn btn-outline-primary" routerLink="/espaceemployee/addconge">Ajouter demande conge</a>
+      <a  class="btn btn-success" routerLink="/espaceemployee/addconge">Ajouter demande conge</a>
     </div>
   </div>
 
   <div class="table-responsive pt-3">
     <table class="table table-dark">
-      <thead>
+      <thead class="thead-dark">
       <tr>
 
-        <th>
+        <th scope="col">
           date debut
         </th>
-        <th>
+        <th scope="col" >
          date fin
         </th>
-        <th>
+        <th scope="col">
           status conge
         </th>
-        <th>
+        <th scope="col">
          type conge
         </th>
-        <th>
+        <th scope="col">
           nom employee
         </th>
-        <th>
+        <th scope="col">
           prenom employee
         </th>
-        <th>
+        <th scope="col">
          post
         </th>
-        <th>
+        <th scope="col">
           jobid
         </th>
       </tr >
-      </thead>
+      </thead  >
       <tbody>
       <tr *ngFor="let i of conges">
         <td>{{i.datedebut}}</td>

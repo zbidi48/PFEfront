@@ -40,9 +40,10 @@ export class OffreemploiecondidatService {
       {observe: 'response'})
   }
 
-  searchoffrecondidat(data):Observable<HttpResponse<IOffrecondidat[]>>
+  searchoffrecondidatbycin(cin:string):Observable<HttpResponse<IOffrecondidat[]>>
   {
-    return this.http.get<IOffrecondidat[]>(this.api_url+'/inscritoffre/afficherinscroffreparmail/'+data,{observe: 'response'})
+    return this.http.get<IOffrecondidat[]>(this.api_url+'/inscritoffre/chercherinscritoffre/'+cin,
+      {observe: 'response'})
   }
   statusinscritoffre(id:number,status:string):Observable<HttpResponse<IMessageReponse>>
   {

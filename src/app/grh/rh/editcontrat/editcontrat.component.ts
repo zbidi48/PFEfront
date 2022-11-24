@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ContratService} from "../../services/contrat.service";
+import {HttpResponse} from "@angular/common/http";
+import {IContrat} from "../../models/IContrat.model";
+import {IMessageReponse} from "../../models/messageReponse.model";
 
 @Component({
   selector: 'app-editcontrat',
@@ -29,20 +32,21 @@ export class EditcontratComponent implements OnInit {
   {
     const id=this.path.snapshot.params.id;
     console.log(this.macontratform.value);
-    this.contratservice.updatecontrat(this.macontratform.value,id).subscribe((data:any)=>{
+    this.contratservice.updatecontrat(this.macontratform.value,id).subscribe((data:HttpResponse<IMessageReponse>)=>{
       this.router.navigate(['/rh/contrat'])
     })
   }
   getcontratdata():void
   {
-    const id=this.path.snapshot.data.params.id;
-    this.contratservice.getcontratbyid(id).subscribe((data:any)=>{
+
+    this.contratservice.getcontratbyid(this.path.snapshot.params.id).
+    subscribe((data:HttpResponse<IContrat>)=>{
       this.macontratform.setValue(
         {
-          code:data.code,
-          type:data.type,
-          datedebut:data.datedebut,
-          datefin:data.datefin
+          code:data.body.code,
+          type:data.body.type,
+          datedebut:data.body.datedebut,
+          datefin:data.body.datefin
         }
 
       )

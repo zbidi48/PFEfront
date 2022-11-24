@@ -6,6 +6,8 @@ import {IEmployee} from "../../models/IEmployee.model";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {HttpResponse} from "@angular/common/http";
 import {IContratSearch} from "../../models/IContratSearch.model";
+import Swal from "sweetalert2";
+import {IMessageReponse} from "../../models/messageReponse.model";
 
 @Component({
   selector: 'app-contrat',
@@ -47,20 +49,30 @@ export class ContratComponent implements OnInit {
       })
     }
   deletecontrat(id):void
-  {
-    if (confirm('vous ete sure d efface' + id + '!!'))
-    {
+  {Swal.fire({
+    title: 'vous ete sure de supprimer offre emploie ?',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'ok, supprimer!'
+  }).then((result) => {
+    if (result.isConfirmed) {
       this.contratservice.deletecontrat(id).subscribe((data:any)=>
-        {
-          this.getcontrat()
-        }
+      {
+        this.getcontrat()
+      })
+      Swal.fire(
+        'supprimer!',
+        'offre emploie est supprimé.',
+        'success'
       )
     }
+  })
+
   }
   searchcontratbycode():void
   {
-    //console.log(this.cherchcontratform.value.code)
-
     this.contratservice.searchcontratbycode(this.cherchcontratform.value.code).subscribe(
       (value:HttpResponse<IContrat[]>) => {
         this.contras=value.body
@@ -74,12 +86,8 @@ export class ContratComponent implements OnInit {
     this.contratservice.searchcontratbyjobid(this.chercherparjobid.value.jobid).subscribe(
       (value:HttpResponse<IContrat[]>) => {
         this.contras=value.body
-
       }
-    )
-  }
+    )}
 
-  download(url: string) {
-   console.log( URL.createObjectURL(url))
-  }
+
 }

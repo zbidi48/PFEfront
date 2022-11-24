@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {IOffreemploie} from "../../models/IOffreemploie.model";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {OffreemploieService} from "../../services/offreemploie.service";
+import {HttpResponse} from "@angular/common/http";
+import {IMessageReponse} from "../../models/messageReponse.model";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-offreemploie',
@@ -32,21 +35,32 @@ export class OffreemploieComponent implements OnInit {
   }
   deleteoffreempl(id):void
   {
-    if (confirm('vous ete sure d efface' + id + '!!'))
-    {
-      this.offresemploieservice.deleteoffre(id).subscribe(value => {
-        this.getoffreempl()
-      })
-    }
+    Swal.fire({
+      title: 'vous ete sure de supprimer offre emploie ?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'ok, supprimer!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.offresemploieservice.deleteoffre(id).
+        subscribe((value:HttpResponse<IMessageReponse>) => {
+          this.getoffreempl()
+        })
+        Swal.fire(
+          'supprimer!',
+          'offre emploie est supprimé.',
+          'success'
+        )
+      }
+    })
   }
   search():void
   {
-    this.offresemploieservice.searchoffre(this.searchoffreempl.value.titredoffre).subscribe((value:any) => {
+    this.offresemploieservice.searchoffre(this.searchoffreempl.value.titredoffre).
+    subscribe((value:HttpResponse<IOffreemploie[]>) => {
       this.offreemploies=value.body
-
-    },(err) => {
-      this.getoffreempl()
-      alert(('offre non trouver verifier svp'));
     })
   }
 

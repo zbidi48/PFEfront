@@ -14,7 +14,11 @@ const routes: Routes = [
   {path:'editnotedefraie/:id',loadChildren: () => import('./editnotedefraie/editnotedefraie.module')
       .then(m => m.EditnotedefraieModule)},
   {path:'formationemployee',loadChildren: () => import('./formationemployee/formationemployee.module')
-      .then(m => m.FormationemployeeModule)}
+      .then(m => m.FormationemployeeModule)},
+  {path:'contratemployee',loadChildren: () => import('./contratemployee/contratemployee.module')
+      .then(m => m.ContratemployeeModule)},
+  {path:'fichedepaieemployee',loadChildren: () => import('./fichedepaieemployee/fichedepaieemployee.module')
+      .then(m => m.FichedepaieemployeeModule)}
 
 ];
 

@@ -215,5 +215,20 @@
         <i class="mdi mdi-account-convert menu-icon"></i>
       </a>
     </li>
+    <li class="nav-item" [ngClass]="{ 'active': dashboard.isActive }" *ngIf="authority === 'ROLE_Employee'">
+      <a class="nav-link" routerLink="/espaceemployee/contratemployee" routerLinkActive #dashboard="routerLinkActive">
+        <span class="menu-title">contrat info</span>
+
+        <i class="mdi mdi-account-convert menu-icon"></i>
+      </a>
+    </li>
+    <li class="nav-item" [ngClass]="{ 'active': dashboard.isActive }" *ngIf="authority === 'ROLE_Employee'">
+      <a class="nav-link" routerLink="/espaceemployee/fichedepaieemployee"
+         routerLinkActive #dashboard="routerLinkActive">
+        <span class="menu-title">fiche de paie info</span>
+
+        <i class="mdi mdi-account-convert menu-icon"></i>
+      </a>
+    </li>
   </ul>
 </nav>

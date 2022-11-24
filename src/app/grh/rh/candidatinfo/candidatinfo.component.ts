@@ -15,10 +15,9 @@ import Swal, {SweetAlertResult} from "sweetalert2";
 export class CandidatinfoComponent implements OnInit {
   candidats:ICondidat[]=[];
   cherchcandidatform: FormGroup = this.fb.group({
-
     nom: ['', Validators.required],
-    prenom:['', Validators.required]
-
+    prenom:['', Validators.required],
+    cin:['', Validators.required],
   })
 
 
@@ -40,7 +39,14 @@ export class CandidatinfoComponent implements OnInit {
     })
 
   }
-
+ searchbyCIN()
+ {
+   this.condidatservice.searchbycin(this.cherchcandidatform.value.cin).subscribe(
+     (value:HttpResponse<ICondidat[]>) => {
+       this.candidats=value.body
+     }
+   )
+ }
 
   sendMail(id: number, typeEmail: string) {
     Swal.fire({

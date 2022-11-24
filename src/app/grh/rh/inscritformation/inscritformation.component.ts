@@ -4,6 +4,7 @@ import {Iinscritformation} from "../../models/Iinscritformation.model";
 import {HttpErrorResponse, HttpResponse} from "@angular/common/http";
 import Swal from "sweetalert2";
 import {IMessageReponse} from "../../models/messageReponse.model";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-inscritformation',
@@ -12,7 +13,13 @@ import {IMessageReponse} from "../../models/messageReponse.model";
 })
 export class InscritformationComponent implements OnInit {
   inscritformtions:Iinscritformation[]=[];
-  constructor(private inscritformationservice:InscritformationService) { }
+  inscritsearchform: FormGroup = this.fb.group({
+
+    jobid: ['', Validators.required],
+
+  })
+  constructor(private inscritformationservice:InscritformationService,
+              private fb:FormBuilder) { }
   msg:string = '';
   ngOnInit(): void {
     this.inscritformationservice.getinscritformation().
@@ -31,7 +38,7 @@ export class InscritformationComponent implements OnInit {
         this.inscritformationservice.satatusinscritformation(id, status).subscribe({
           next:(msg:HttpResponse<IMessageReponse>)=> this.msg=msg.body.message,
           error:(err:HttpErrorResponse) => {
-            //Swal.fire('erreur ','','error')
+
             this.msg = ''
           },
           complete:() => {
@@ -46,6 +53,13 @@ export class InscritformationComponent implements OnInit {
         })
 
       }
+    })
+  }
+  searchinscrit()
+  {
+    this.inscritformationservice.searchinscritformation(this.inscritsearchform.value.jobid).
+    subscribe((value:HttpResponse<Iinscritformation[]>) => {
+      this.inscritformtions=value.body
     })
   }
 

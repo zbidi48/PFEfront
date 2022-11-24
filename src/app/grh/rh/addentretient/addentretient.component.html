@@ -1,27 +1,26 @@
-<form class="forms-sample" [formGroup]="entretientform" (ngSubmit)="ajouterentretient()">
+<form class="forms-sample" [formGroup]="entretientaddform" (ngSubmit)="ajouterentretient()">
   <div class="form-group">
-    <label >nom&&prenom de condidats</label>
-    <input type="text" class="form-control" id="nom&&prenom de condidat" placeholder="nom&&prenom de condidat" name=" nometprenomdecondidat" formControlName=" nometprenomdecondidat">
+    <label >date entretient:</label>
+    <input type="date" class="form-control" id="date" placeholder="date entretient"
+           name="date" formControlName="date">
   </div>
   <div class="form-group">
-    <label >date</label>
-    <input type="date" class="form-control" id="date" placeholder="date" name="date" formControlName="date">
+    <label >heure entretient:</label>
+    <input type="time" class="form-control" id="heure" placeholder="heure entretient"
+           name="heure" formControlName="heure" step="2">
   </div>
-  <div class="form-group">
-    <label >heure</label>
-    <input type="time" class="form-control" id="heure" placeholder="heure" name="heure" formControlName="heure">
-  </div>
-  <div class="form-group">
-    <label >equipe manager</label>
-    <input type="text" class="form-control" id="equipe manager" placeholder="equipe manager" name="equipemanager" formControlName="equipemanager">
-  </div>
-  <div class="form-group">
-    <label >compétence</label>
-    <input type="text" class="form-control" id="compétence" placeholder="compétence" name="compétence" formControlName="compétence">
-  </div>
+  <div class="form-group>">
+    <select class="form-control" formControlName="condidats_id" >
+      <option value="">CHoisir le candidat  convenable</option>
+      <option value="{{c.id}}" *ngFor="let c of candidats ">
+        prenom:{{c.prenom}}
+        nom:{{c.nom}}
+        carte identité:{{c.cin}}
+      </option>
+    </select>
 
-
+  </div>
   <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
   <button class="btn btn-light" routerLink="/rh/entretient">Cancel</button>
 </form>
-<h1>composant pas encore realisé</h1>
+

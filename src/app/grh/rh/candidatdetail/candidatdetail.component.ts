@@ -15,20 +15,11 @@ candidat:ICondidat=null;
                private candidatservice:CondidatService) { }
 
   ngOnInit(): void {
-    this.getdetailcand()
-
-  }
-  getdetailcand()
-  {
-    const id=this.path.snapshot.params.id
-    //console.log(id)
-
-    this.candidatservice.detaillcandidat(id)
+    this.candidatservice.detaillcandidat(this.path.snapshot.params.id)
       .subscribe((value:HttpResponse<ICondidat>) => {
         this.candidat=value.body
-
       })
-
   }
+
 
 }

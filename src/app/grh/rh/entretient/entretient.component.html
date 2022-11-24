@@ -10,37 +10,56 @@
 
   <hr>
   <div >
-
-
-
-    <form [formGroup]="cherchentretientform"  (ngSubmit)="searchentetient()">
-      <div class="row">
-        <div class="col-sm-6">
-          <div class="form-group ">
-            <label>taper le nom de candidat:</label>
-            <input type="text" id="nom"
-                   class="form-control"
-                   name="nom"
-                   placeholder="entrer le nom de candidat"
-                   formControlName="nom">
+    <div>
+      <form [formGroup]="cherchentretientform"  (ngSubmit)="searchentetient()">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group ">
+              <label>taper le nom de candidat:</label>
+              <input type="text" id="nom"
+                     class="form-control"
+                     name="nom"
+                     placeholder="entrer le nom de candidat"
+                     formControlName="nom">
+            </div>
           </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="form-group ">
-            <label >taper le prenom de candidat:</label>
-            <input type="text" id="prenom"
-                   class="form-control"
-                   name="prenom"
-                   placeholder="entrer le prenom de candidat"
-                   formControlName="prenom">
+          <div class="col-sm-6">
+            <div class="form-group ">
+              <label >taper le prenom de candidat:</label>
+              <input type="text" id="prenom"
+                     class="form-control"
+                     name="prenom"
+                     placeholder="entrer le prenom de candidat"
+                     formControlName="prenom">
+            </div>
           </div>
-        </div>
 
-      </div>
-      <div class="form-group mb-5">
-        <button class="btn btn-info" type="submit">Rechercher</button>
-      </div>
-    </form>
+        </div>
+        <div class="form-group mb-5">
+          <button  class="btn btn-success" type="submit">chercher par nom et prenom</button>
+        </div>
+      </form>
+      <form [formGroup]="cherchentretientform"  (ngSubmit)="searchbycondcin()">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group ">
+              <label>taper la carte identité de candidat:</label>
+              <input type="text" id="cin"
+                     class="form-control"
+                     name="cin"
+                     placeholder="numrero carte identité "
+                     formControlName="cin">
+            </div>
+          </div>
+
+
+        </div>
+        <div class="form-group mb-5">
+          <button  class="btn btn-success"type="submit">chercher par cin</button>
+
+        </div>
+      </form>
+    </div>
     <div class="card mb-4">
       <div class="card-header">
         <i class="fas fa-table me-1"></i>
@@ -69,7 +88,9 @@
             <td>{{i.prenom}}</td>
             <td>{{i.cin}}</td>
             <td>
-              <a class="btn btn-sm btn-primary" style="margin-right:5px;"  >mise a jour</a>
+              <a class="btn btn-sm btn-primary" style="margin-right:5px;" [routerLink]="['/rh/editentretient/'+i.id]" >
+                mise a jour
+              </a>
               <a class="btn btn-sm btn-danger"  (click)="deleteentret(i.id)">
                 <i class="mdi mdi-delete"></i>
               </a>

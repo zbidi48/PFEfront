@@ -1,33 +1,41 @@
 <div class="container-fluid px-4">
   <h1 class="mt-4">detaille candidat </h1>
-  <div >
-    <div>
-      <h3>candidat email</h3>
-      {{candidat.email}}
-      <h3>date de naissance:</h3>
-      {{candidat.dateOfBirth}}
-      <h3>numéro télephone:</h3>
-      {{candidat.phone}}
-      <h3>adresse:</h3>
-      {{candidat.adresse}}
-      <h3>ville:</h3>
-      {{candidat.ville}}
-      <h3>nationalité:</h3>
-      {{candidat.nationality}}
-      <h3>niveau etude</h3>
-      {{candidat.niveauEtud}}
-      <h3>niveau expéreince:</h3>
-      {{candidat.niveauExp}}
-      <h3>université:</h3>
-      {{candidat.university}}
+  <div class="card">
 
-
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-6">
+          <p class="text-light bg-dark pl-1">candidat email</p>
+          <p class="text-light bg-dark pl-1">date de naissance:</p>
+          <p class="text-light bg-dark pl-1">numéro télephone:</p>
+          <p class="text-light bg-dark pl-1">adresse:</p>
+          <p class="text-light bg-dark pl-1">ville:</p>
+          <p class="text-light bg-dark pl-1">nationalité:</p>
+          <p class="text-light bg-dark pl-1">niveau etude:</p>
+          <p class="text-light bg-dark pl-1">niveau expéreince:</p>
+          <p class="text-light bg-dark pl-1">université:</p>
+          <p class="text-light bg-dark pl-1">Carte identité:</p>
+        </div>
+        <div class="col-md-6">
+          <p style="color: #6a008a"> {{candidat.email}}</p>
+          <p style="color: #6a008a"> {{candidat.dateOfBirth}}</p>
+          <p style="color: #6a008a"> {{candidat.phone}}</p>
+          <p style="color: #6a008a"> {{candidat.adresse}}</p>
+          <p style="color: #6a008a"> {{candidat.ville}}</p>
+          <p style="color: #6a008a"> {{candidat.nationality}}</p>
+          <p style="color: #6a008a"> {{candidat.niveauEtud}}</p>
+          <p style="color: #6a008a"> {{candidat.experience}}</p>
+          <p style="color: #6a008a"> {{candidat.university}}</p>
+          <p style="color: #6a008a"> {{candidat.cin}}</p>
+        </div>
+      </div>
     </div>
     <div>
-      <button  class="btn btn-warning mr-2" routerLink="/rh/candidatinfo">retour au candidat info</button>
-
+      <button class="btn btn-info" routerLink="/rh/candidatinfo">
+        retour
+        <i class="mdi mdi-exit-to-app"></i>
+      </button>
     </div>
-
   </div>
 
 </div>

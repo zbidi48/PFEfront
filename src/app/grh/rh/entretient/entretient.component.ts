@@ -16,7 +16,8 @@ export class EntretientComponent implements OnInit {
   cherchentretientform: FormGroup = this.fb.group({
 
     nom: ['', Validators.required],
-    prenom:['', Validators.required]
+    prenom:['', Validators.required],
+    cin:['', Validators.required]
 
   })
   msg:string = '';
@@ -91,8 +92,14 @@ export class EntretientComponent implements OnInit {
     searchentretient(this.cherchentretientform.value.nom,this.cherchentretientform.value.prenom).subscribe(
       (value:HttpResponse<IEntretient[]>) => {
         this.entretients=value.body
-      }
-    )
+      })
   }
+searchbycondcin()
+{
+  this.entrtientservice.searchbycin(this.cherchentretientform.value.cin).
+  subscribe((value:HttpResponse<IEntretient[]>) =>{
+    this.entretients=value.body
+  } )
+}
 
 }

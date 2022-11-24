@@ -20,7 +20,7 @@ export class EmployeeService {
   {
     return this.http.post<IMessageReponse>(this.api_url+'/employee/crieremployee',data,{observe: 'response'})
   }
-  updateemployee(data,id):Observable<HttpResponse<IMessageReponse>>
+  updateemployee(id:number,data:any):Observable<HttpResponse<IMessageReponse>>
   {
     return this.http.put<IMessageReponse>(this.api_url+'/employee/miseajouemplyee/'+id,data,{observe: 'response'})
   }

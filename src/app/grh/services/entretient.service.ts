@@ -21,7 +21,7 @@ export class EntretientService {
     return this.http.post<IMessageReponse>(this.api_url+'/entretient/ajouterentretient',data,
       {observe: 'response'})
   }
- updateentretient(data:any,id:number): Observable<HttpResponse<IMessageReponse>>
+ updateentretient(id:number,data:any): Observable<HttpResponse<IMessageReponse>>
  {
    return this.http.put<IMessageReponse>(this.api_url+'/entretient/miseajourentrtient/'+id,data,
      {observe: 'response'})
@@ -53,6 +53,11 @@ getentretientbymail(email:string):Observable<HttpResponse<IEntretient[]>>
 statusentretient(id:number,status:string):Observable<HttpResponse<IMessageReponse>>
 {
   return this.http.put<IMessageReponse>(this.api_url+'/entretient/statusentretient/'+id+"/"+status,null,
+    {observe: 'response'})
+}
+searchbycin(cin:string):Observable<HttpResponse<IEntretient[]>>
+{
+  return this.http.get<IEntretient[]>(this.api_url+'/entretient/chercherentretientparcin/'+cin,
     {observe: 'response'})
 }
 

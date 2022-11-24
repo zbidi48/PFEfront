@@ -16,7 +16,6 @@ export class EditemployeeComponent implements OnInit {
     nom:['', Validators.required],
     prenom:['', Validators.required],
     email:['', Validators.required],
-    password:['',Validators.required],
     post:['', Validators.required],
     status:['',Validators.required],
     salary:['',Validators.required],
@@ -52,7 +51,8 @@ getdatbyid()
 }
 editemployee()
 {
-  this.employeeservice.updateemployee(this.path.snapshot.params.id,this.employeeeditform.value).subscribe(
+  this.employeeservice.updateemployee(this.path.snapshot.params.id,this.employeeeditform.value)
+    .subscribe(
     (value:HttpResponse<IMessageReponse>) => {
       this.employeeeditform.reset(true)
       this.router.navigate(['/rh/listemployee'])

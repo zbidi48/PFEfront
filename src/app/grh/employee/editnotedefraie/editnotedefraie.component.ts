@@ -15,9 +15,6 @@ export class EditnotedefraieComponent implements OnInit {
   updatenotedefraieform: FormGroup = this.fb.group({
     description:['',Validators.required],
     fraie: ['', Validators.required],
-
-
-
   })
   constructor(private notedefraieservice:NotedefraieService,
               private fb:FormBuilder,

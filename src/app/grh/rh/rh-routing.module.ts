@@ -26,13 +26,14 @@ const routes: Routes = [
     then(m => m.EntretientModule)},
   {path:'addentretient',loadChildren: () => import('./addentretient/addentretient.module').
     then(m => m.AddentretientModule)},
+  {path:'editentretient/:id',loadChildren: () => import('./editentretient/editentretient.module').
+    then(m => m.EditentretientModule)},
   {path:'contrat',loadChildren: () => import('./contrat/contrat.module').
     then(m => m.ContratModule)},
   {path:'addcontrat',loadChildren: () => import('./addcontrat/addcontrat.module').
     then(m => m.AddcontratModule)},
   {path:'editcontrat/:id',loadChildren: () => import('./editcontrat/editcontrat.module').
     then(m => m.EditcontratModule)},
-
   {path:'offreemploie',loadChildren: () => import('./offreemploie/offreemploie.module').
     then(m => m.OffreemploieModule)},
   {path:'addoffreemploie',loadChildren: () => import('./addoffreemploie/addoffreemploie.module')

@@ -43,7 +43,17 @@ export class FichedepaieService {
     return this.http.get<IFichdepaie[]>(this.api_url+'/fichedepaie/chercherfichedepaie/'+data,
       {observe:'response'} )
   }
+getfichebyemplid(emplid:number):Observable<HttpResponse<IFichdepaie[]>>
+{
+  return this.http.get<IFichdepaie[]>(this.api_url+'/fichedepaie/detailficheuserid/'+emplid,
+    {observe:'response'})
+}
+exporterfichedepaie(id:number,emplid:number):Observable<HttpResponse<IMessageReponse>>
+{
+  return this.http.post<IMessageReponse>(this.api_url+'/fichedepaie/exporterpdf/'+id+"/"+emplid,
+    null,{observe:'response'})
 
+}
 
 
 }

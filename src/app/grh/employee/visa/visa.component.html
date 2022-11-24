@@ -8,7 +8,7 @@
   </div>
 
   <div class="table-responsive pt-3">
-    <table class="table table-dark">
+    <table class="table table-dark" *ngIf="visas.length>0">
       <thead>
       <tr>
         <th>#</th>
@@ -37,5 +37,6 @@
       </tbody>
 
     </table>
+    <span *ngIf="visas.length==0">le table est vide</span>
   </div>
 </div>

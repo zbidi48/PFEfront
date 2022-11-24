@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {OffreemploieService} from "../../services/offreemploie.service";
+import {HttpResponse} from "@angular/common/http";
+import {IMessageReponse} from "../../models/messageReponse.model";
+import {IOffreemploie} from "../../models/IOffreemploie.model";
 
 @Component({
   selector: 'app-editoffreemploie',
@@ -16,45 +19,35 @@ export class EditoffreemploieComponent implements OnInit {
     langue: ['', Validators.required],
     experience: ['', Validators.required],
     exigenceemploie:['',Validators.required]
-
-
   })
-
-
   constructor(private fb:FormBuilder,
               private path:ActivatedRoute,
               private router:Router,
               private  offreemploieservice:OffreemploieService) { }
 
   ngOnInit(): void {
-    this.id=this.path.snapshot.params.id;
-    this.data=this.maoffreemplform.value
-    this.getoffredata()
+
+    this.offreemploieservice.getodffrebyid(this.path.snapshot.params.id).
+    subscribe((value:HttpResponse<IOffreemploie>) => {
+      this.maoffreemplform.setValue(
+        {
+          titredoffre:value.body.titredoffre,
+          datelimite:value.body.datelimite,
+          description:value.body.description,
+          langue:value.body.langue,
+          experience:value.body.experience,
+          exigenceemploie:value.body.exigenceemploie
+        })
+    })
   }
   id;
   data;
   editoffreemploie():void
   {
-    //console.log(this.maoffreemplform.value)
-
-    this.offreemploieservice.updateoffre(this.data,this.id).subscribe((value:any) => {
+    this.offreemploieservice.updateoffre(this.maoffreemplform.value,this.path.snapshot.params.id)
+      .subscribe((value: HttpResponse<IMessageReponse>) => {
       this.router.navigate(['/rh/offreemploie'])
     })
 
   }
-  getoffredata():void
-  {
-    this.offreemploieservice.getodffrebyid(this.id).subscribe((value:any) => {
-      this.maoffreemplform.setValue(
-        {
-          titredoffre:value.titredoffre,
-          datelimite:value.datelimite,
-          description:value.description,
-          langue:value.langue,
-          experience:value.experience,
-          exigenceemploie:value.exigenceemploie
-        })
-    })
-  }
-
 }
