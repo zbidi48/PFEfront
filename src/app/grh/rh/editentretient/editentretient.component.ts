@@ -14,7 +14,7 @@ import {IEntretient} from "../../models/IEntretient.model";
 export class EditentretientComponent implements OnInit {
 
   miseajourentreteintform: FormGroup = this.fb.group({
-    date:['',Validators.required],
+    date:[Validators.required],
     heure: ['', Validators.required],
   })
   constructor(private entretientservice:EntretientService,

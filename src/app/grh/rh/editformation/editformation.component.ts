@@ -16,7 +16,7 @@ export class EditformationComponent implements OnInit {
     maformationform: FormGroup = this.fb.group({
       nomdeforamtion: ['', Validators.required],
       typedeformation: ['', Validators.required],
-      datedebut:['', Validators.required],
+      datedebut:[ Validators.required],
       heure:['', Validators.required],
 
 

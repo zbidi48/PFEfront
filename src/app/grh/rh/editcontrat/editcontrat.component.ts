@@ -15,8 +15,8 @@ export class EditcontratComponent implements OnInit {
   macontratform: FormGroup = this.fb.group({
     code:['', Validators.required],
     type:['', Validators.required],
-    datedebut:['', Validators.required],
-    datefin:['', Validators.required]
+    datedebut:[ Validators.required],
+    datefin:[Validators.required]
 
 
   })

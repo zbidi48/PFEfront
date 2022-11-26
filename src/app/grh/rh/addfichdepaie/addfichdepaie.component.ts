@@ -13,7 +13,7 @@ import {HttpErrorResponse} from "@angular/common/http";
 export class AddfichdepaieComponent implements OnInit {
   employees:IEmployee[]=[];
   fichepform: FormGroup = this.fb.group({
-    date:['',Validators.required],
+    date:[Validators.required],
     salairenet: ['', Validators.required],
     salairebrut: ['', Validators.required],
    employee_id:['',Validators.required]

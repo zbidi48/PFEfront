@@ -70,7 +70,9 @@ const routes: Routes = [
   {path:'addmeeting',loadChildren: () => import('./addmeeting/addmeeting.module').
     then(m => m.AddmeetingModule)},
   {path:'editmeeting/:id',loadChildren: () => import('./editmeeting/editmeeting.module').
-    then(m => m.EditmeetingModule)}
+    then(m => m.EditmeetingModule)},
+  {path:'dashboard',loadChildren: () => import('./dashboard/dashboard.module').
+    then(m => m.DashboardModule)}
 ];
 
 @NgModule({

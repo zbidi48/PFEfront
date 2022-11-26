@@ -14,7 +14,7 @@ import Swal from "sweetalert2";
 })
 export class EditmeetingComponent implements OnInit {
   editmetingform: FormGroup = this.fb.group({
-    date:['', Validators.required],
+    date:[ Validators.required],
     heure:['', Validators.required],
     lienmeet:['', Validators.required],
     typemeeting:['', Validators.required],

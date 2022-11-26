@@ -13,7 +13,7 @@ export class AddformationComponent implements OnInit {
   formationform: FormGroup = this.fb.group({
     nomdeforamtion: ['', Validators.required],
     typedeformation: ['', Validators.required],
-    datedebut:['', Validators.required],
+    datedebut:[ Validators.required],
     heure:['', Validators.required],
 
   })

@@ -12,7 +12,7 @@ import {IMessageReponse} from "../../models/messageReponse.model";
 export class AddoffreemploieComponent implements OnInit {
  offreemplform: FormGroup = this.fb.group({
    titredoffre: ['',Validators.required],
-   datelimite: ['', Validators.required],
+   datelimite: [ Validators.required],
    description: ['', Validators.required],
    langue: ['', Validators.required],
    experience: ['', Validators.required],

@@ -17,8 +17,8 @@ export class AddcongeComponent implements OnInit {
   employee:IEmployee[]=[];
 congeform: FormGroup = this.fb.group({
 
-  datedebut: ['', Validators.required],
-  datefin:['',Validators.required],
+  datedebut:['yyyy-MM-dd',Validators.required],
+  datefin:['yyyy-MM-dd',Validators.required],
 
   typeConge:['',Validators.required],
   employee_id:[this.storageservice.getId(),Validators.required]

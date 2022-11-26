@@ -18,7 +18,7 @@ export class AddentretientComponent implements OnInit {
  candidats:ICondidat[]=[];
  entretientaddform: FormGroup = this.fb.group({
 
-   date: ['', Validators.required],
+   date: [ Validators.required],
    heure: ['', Validators.required],
    condidats_id: ['', Validators.required],
 

@@ -14,7 +14,7 @@ import {IOffreemploie} from "../../models/IOffreemploie.model";
 export class EditoffreemploieComponent implements OnInit {
   maoffreemplform: FormGroup = this.fb.group({
     titredoffre: ['',Validators.required],
-    datelimite: ['', Validators.required],
+    datelimite: [ Validators.required],
     description: ['', Validators.required],
     langue: ['', Validators.required],
     experience: ['', Validators.required],

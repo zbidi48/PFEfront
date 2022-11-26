@@ -14,7 +14,7 @@ import {StorageService} from "../../services/storage.service";
 export class EditfichedepaieComponent implements OnInit {
   employees:IEmployee[]=[];
   mafichepform: FormGroup = this.fb.group({
-    date:['',Validators.required],
+    date:[Validators.required],
     salairenet: ['', Validators.required],
     salairebrut: ['', Validators.required]
 

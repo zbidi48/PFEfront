@@ -26,12 +26,10 @@ export class OffreemploieComponent implements OnInit {
   }
   getoffreempl():void
   {
-    this.offresemploieservice.getoffre().subscribe((value:any) => {
+    this.offresemploieservice.getoffre().subscribe((value:HttpResponse<IOffreemploie[]>) => {
       this.offreemploies=value.body
 
-    },(err) => {
-    alert(('eurreure'));
-  })
+    })
   }
   deleteoffreempl(id):void
   {

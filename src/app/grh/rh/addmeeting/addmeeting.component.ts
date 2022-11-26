@@ -11,7 +11,7 @@ import {IMessageReponse} from "../../models/messageReponse.model";
 })
 export class AddmeetingComponent implements OnInit {
  meetingaddform: FormGroup = this.fb.group({
-   date:['',Validators.required],
+   date:[Validators.required],
    heure: ['', Validators.required],
    lienmeet: ['', Validators.required],
    typemeeting: ['', Validators.required],

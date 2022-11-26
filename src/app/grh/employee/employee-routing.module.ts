@@ -18,7 +18,9 @@ const routes: Routes = [
   {path:'contratemployee',loadChildren: () => import('./contratemployee/contratemployee.module')
       .then(m => m.ContratemployeeModule)},
   {path:'fichedepaieemployee',loadChildren: () => import('./fichedepaieemployee/fichedepaieemployee.module')
-      .then(m => m.FichedepaieemployeeModule)}
+      .then(m => m.FichedepaieemployeeModule)},
+  {path:'inscritformationemployee',loadChildren: () => import('./inscritformationemployee/inscritformationemployee.module')
+      .then(m => m.InscritformationemployeeModule)}
 
 ];
 

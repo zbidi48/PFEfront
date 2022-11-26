@@ -47,4 +47,5 @@ export class FormationService {
     return this.http.get<IFormation[]>(this.api_url+'/formation/listformation/'+data,
       {observe: 'response'})
   }
+
 }
