@@ -1,4 +1,10 @@
 <form class="forms-sample" [formGroup]="contratform" (ngSubmit)="Addcontrat()">
+  <div class="alert-success" *ngIf="showMsg">
+    {{message}}
+  </div>
+  <div class="alert-success" *ngIf="has_error">
+    {{error_message}}
+  </div>
   <div class="form-group">
     <label >code</label>
     <input type="text" class="form-control" id="code" placeholder="code" name="code" formControlName="code">

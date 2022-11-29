@@ -3,7 +3,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ContratService} from "../../services/contrat.service";
 import {EmployeeService} from "../../services/employee.service";
 import {IEmployee} from "../../models/IEmployee.model";
-import {HttpResponse} from "@angular/common/http";
+import {HttpErrorResponse, HttpResponse} from "@angular/common/http";
 import {IMessageReponse} from "../../models/messageReponse.model";
 
 @Component({
@@ -26,10 +26,15 @@ export class AddcontratComponent implements OnInit {
                private contratservice:ContratService ,
                private  employeeservice:EmployeeService) { }
   formSubmitted: boolean = false;
-  message="Ajout contrat avec success!";
+  message="Ajout avec success!";
   showMsg:boolean = false;
+  has_error:boolean = false;
+  error_message:string ='';
   ngOnInit(): void {
-    this.getemploy()
+    this.employeeservice.getemployee().subscribe((value:HttpResponse<IEmployee[]>) => {
+      this.employees=value.body
+
+    })
   }
 Addcontrat():void
 {
@@ -43,18 +48,14 @@ Addcontrat():void
         //console.log(res.body.message);
         this.showMsg = true;
         this.contratform.reset(true);
+      },(error: HttpErrorResponse)=>{
+        this.showMsg = false;
+        this.has_error = true;
+        this.error_message = error.message
       }
     )
   }
 
 }
-  getemploy():void
-  {
-    this.employeeservice.getemployee().subscribe(value => {
-      this.employees=value.body
 
-    },(error)=>{
-      alert(('eurreure'));
-    })
-  }
 }

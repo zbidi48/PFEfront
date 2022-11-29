@@ -178,6 +178,20 @@
         <i class="mdi mdi-account-convert menu-icon"></i>
       </a>
     </li>
+    <li class="nav-item" [ngClass]="{ 'active': dashboard.isActive }" *ngIf="authority === 'ROLE_Condidat'">
+      <a class="nav-link" routerLink="/espacecondidat/inscritoffre" routerLinkActive #dashboard="routerLinkActive">
+        <span class="menu-title">mes offres postuler </span>
+
+        <i class="mdi mdi-account-convert menu-icon"></i>
+      </a>
+    </li>
+    <li class="nav-item" [ngClass]="{ 'active': dashboard.isActive }" *ngIf="authority === 'ROLE_Condidat'">
+      <a class="nav-link" routerLink="/espacecondidat/entretient" routerLinkActive #dashboard="routerLinkActive">
+        <span class="menu-title">entretient</span>
+
+        <i class="mdi mdi-account-convert menu-icon"></i>
+      </a>
+    </li>
     <li class="nav-item" [ngClass]="{ 'active': dashboard.isActive }" *ngIf="authority === 'ROLE_Employee'">
       <a class="nav-link" routerLink="/espaceemployee/congeemployee" routerLinkActive #dashboard="routerLinkActive">
         <span class="menu-title">congé </span>

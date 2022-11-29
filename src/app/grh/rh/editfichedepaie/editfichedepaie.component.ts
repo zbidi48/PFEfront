@@ -5,6 +5,8 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {FichedepaieService} from "../../services/fichedepaie.service";
 import {EmployeeService} from "../../services/employee.service";
 import {StorageService} from "../../services/storage.service";
+import {HttpResponse} from "@angular/common/http";
+import {IFichdepaie} from "../../models/IFichdepaie.model";
 
 @Component({
   selector: 'app-editfichedepaie',
@@ -55,12 +57,12 @@ export class EditfichedepaieComponent implements OnInit {
   }
   getfichedata():void
   {
-    const id=this.path.snapshot.params.id
-    this.fichedepaieservice.getfichebyid(id).subscribe((value:any) => {
+
+    this.fichedepaieservice.getfichebyid(this.path.snapshot.params.id).subscribe((value:HttpResponse<IFichdepaie>) => {
       this.mafichepform.setValue({
-        date:value.date,
-        salairenet:value.salairenet,
-        salairebrut:value.salairebrut
+        date:value.body.date,
+        salairenet:value.body.salairenet,
+        salairebrut:value.body.salairebrut
 
 
       })

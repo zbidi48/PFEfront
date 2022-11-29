@@ -1,23 +1,28 @@
 <div class="container-fluid px-4">
   <h6 class="mt-4">voila l offre d emploie en detaille </h6>
   <div >
-   <div >
-     <h1>titredoffre:</h1><br>
-     {{offresemploie.titredoffre}}
-     <h1>datelimite:</h1><br>
-     {{offresemploie.datelimite | date}}
-     <h1>datecreation:</h1><br>
-     {{offresemploie.datecreation | date}}
-     <h1>description:</h1><br>
-     {{offresemploie.description}}
-     <h1>langue:</h1><br>
-     {{offresemploie.langue}}
-     <h1>experience:</h1><br>
-     {{offresemploie.experience}}
-     <h1>exigenceemploie:</h1><br>
-     {{offresemploie.exigenceemploie}}
-
-   </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-6">
+          <p class="text-light bg-dark pl-1">titredoffre:</p>
+          <p class="text-light bg-dark pl-1">datelimite:</p>
+          <p class="text-light bg-dark pl-1">datecreation:</p>
+          <p class="text-light bg-dark pl-1">description:</p>
+          <p class="text-light bg-dark pl-1">langue:</p>
+          <p class="text-light bg-dark pl-1">experience:</p>
+          <p class="text-light bg-dark pl-1">exigenceemploie:</p>
+        </div>
+        <div class="col-md-6">
+          <p style="color: #6a008a">{{offresemploie.titredoffre}}</p>
+          <p style="color: #6a008a">{{offresemploie.datelimite}}</p>
+          <p  style="color: #6a008a">{{offresemploie.datecreation}}</p>
+          <p  style="color: #6a008a">{{offresemploie.description}}</p>
+          <p style="color: #6a008a">{{offresemploie.langue}}</p>
+          <p  style="color: #6a008a">{{offresemploie.experience}}</p>
+          <p  style="color: #6a008a">{{offresemploie.exigenceemploie}}</p>
+        </div>
+      </div>
+    </div>
     <div >
       <button class="btn btn-warning" routerLink="/espacecondidat/offreemploie">retour vers l offre
       </button>

@@ -50,7 +50,7 @@ export class ContratComponent implements OnInit {
     }
   deletecontrat(id):void
   {Swal.fire({
-    title: 'vous ete sure de supprimer offre emploie ?',
+    title: 'vous ete sure de supprimer un contrat ?',
     icon: 'warning',
     showCancelButton: true,
     confirmButtonColor: '#3085d6',

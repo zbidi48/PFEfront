@@ -3,6 +3,7 @@ import {IConge} from "../../models/IConge.model";
 import {ActivatedRoute, Router} from "@angular/router";
 import {StorageService} from "../../services/storage.service";
 import {CongeService} from "../../services/conge.service";
+import {HttpResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-conge',
@@ -24,7 +25,7 @@ mail;
   }
   getconge():void
   {
-    this.congeservice.getcongebymail(this.mail).subscribe((value:any) => {
+    this.congeservice.getcongebymail(this.mail).subscribe((value:HttpResponse<IConge[]>) => {
       this.conges=value.body
     })
   }

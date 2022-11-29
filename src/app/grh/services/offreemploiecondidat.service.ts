@@ -50,5 +50,10 @@ export class OffreemploiecondidatService {
     return this.http.put<IMessageReponse>(this.api_url+'/inscritoffre/chagestatus/'+id+"/"+status,null,
       {observe: 'response'})
   }
+  getinscritoffrebymail(mail:string):Observable<HttpResponse<IOffrecondidat[]>>
+  {
+    return this.http.get<IOffrecondidat[]>(this.api_url+'/inscritoffre/afficherinscroffreparmail/'
+      +mail,{observe: 'response'})
+  }
 
 }

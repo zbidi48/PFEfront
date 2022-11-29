@@ -3,7 +3,8 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {EmployeeService} from "../../services/employee.service";
 import {IEmployee} from "../../models/IEmployee.model";
 import {FichedepaieService} from "../../services/fichedepaie.service";
-import {HttpErrorResponse} from "@angular/common/http";
+import {HttpErrorResponse, HttpResponse} from "@angular/common/http";
+import {IMessageReponse} from "../../models/messageReponse.model";
 
 @Component({
   selector: 'app-addfichdepaie',
@@ -35,8 +36,9 @@ export class AddfichdepaieComponent implements OnInit {
     this.formSubmitted = true;
     if (this.fichepform.valid) {
       //console.log(this.fichepform.value);
-      this.fichedepaieService.addfiche(this.fichepform.value).subscribe(value => {
-        console.log(this.fichepform.value)
+      this.fichedepaieService.addfiche(this.fichepform.value).
+      subscribe((value:HttpResponse<IMessageReponse>) => {
+        //console.log(this.fichepform.value)
         //console.log(value.body.message)
         this.showMsg = true;
         this.fichepform.reset(true);
