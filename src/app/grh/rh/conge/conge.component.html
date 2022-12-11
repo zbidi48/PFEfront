@@ -2,6 +2,29 @@
   <h1 class="mt-4">liste demande conge de tout les employees</h1>
 
 <div>
+  <form [formGroup]="searchcongeform" (ngSubmit)="searchbyemployee()" >
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="form-group ">
+          <label>taper employee_nom:</label>
+          <input type="text" id="nom"  class="form-control"
+                 name="nom" placeholder="nom" formControlName="nom">
+        </div>
+      </div>
+      <div>
+        <div class="form-group ">
+          <label>taper employee_prenom:</label>
+          <input type="text" id="prenom"  class="form-control"
+                 name="prenom" placeholder="prenom" formControlName="prenom">
+        </div>
+      </div>
+
+
+    </div>
+    <div class="form-group mb-5">
+      <button class="btn btn-info" type="submit">chercher </button>
+    </div>
+  </form>
   <form [formGroup]="cherchcongeform" (ngSubmit)="searchcongebyjobid()" >
     <div class="row">
       <div class="col-sm-6">
@@ -15,7 +38,7 @@
 
     </div>
     <div class="form-group mb-5">
-      <button class="btn btn-info" type="submit">chercher presence </button>
+      <button class="btn btn-success" type="submit">chercher</button>
     </div>
   </form>
 </div>
@@ -23,9 +46,7 @@
     <table class="table table-dark" *ngIf="conges.length>0">
       <thead>
       <tr>
-        <th>
-          #
-        </th>
+
         <th>
           date debut
         </th>
@@ -60,7 +81,7 @@
       </thead>
       <tbody>
       <tr *ngFor="let i of conges">
-        <td>{{i.id}}</td>
+
         <td>{{i.datedebut}}</td>
         <td>{{i.datefin}}</td>
         <td>{{i.statusConge}}</td>
@@ -70,8 +91,10 @@
         <td>{{i.post}}</td>
         <td>{{i.jobid}}</td>
         <td>
-          <a class="btn btn-sm btn-danger mr-2" (click)="deleteconge(i.id)">supprimer</a>
-          <a class="btn btn-success" [routerLink]="['/rh/accordconge/'+i.id]">changestatus</a>
+          <a class="btn btn-sm btn-danger mr-2" style="margin-right:5px;" (click)="deleteconge(i.id)">
+            <i class="mdi mdi-delete"></i></a>
+          <a class="btn btn-success" style="margin-right:5px;" [routerLink]="['/rh/accordconge/'+i.id]">
+            <i class="mdi mdi-marker-check"></i></a>
         </td>
 
 

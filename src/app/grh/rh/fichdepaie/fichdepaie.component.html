@@ -12,12 +12,39 @@
   <div >
 
 
+    <form   [formGroup]="searchficheform" (ngSubmit)="searchfiche()"  >
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group ">
+            <label>taper employee_nom:</label>
+            <input type="text" id="nom"
+                   class="form-control"
+                   name="nom"
+                   placeholder="nom"
+                   formControlName="nom">
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group ">
+            <label>taper employee_prenom:</label>
+            <input type="text" id="prenom"
+                   class="form-control"
+                   name="prenom"
+                   placeholder="prenom"
+                   formControlName="prenom">
+          </div>
+        </div>
 
+      </div>
+      <div class="form-group mb-5">
+        <button  class="btn btn-success" type="submit">chercher</button>
+      </div>
+    </form>
     <form   [formGroup]="cherchficheform" (ngSubmit)="searchfichedepaie()"  >
       <div class="row">
         <div class="col-sm-6">
           <div class="form-group ">
-            <label>fiche de paies:</label>
+            <label>taper jobid:</label>
             <input type="text" id=" jobid"
                    class="form-control"
                    name="jobid"
@@ -28,21 +55,14 @@
 
       </div>
       <div class="form-group mb-5">
-        <button class="btn btn-info" type="submit">chercher fiche de paie</button>
+        <button class="btn btn-info" type="submit">chercher </button>
       </div>
     </form>
-
-
     <div class="card mb-4">
-      <div class="card-header">
-        <i class="fas fa-table me-1"></i>
-        DataTable
-      </div>
       <div class="card-body">
         <table class="table table-bordered" *ngIf="fiches.length>0">
           <thead>
           <tr>
-
             <th>date</th>
             <th>salairebrut</th>
             <th>salairenet</th>
@@ -50,13 +70,11 @@
             <th>prenom</th>
             <th>post</th>
             <th>jobid</th>
-
             <th>Action</th>
           </tr>
           </thead>
           <tbody>
           <tr *ngFor="let i of fiches">
-
             <td>{{i.date}}</td>
             <td>{{i.salairebrut}}</td>
             <td>{{i.salairenet}}</td>
@@ -64,7 +82,6 @@
             <td>{{i.prenom}}</td>
             <td>{{i.post}}</td>
             <td>{{i.jobid}}</td>
-
             <td>
               <a class="btn btn-sm btn-primary" style="margin-right:5px;" [routerLink]="['/rh/editfichedepaie/'+i.id]" >mise a jour</a>
               <a class="btn btn-sm btn-danger" (click)="Deletefichedepaie(i.id)" >supprimer</a>

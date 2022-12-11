@@ -61,10 +61,7 @@
       </form>
     </div>
     <div class="card mb-4">
-      <div class="card-header">
-        <i class="fas fa-table me-1"></i>
-       entretient table
-      </div>
+
       <div class="card-body">
         <table class="table table-bordered" *ngIf="entretients.length>0">
           <thead>
@@ -89,7 +86,7 @@
             <td>{{i.cin}}</td>
             <td>
               <a class="btn btn-sm btn-primary" style="margin-right:5px;" [routerLink]="['/rh/editentretient/'+i.id]" >
-                mise a jour
+                <i class="mdi mdi-pen"></i>
               </a>
               <a class="btn btn-sm btn-danger"  (click)="deleteentret(i.id)">
                 <i class="mdi mdi-delete"></i>

@@ -2,36 +2,61 @@
   <h1 class="mt-4">Liste de les inscrits pour les offres d emploies</h1>
   <hr>
   <div >
+    <form [formGroup]="searchinscritoffrebylastnamefirstnameform"
+          (ngSubmit)="searchbylastnamefirstname()" >
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group ">
+            <label>taper le nom_employee:</label>
+            <input type="text" id="nom"
+                   class="form-control"
+                   name="nom"
+                   placeholder="entrer le nom de employee"
+                   formControlName="nom">
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group ">
+            <label >taper le prenom_employee:</label>
+            <input type="text" id="prenom"
+                   class="form-control"
+                   name="prenom"
+                   placeholder="entrer le prenom de employee"
+                   formControlName="prenom">
+          </div>
+        </div>
+
+      </div>
+      <div class="form-group mb-5">
+        <button  class="btn btn-success" type="submit">chercher</button>
+      </div>
+    </form>
     <form [formGroup]="searchinscritoffreform" (ngSubmit)="searchinscrit()" >
       <div class="row">
         <div class="col-sm-6">
           <div class="form-group ">
-            <label>inscrit offre par CIN</label>
+            <label>taper carte identité candidat:</label>
             <input type="text" id="cin"  class="form-control"
                    name="cin" placeholder="cin" formControlName="cin">
           </div>
         </div>
       </div>
       <div class="form-group mb-5">
-        <button class="btn btn-info" type="submit">cherche inscit offre</button>
+        <button class="btn btn-info" type="submit">cherche </button>
       </div>
     </form>
     <div class="card mb-4">
-      <div class="card-header">
-        <i class="fas fa-table me-1"></i>
-        inscrit offre table
-      </div>
+
       <div class="card-body">
         <table class="table table-bordered" *ngIf="inscritoffreemploies.length>0">
           <thead>
           <tr>
-
             <th>nom candidat</th>
             <th>prenom candidat</th>
             <th>carte identité</th>
             <th>poste</th>
             <th>status</th>
-            <th>Action</th>
+            <th style="align-content: center">Action</th>
           </tr>
           </thead>
           <tbody>
@@ -42,7 +67,8 @@
             <td>{{inscrit.poste}}</td>
             <td>{{inscrit.status}}</td>
             <td>
-              <a class="btn btn-link" [routerLink]="['/rh/detaillinscritoffre/'+inscrit.id]" >voir detaille</a>
+              <a class="btn btn-link" [routerLink]="['/rh/detaillinscritoffre/'+inscrit.id]" >
+                <i class="mdi mdi-eye"></i></a>
               <ng-container *ngIf="inscrit.status =='ENCOUR'" >
                 <a class="btn btn-sm btn-success" (click)="statusinscrit(inscrit.id,'accepte')">
                   <i class="mdi mdi-marker-check"></i>

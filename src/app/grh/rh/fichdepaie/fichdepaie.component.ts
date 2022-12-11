@@ -21,6 +21,12 @@ export class FichdepaieComponent implements OnInit {
     jobid: ['', Validators.required]
 
   })
+  searchficheform: FormGroup = this.fb.group({
+
+    nom: ['', Validators.required],
+    prenom: ['', Validators.required]
+
+  })
   constructor(private fichedepaieservice:FichedepaieService,
               private employeeservice:EmployeeService,
               private fb:FormBuilder) { }
@@ -63,11 +69,9 @@ export class FichdepaieComponent implements OnInit {
   }
   getemploy():void
   {
-    this.employeeservice.getemployee().subscribe(value => {
+    this.employeeservice.getemployee().subscribe((value:HttpResponse<IEmployee[]>) => {
       this.employees=value.body
 
-    },(error)=>{
-      alert(('eurreure'));
     })
   }
   searchfichedepaie():void
@@ -75,9 +79,21 @@ export class FichdepaieComponent implements OnInit {
     this.fichedepaieservice.searchfiche(this.cherchficheform.value.jobid).subscribe(
       (value:HttpResponse<IFichdepaie[]>) => {
         this.fiches=value.body
-
       }
     )
+  }
+  searchfiche():void
+  {
+    //console.log(this.searchficheform.value.nom,this.searchficheform.value.prenom)
+    if(this.searchficheform.valid)
+    {
+      this.fichedepaieservice.searchfichedepaie(this.searchficheform.value.nom,
+        this.searchficheform.value.prenom).subscribe(
+          (value:HttpResponse<IFichdepaie[]>) => {
+            this.fiches=value.body
+          }
+      )
+    }
   }
 
 }

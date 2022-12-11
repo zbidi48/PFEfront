@@ -37,6 +37,11 @@ export class InscritformationService {
     return this.http.get<Iinscritformation[]>(this.api_url+'/inscritformation/chercherinscritformation/'+jobid,
       {observe: 'response'})
   }
+  searchbylastnamefirstname(nom:string,prenon:string):Observable<HttpResponse<Iinscritformation[]>>
+  {
+    return this.http.post<Iinscritformation[]>(this.api_url+'/inscritformation/chercherparnometprenom/'+nom+"/"+prenon
+    ,null,{observe: 'response'})
+  }
   satatusinscritformation(id:number,status:string):Observable<HttpResponse<IMessageReponse>>
   {
     return this.http.put<IMessageReponse>(this.api_url+'/inscritformation/changerstatusinscritformation/'

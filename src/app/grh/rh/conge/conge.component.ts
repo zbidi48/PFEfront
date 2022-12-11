@@ -20,6 +20,12 @@ export class CongeComponent implements OnInit {
     jobid: ['', Validators.required]
 
   })
+ searchcongeform: FormGroup = this.fb.group({
+
+    nom: ['', Validators.required],
+    prenom: ['', Validators.required]
+
+  })
   constructor(private path:ActivatedRoute
     ,private router:Router,
               private congeservice:CongeService,
@@ -47,15 +53,20 @@ export class CongeComponent implements OnInit {
  }
 searchcongebyjobid():void
 {
-  //console.log(this.cherchcongeform.value)
-
-
   this.congeservice.searchconge(this.cherchcongeform.value.jobid).
   subscribe((value:HttpResponse<IConge[]>) => {
     this.conges=value.body
 
   })
-
+}
+searchbyemployee():void
+{
+  this.congeservice.searchcongebyemployee(this.searchcongeform.value.nom,
+    this.searchcongeform.value.prenom).subscribe(
+      (value:HttpResponse<IConge[]>) => {
+        this.conges=value.body
+      }
+  )
 }
 
 }

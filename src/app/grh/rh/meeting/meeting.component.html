@@ -37,7 +37,7 @@
             <td>
               <button class="btn btn-primary"
                   [routerLink]="['/rh/editmeeting/'+i.id]" >
-                update
+                <i class="mdi mdi-pen"></i>
               </button>
               <ng-container *ngIf="i.status =='OK'" >
                 <a class="btn btn-sm btn-success" (click)="statusmeeting(i.id,'anulle')">

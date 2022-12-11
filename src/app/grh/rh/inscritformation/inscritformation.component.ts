@@ -18,6 +18,12 @@ export class InscritformationComponent implements OnInit {
     jobid: ['', Validators.required],
 
   })
+  inscritsearchbylasrnamefirstnameform: FormGroup = this.fb.group({
+
+    nom: ['', Validators.required],
+    prenom: ['', Validators.required]
+
+  })
   constructor(private inscritformationservice:InscritformationService,
               private fb:FormBuilder) { }
   msg:string = '';
@@ -47,11 +53,8 @@ export class InscritformationComponent implements OnInit {
             subscribe((value:HttpResponse<Iinscritformation[]>) => {
               this.inscritformtions=value.body
             })
-
-
           }
         })
-
       }
     })
   }
@@ -61,6 +64,24 @@ export class InscritformationComponent implements OnInit {
     subscribe((value:HttpResponse<Iinscritformation[]>) => {
       this.inscritformtions=value.body
     })
+  }
+  searchinscritbylastnamefirstname():void
+  {
+    /*
+    console.log(
+      this.inscritsearchbylasrnamefirstnameform.value.nom,
+      this.inscritsearchbylasrnamefirstnameform.value.prenom
+    )
+     */
+    if (this.inscritsearchbylasrnamefirstnameform.valid)
+    {
+      this.inscritformationservice.searchbylastnamefirstname(this.inscritsearchbylasrnamefirstnameform.value.nom,
+        this.inscritsearchbylasrnamefirstnameform.value.prenom).subscribe(
+          (value:HttpResponse<Iinscritformation[]>) => {
+            this.inscritformtions=value.body
+          }
+      )
+    }
   }
 
 }

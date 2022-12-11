@@ -19,6 +19,12 @@ export class InscritoffremploieComponent implements OnInit {
     cin: ['', Validators.required]
 
   })
+  searchinscritoffrebylastnamefirstnameform: FormGroup = this.fb.group({
+
+    nom: ['', Validators.required],
+    prenom: ['', Validators.required]
+
+  })
 
 
   msg:string='';
@@ -67,4 +73,24 @@ subscribe((value:HttpResponse<IOffrecondidat[]>) => {
 
 })
 }
+  searchbylastnamefirstname():void
+{
+/*
+console.log(this.searchinscritoffrebylastnamefirstnameform.value.nom,
+  this.searchinscritoffrebylastnamefirstnameform.value.prenom)
+ */
+  if(this.searchinscritoffrebylastnamefirstnameform.valid)
+  {
+    this.inscritoffreemploieservice.
+    searchoffrecondidatbylastnamefirstname(this.searchinscritoffrebylastnamefirstnameform.value.nom,
+      this.searchinscritoffrebylastnamefirstnameform.value.prenom).subscribe(
+        (value:HttpResponse<IOffrecondidat[]>) => {
+          this.inscritoffreemploies=value.body
+        })
+  }else
+  {
+    console.log("eurreur input")
+  }
+}
+
 }

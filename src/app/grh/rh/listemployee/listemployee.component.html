@@ -13,6 +13,33 @@
 
 
     <div>
+      <form   [formGroup]="searchemployeeform" (ngSubmit)="searchempl()"  >
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group ">
+              <label>taper nom:</label>
+              <input type="text" id="nom"
+                     class="form-control"
+                     name="nom"
+                     placeholder="nom"
+                     formControlName="nom">
+            </div>
+
+          </div>
+          <div class="form-group ">
+            <label>taper prenom:</label>
+            <input type="text" id="prenom"
+                   class="form-control"
+                   name="prenom"
+                   placeholder="prenom"
+                   formControlName="prenom">
+          </div>
+
+        </div>
+        <div class="form-group mb-5">
+          <button class="btn btn-info" type="submit">chercher </button>
+        </div>
+      </form>
       <form   [formGroup]="searchemployee" (ngSubmit)="serchemployee()"  >
         <div class="row">
           <div class="col-sm-6">
@@ -56,7 +83,7 @@
           <td>
             <a class="btn btn-sm btn-link" [routerLink]="['/rh/detailemployee/'+i.id]" >voir plus</a>
             <a class="btn btn-sm btn-primary" style="margin-right:5px;" [routerLink]="['/rh/editemployee/'+i.id]" >
-              <i class="mdi mdi-rewind"></i>
+              <i class="mdi mdi-pen"></i>
             </a>
             <a class="btn btn-sm btn-danger" (click)="deleteemployee(i.id)">
               <i class="mdi mdi-delete"></i>

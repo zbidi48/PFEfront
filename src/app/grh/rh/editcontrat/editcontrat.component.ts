@@ -30,9 +30,9 @@ export class EditcontratComponent implements OnInit {
   }
   editcontrat():void
   {
-    const id=this.path.snapshot.params.id;
-    console.log(this.macontratform.value);
-    this.contratservice.updatecontrat(this.macontratform.value,id).subscribe((data:HttpResponse<IMessageReponse>)=>{
+
+    this.contratservice.updatecontrat(this.macontratform.value,this.path.snapshot.params.id).
+    subscribe((data:HttpResponse<IMessageReponse>)=>{
       this.router.navigate(['/rh/contrat'])
     })
   }

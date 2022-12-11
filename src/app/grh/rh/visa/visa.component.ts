@@ -24,6 +24,11 @@ export class VisaComponent implements OnInit {
 
 
   })
+  searchvisaformbylastamefirstname: FormGroup = this.fb.group({
+    nom:['',Validators.required],
+    prenom:['',Validators.required]
+
+  })
   constructor(private path:ActivatedRoute,
               private visaservice:VisaService,
               private fb:FormBuilder) { }
@@ -94,4 +99,24 @@ export class VisaComponent implements OnInit {
       }
     )
   }
+  searchvisalastnamefirstname():void
+  {
+    //console.log(this.searchvisaformbylastnaamefirstname.value.nom,this.searchvisaformbylastnaamefirstname.value.prenom)
+
+   if(this.searchvisaformbylastamefirstname.valid)
+   {
+     this.visaservice.searchvisabylastnamefirstname(this.searchvisaformbylastamefirstname.value
+       .nom,this.searchvisaformbylastamefirstname.value.prenom).subscribe(
+       (data:HttpResponse<IVisa[]>) => {
+         this.visas=data.body
+       }
+     )
+   }
+   else
+   {
+     console.log("input false")
+   }
+
+  }
+
 }

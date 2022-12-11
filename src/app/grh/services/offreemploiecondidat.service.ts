@@ -45,6 +45,11 @@ export class OffreemploiecondidatService {
     return this.http.get<IOffrecondidat[]>(this.api_url+'/inscritoffre/chercherinscritoffre/'+cin,
       {observe: 'response'})
   }
+  searchoffrecondidatbylastnamefirstname(nom:string,prenom:string):Observable<HttpResponse<IOffrecondidat[]>>
+  {
+    return this.http.post<IOffrecondidat[]>(this.api_url+'/inscritoffre/chercherparnometprenom/'+nom+"/"+prenom
+      ,null,{observe: 'response'})
+  }
   statusinscritoffre(id:number,status:string):Observable<HttpResponse<IMessageReponse>>
   {
     return this.http.put<IMessageReponse>(this.api_url+'/inscritoffre/chagestatus/'+id+"/"+status,null,
@@ -55,5 +60,6 @@ export class OffreemploiecondidatService {
     return this.http.get<IOffrecondidat[]>(this.api_url+'/inscritoffre/afficherinscroffreparmail/'
       +mail,{observe: 'response'})
   }
+
 
 }

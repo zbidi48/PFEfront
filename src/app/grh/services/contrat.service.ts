@@ -44,6 +44,11 @@ searchcontratbyjobid(data:any):Observable<HttpResponse<IContrat[]>>
   return this.http.get<IContrat[]>(this.api_url+'/contrat/cherchercontratparjobid/'+data,
     {observe: 'response'} )
 }
+searchcontratbyfirstnamelastname(nom:string,prenom:string):Observable<HttpResponse<IContrat[]>>
+{
+  return this.http.post<IContrat[]>(this.api_url+'/contrat/chercherparnometprenom/'+nom+"/"
+  +prenom,null,{observe: 'response'})
+}
 getcontratbyemployid(emplid:number):Observable<HttpResponse<IContrat[]>>
 {
   return this.http.get<IContrat[]>(this.api_url+'/contrat/affichercontratparemployeeid/'+emplid,

@@ -20,6 +20,12 @@ export class ListemployeeComponent implements OnInit {
     jobid: ['', Validators.required]
 
   })
+  searchemployeeform: FormGroup = this.fb.group({
+
+    nom: ['', Validators.required],
+    prenom: ['', Validators.required]
+
+  })
   constructor(private employeeservice:EmployeeService,
               private fb:FormBuilder,
               private mailingService:MailingService ) { }
@@ -60,6 +66,19 @@ export class ListemployeeComponent implements OnInit {
 
    })
  }
+  searchempl():void
+  {
+    if (this.searchemployeeform.valid)
+    {
+      this.employeeservice.searchemployeebylastnamefirstname(this.searchemployeeform.value.nom,
+        this.searchemployeeform.value.prenom).
+      subscribe((value:HttpResponse<IEmployee[]>) => {
+        this.employees=value.body
+
+      })
+    }
+
+  }
  sendemail(id:number,typemail:string)
  {
    Swal.fire({

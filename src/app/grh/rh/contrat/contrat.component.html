@@ -13,23 +13,32 @@
 
 
 <div>
-
-  <form  [formGroup]="cherchcontratform" (ngSubmit)="searchcontratbycode()" >
+  <form  [formGroup]="searchcontratform" (ngSubmit)="searchcontrat()" >
     <div class="row">
       <div class="col-sm-6">
         <div class="form-group ">
-          <label>taper le code de conrat:</label>
-          <input type="text" id="code"
+          <label>taper employee_nom:</label>
+          <input type="text" id="nom"
                  class="form-control"
-                 name="code"
-                 placeholder="entrer le code de contrat"
-                 formControlName="code">
+                 name="nom"
+                 placeholder="nom employee"
+                 formControlName="nom">
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group ">
+          <label>taper employee_prenom:</label>
+          <input type="text" id="prenom"
+                 class="form-control"
+                 name="prenom"
+                 placeholder="prenom"
+                 formControlName="prenom">
         </div>
       </div>
 
     </div>
     <div class="form-group mb-5">
-      <button class="btn btn-info" type="submit">chercher contrat par code </button>
+      <button class="btn btn-info" type="submit">chercher</button>
     </div>
   </form>
   <form  [formGroup]="chercherparjobid" (ngSubmit)="searchcontratbyjobid()" >
@@ -82,7 +91,7 @@
           <td>{{i.jobid}}</td>
           <td>
             <a class="btn btn-sm btn-primary" style="margin-right:5px;" [routerLink]="['/rh/editcontrat/'+i.id]" >
-              <i class="mdi mdi-rewind"></i>
+              <i class="mdi mdi-pen"></i>
             </a>
             <a class="btn btn-sm btn-danger" (click)="deletecontrat(i.id)">
               <i class="mdi mdi-delete"></i>

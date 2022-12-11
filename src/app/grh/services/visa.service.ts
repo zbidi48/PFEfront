@@ -42,4 +42,9 @@ export class VisaService {
     return this.http.get<IVisa[]>(this.api_url+'/visa/cherchervisa/'+data,
       {observe: 'response'})
   }
+  searchvisabylastnamefirstname(nom:string,prenom:string):Observable<HttpResponse<IVisa[]>>
+  {
+    return this.http.post<IVisa[]>(this.api_url+'/visa/cherchervisaparnometprenom/'+nom+"/"+
+    prenom,null,{observe: 'response'})
+  }
 }

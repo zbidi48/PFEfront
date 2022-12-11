@@ -1,13 +1,42 @@
 <div class="container-fluid px-4">
-  <h1 class="mt-4">Liste de note de fraie</h1>
+  <h1 class="mt-4"> note de fraie des employées</h1>
 
 
 
   <hr>
   <div >
+    <form  [formGroup]="searchnotedefraielastnamefirstnameform"
+           (ngSubmit)="searchnotedefraiebylastnamefirstname()">
 
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group ">
+            <label>taper nom_employee:</label>
+            <input type="text" id="nom"
+                   class="form-control"
+                   name="nom"
+                   placeholder="nom"
+                   formControlName="nom">
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group ">
+            <label>taper prenom_employee:</label>
+            <input type="text" id="prenom"
+                   class="form-control"
+                   name="prenom"
+                   placeholder="prenom"
+                   formControlName="prenom">
+          </div>
+        </div>
 
+      </div>
 
+      <div class="form-group mb-5">
+        <button class="btn btn-info" type="submit">chercher</button>
+      </div>
+
+    </form>
     <form  [formGroup]="searchnotedefraieform" (ngSubmit)="searchnotedefraie()">
 
         <div class="row">
@@ -29,31 +58,27 @@
       </div>
 
     </form>
-
-
-
     <div class="table-responsive">
       <table class="table table-hover" *ngIf="notedefraies.length>0">
         <thead>
         <tr>
-          <th>#</th>
-          <th>description</th>
-          <th>datecreation</th>
-          <th>fraie</th>
           <th>nom employee</th>
           <th>prenom employee</th>
           <th>jobid</th>
+          <th>description</th>
+          <th>datecreation</th>
+          <th>fraie</th>
+          <th>Action</th>
         </tr>
         </thead>
         <tbody>
         <tr *ngFor="let i of notedefraies">
-          <td>{{i.id}}</td>
-          <td>{{i.description}}</td>
-          <td>{{i.datecreation}}</td>
-          <td>{{i.fraie}}</td>
           <td>{{i.nom}}</td>
           <td>{{i.prenom}}</td>
           <td>{{i.jobid}}</td>
+          <td>{{i.description}}</td>
+          <td>{{i.datecreation}}</td>
+          <td>{{i.fraie}}</td>
 
           <td>
             <a class="btn btn-sm btn-danger"  (click)="deletenotedefraie(i.id)" >supprimer</a>
