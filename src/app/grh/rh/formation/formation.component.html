@@ -33,21 +33,22 @@
     </form>
 
 
-    <div class="table-responsive">
-      <table class="table table-hover" *ngIf="formations.length>0">
-        <thead>
-        <tr>
-          <th>#</th>
-          <th>nom de formation</th>
-          <th>type de formation</th>
-          <th>date debut</th>
-          <th>heure</th>
-          <th>action</th>
-        </tr>
-        </thead>
+   <div  class="card mb-4">
+     <div class="table-responsive">
+       <table class="table table-hover" *ngIf="formations.length>0">
+         <thead>
+         <tr>
+
+           <th scope="col">nom de formation</th>
+           <th scope="col">type de formation</th>
+           <th scope="col">date debut</th>
+           <th scope="col">heure</th>
+           <th scope="col">action</th>
+         </tr>
+         </thead>
          <tbody>
          <tr *ngFor="let i of formations">
-           <td>{{i.id}}</td>
+
            <td>{{i.nomdeforamtion}}</td>
            <td>{{i.typedeformation}}</td>
            <td>{{i.datedebut}}</td>
@@ -60,9 +61,10 @@
          </tr>
 
          </tbody>
-      </table>
-      <span *ngIf="formations.length==0">table vide</span>
-    </div>
+       </table>
+       <span *ngIf="formations.length==0">table vide</span>
+     </div>
+   </div>
 
 
 

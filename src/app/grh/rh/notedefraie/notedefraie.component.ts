@@ -17,12 +17,11 @@ export class NotedefraieComponent implements OnInit {
   notedefraies:INotedefraie[]=[];
   employees:IEmployee[]=[];
   searchnotedefraieform: FormGroup = this.fb.group({
-    jobid: ['',Validators.required]
+
+    cle: ['', Validators.required]
+
   })
-  searchnotedefraielastnamefirstnameform: FormGroup = this.fb.group({
-    nom: ['',Validators.required],
-    prenom: ['',Validators.required]
-  })
+
 
   constructor(private notedefraieservice:NotedefraieService,
               private fb: FormBuilder,
@@ -62,37 +61,22 @@ export class NotedefraieComponent implements OnInit {
       }
     })
   }
-  searchnotedefraie():void
-  {
-    //const data=this.searchnotedefraieform.value;
-    //console.log(this.searchnotedefraieform.value)
-    this.notedefraieservice.searchnotedefraie(this.searchnotedefraieform.value.jobid
 
-        ).subscribe((value:any) => {
-        this.notedefraies=value.body})
-  }
-  searchnotedefraiebylastnamefirstname():void
-  {
-    /*
-    console.log(this.searchnotedefraielastnamefirstnameform.value.nom,
-      this.searchnotedefraielastnamefirstnameform.value.prenom)
-     */
-    if (this.searchnotedefraielastnamefirstnameform.valid)
-    {
-      this.notedefraieservice.searchbylastnamefirstname(this.searchnotedefraielastnamefirstnameform.value.nom,
-        this.searchnotedefraielastnamefirstnameform.value.prenom).subscribe(
-          (value:HttpResponse<INotedefraie[]>) =>{
-            this.notedefraies=value.body
-
-          }
-      )
-    }
-     }
   getemployee():void
   {
     this.employeeservice.getemployee().subscribe((value:any) => {
       this.employees=value.body
     })
+  }
+  searchnotedefraie():void
+  {
+    if (this.searchnotedefraieform.valid)
+    {
+      this.notedefraieservice.SearchNotedeFraie(this.searchnotedefraieform.value.cle).subscribe(
+        (value:HttpResponse<INotedefraie[]>) => {
+          this.notedefraies=value.body
+        })
+    }
   }
 
 }

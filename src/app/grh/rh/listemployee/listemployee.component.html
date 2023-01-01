@@ -10,8 +10,6 @@
 
   <hr>
   <div >
-
-
     <div>
       <form   [formGroup]="searchemployeeform" (ngSubmit)="searchempl()"  >
         <div class="row">
@@ -24,7 +22,6 @@
                      placeholder="nom"
                      formControlName="nom">
             </div>
-
           </div>
           <div class="form-group ">
             <label>taper prenom:</label>
@@ -62,47 +59,49 @@
     </div>
 
 
-    <div class="table-responsive">
-      <table class="table table-bordered table-dark" *ngIf="employees.length>0">
-        <thead>
-        <tr>
-          <th scope="col">nom employee</th>
-          <th scope="col">prenom employee</th>
-          <th scope="col">post</th>
-          <th scope="col">jobid</th>
-          <th scope="col">Action</th>
-          <th scope="col">mailmeeting</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let i of employees">
-          <td>{{i.nom}}</td>
-          <td>{{i.prenom}}</td>
-          <td>{{i.post}}</td>
-          <td>{{i.jobid}}</td>
-          <td>
-            <a class="btn btn-sm btn-link" [routerLink]="['/rh/detailemployee/'+i.id]" >voir plus</a>
-            <a class="btn btn-sm btn-primary" style="margin-right:5px;" [routerLink]="['/rh/editemployee/'+i.id]" >
-              <i class="mdi mdi-pen"></i>
-            </a>
-            <a class="btn btn-sm btn-danger" (click)="deleteemployee(i.id)">
-              <i class="mdi mdi-delete"></i>
-            </a>
-          </td>
-          <td>
-            <a class="btn btn-link" style="color: #28a745" (click)="sendemail(i.id,'confirm')">
+    <div class="card mb-4">
+      <div class="table-responsive">
+        <table class="table table-bordered" *ngIf="employees.length>0">
+          <thead>
+          <tr>
+            <th scope="colgroup">nom employee</th>
+            <th scope="col">prenom employee</th>
+            <th scope="col">post</th>
+            <th scope="col">jobid</th>
+            <th scope="col">Action</th>
+            <th scope="col">mailmeeting</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let i of employees">
+            <td>{{i.nom}}</td>
+            <td>{{i.prenom}}</td>
+            <td>{{i.post}}</td>
+            <td>{{i.jobid}}</td>
+            <td>
+              <a class="btn btn-sm btn-link" [routerLink]="['/rh/detailemployee/'+i.id]" ><i class="mdi mdi-eye"></i></a>
+              <a class="btn btn-sm btn-primary" style="margin-right:5px;" [routerLink]="['/rh/editemployee/'+i.id]" >
+                <i class="mdi mdi-pen"></i>
+              </a>
+              <a class="btn btn-sm btn-danger" (click)="deleteemployee(i.id)" title="Supprimer">
+                <i class="mdi mdi-delete"></i>
+              </a>
+            </td>
+            <td>
+              <a class="btn btn-link" style="color: #28a745" (click)="sendemail(i.id,'confirm')">
 
-              <i class="mdi mdi-email"></i>
-            </a>
-            <a class="btn btn-link" style="color: red" (click)="sendemail(i.id,'anulle')">
+                <i class="mdi mdi-email"></i>
+              </a>
+              <a class="btn btn-link" style="color: red" (click)="sendemail(i.id,'anulle')">
 
-              <i class="mdi mdi-email"></i>
-            </a>
-          </td>
-        </tr>
-        </tbody>
-      </table>
-      <span *ngIf="employees.length==0"> table vide</span>
+                <i class="mdi mdi-email"></i>
+              </a>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+        <span *ngIf="employees.length==0"> table vide</span>
+      </div>
     </div>
   </div>
   <div>

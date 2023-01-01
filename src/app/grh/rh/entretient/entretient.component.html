@@ -1,5 +1,5 @@
 <div class="container-fluid px-4">
-  <h1 class="mt-4">Liste de entretient</h1>
+  <h1 class="mt-4">entretient des candidats</h1>
 
   <div class="card mb-4">
     <div class="card-body">
@@ -66,24 +66,23 @@
         <table class="table table-bordered" *ngIf="entretients.length>0">
           <thead>
           <tr>
-
-            <th>date</th>
-            <th>heure</th>
-            <th>status</th>
             <th>nom</th>
             <th>prenom</th>
             <th>carte identite</th>
+            <th>date</th>
+            <th>heure</th>
+            <th>status</th>
             <th>Action</th>
           </tr>
           </thead>
           <tbody>
           <tr *ngFor="let i of entretients">
-            <td>{{i.date | date}}</td>
-            <td>{{i.heure}}</td>
-            <td>{{i.status}}</td>
             <td>{{i.nom}}</td>
             <td>{{i.prenom}}</td>
             <td>{{i.cin}}</td>
+            <td>{{i.date | date}}</td>
+            <td>{{i.heure}}</td>
+            <td>{{i.status}}</td>
             <td>
               <a class="btn btn-sm btn-primary" style="margin-right:5px;" [routerLink]="['/rh/editentretient/'+i.id]" >
                 <i class="mdi mdi-pen"></i>
@@ -117,8 +116,5 @@
         <span *ngIf="entretients.length==0">table vide</span>
       </div>
     </div>
-
-
   </div>
-
 </div>

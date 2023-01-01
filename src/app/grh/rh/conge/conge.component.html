@@ -42,66 +42,64 @@
     </div>
   </form>
 </div>
-  <div class="table-responsive pt-3">
-    <table class="table table-dark" *ngIf="conges.length>0">
-      <thead>
-      <tr>
+  <div class="card mb-4">
+    <div class="table-responsive pt-3">
+      <table class="table table-bordered" *ngIf="conges.length>0">
+        <thead>
+        <tr>
+          <th scope="col">
+            nom employee
+          </th>
+          <th scope="col">
+            prenom employee
+          </th>
+          <th scope="col">
+            post
+          </th>
+          <th scope="col">
+            jobid
+          </th>
+          <th scope="col">
+            date debut
+          </th>
+          <th scope="col">
+            date fin
+          </th>
+          <th scope="col">
+            status conge
+          </th>
+          <th scope="col">
+            type conge
+          </th>
+          <th scope="col">
+            action
+          </th>
+        </tr >
+        </thead>
+        <tbody>
+        <tr *ngFor="let i of conges">
+          <td>{{i.nom}}</td>
+          <td>{{i.prenom}}</td>
+          <td>{{i.post}}</td>
+          <td>{{i.jobid}}</td>
+          <td>{{i.datedebut}}</td>
+          <td>{{i.datefin}}</td>
+          <td>{{i.statusConge}}</td>
+          <td>{{i.typeConge}}</td>
 
-        <th>
-          date debut
-        </th>
-        <th>
-          date fin
-        </th>
-        <th>
-          status conge
-        </th>
-        <th>
-          type conge
-        </th>
-        <th>
-          nom employee
-        </th>
-        <th>
-          prenom employee
-        </th>
-        <th>
-          post
-        </th>
-        <th>
-          jobid
-        </th>
-        <th>
-          action
-        </th>
-
-
-
-      </tr >
-      </thead>
-      <tbody>
-      <tr *ngFor="let i of conges">
-
-        <td>{{i.datedebut}}</td>
-        <td>{{i.datefin}}</td>
-        <td>{{i.statusConge}}</td>
-        <td>{{i.typeConge}}</td>
-        <td>{{i.nom}}</td>
-        <td>{{i.prenom}}</td>
-        <td>{{i.post}}</td>
-        <td>{{i.jobid}}</td>
-        <td>
-          <a class="btn btn-sm btn-danger mr-2" style="margin-right:5px;" (click)="deleteconge(i.id)">
-            <i class="mdi mdi-delete"></i></a>
-          <a class="btn btn-success" style="margin-right:5px;" [routerLink]="['/rh/accordconge/'+i.id]">
-            <i class="mdi mdi-marker-check"></i></a>
-        </td>
+          <td>
+            <a class="btn btn-sm btn-danger mr-2" style="margin-right:5px;" (click)="deleteconge(i.id)">
+              <i class="mdi mdi-delete"></i></a>
+            <a class="btn btn-success" style="margin-right:5px;" [routerLink]="['/rh/accordconge/'+i.id]">
+              <i class="mdi mdi-marker-check"></i></a>
+          </td>
 
 
-      </tr>
-      </tbody>
+        </tr>
+        </tbody>
 
-    </table>
-    <span *ngIf="conges.length==0">table vide</span>
+      </table>
+      <span *ngIf="conges.length==0">table vide</span>
+    </div>
   </div>
 </div>

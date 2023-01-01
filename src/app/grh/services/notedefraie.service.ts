@@ -37,20 +37,15 @@ export class NotedefraieService {
     return this.http.delete<IMessageReponse>(this.api_url+'/notedefraie/supprimernotedefraie/'+id,
       {observe: 'response'})
   }
-  searchnotedefraie(data): Observable<HttpResponse<INotedefraie[]>>
-  {
-    return this.http.get<INotedefraie[]>(this.api_url+'/notedefraie/cherchernotedefraie/'+data,
-      {observe: 'response'})
-  }
-  searchbylastnamefirstname(nom:string,prenom:string): Observable<HttpResponse<INotedefraie[]>>
-  {
-    return this.http.post<INotedefraie[]>(this.api_url+'/notedefraie/chercherparnometprenom/'+nom+"/"+
-    prenom,null,{observe: 'response'})
-  }
+
   getnoteoffrebyemail(email):Observable<HttpResponse<INotedefraie[]>>
   {
     return this.http.get<INotedefraie[]>(this.api_url+'/notedefraie/affichernotedefraieparmail/'+email,
       {observe: 'response'} )
+  }
+  SearchNotedeFraie(query:string):Observable<HttpResponse<INotedefraie[]>>
+  {
+    return this.http.get<INotedefraie[]>(this.api_url+'/notedefraie/recherchernotedefraie/'+query,{observe: 'response'})
   }
 
 }

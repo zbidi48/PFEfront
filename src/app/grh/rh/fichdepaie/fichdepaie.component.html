@@ -1,75 +1,35 @@
 <div class="container-fluid px-4">
-  <h1 class="mt-4">Liste de fiche de paie</h1>
-
-  <div class="card mb-4">
-    <div class="card-body">
-      cliquer sur ce bouton pour ajouter une fiche de paie
-      <a class="btn btn-outline-primary" routerLink="/rh/addfichdepaie">Ajouter une fiche de paie</a>
-    </div>
+  <div>
+    <form class="form-inline" [formGroup]="searchficheform"  (ngSubmit)="searchfiche()">
+      <div class="input-group">
+        <div class="form-outline">
+          <input type="search" id="key" class="form-control"  name="key"
+                 placeholder="search"
+                 formControlName="key" />
+        </div>
+        <div>
+          <button type="submit" class="btn btn-primary" >
+            <i class="mdi mdi-account-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
   </div>
-
-  <hr>
-  <div >
-
-
-    <form   [formGroup]="searchficheform" (ngSubmit)="searchfiche()"  >
-      <div class="row">
-        <div class="col-sm-6">
-          <div class="form-group ">
-            <label>taper employee_nom:</label>
-            <input type="text" id="nom"
-                   class="form-control"
-                   name="nom"
-                   placeholder="nom"
-                   formControlName="nom">
-          </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="form-group ">
-            <label>taper employee_prenom:</label>
-            <input type="text" id="prenom"
-                   class="form-control"
-                   name="prenom"
-                   placeholder="prenom"
-                   formControlName="prenom">
-          </div>
-        </div>
-
-      </div>
-      <div class="form-group mb-5">
-        <button  class="btn btn-success" type="submit">chercher</button>
-      </div>
-    </form>
-    <form   [formGroup]="cherchficheform" (ngSubmit)="searchfichedepaie()"  >
-      <div class="row">
-        <div class="col-sm-6">
-          <div class="form-group ">
-            <label>taper jobid:</label>
-            <input type="text" id=" jobid"
-                   class="form-control"
-                   name="jobid"
-                   placeholder="jobid"
-                   formControlName="jobid">
-          </div>
-        </div>
-
-      </div>
-      <div class="form-group mb-5">
-        <button class="btn btn-info" type="submit">chercher </button>
-      </div>
-    </form>
-    <div class="card mb-4">
+  <div class="card mb-4">
       <div class="card-body">
+         <div class="card-body">
+            <a class="btn btn-success " routerLink="/rh/addfichdepaie">Ajouter </a>
+          </div>
         <table class="table table-bordered" *ngIf="fiches.length>0">
           <thead>
           <tr>
-            <th>date</th>
-            <th>salairebrut</th>
-            <th>salairenet</th>
-            <th>nom</th>
-            <th>prenom</th>
-            <th>post</th>
-            <th>jobid</th>
+            <th>Date</th>
+            <th>Salairebrut</th>
+            <th>Salairenet</th>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Post</th>
+            <th>Matricule</th>
             <th>Action</th>
           </tr>
           </thead>
@@ -83,8 +43,8 @@
             <td>{{i.post}}</td>
             <td>{{i.jobid}}</td>
             <td>
-              <a class="btn btn-sm btn-primary" style="margin-right:5px;" [routerLink]="['/rh/editfichedepaie/'+i.id]" >mise a jour</a>
-              <a class="btn btn-sm btn-danger" (click)="Deletefichedepaie(i.id)" >supprimer</a>
+              <a class="btn btn-sm btn-primary" style="margin-right:5px;" [routerLink]="['/rh/editfichedepaie/'+i.id]" ><i class="mdi mdi-pen"></i></a>
+              <a class="btn btn-sm btn-danger" (click)="Deletefichedepaie(i.id)" > <i class="mdi mdi-delete"></i></a>
             </td>
 
           </tr>
@@ -95,8 +55,5 @@
       </div>
     </div>
 
-
-
-  </div>
 
 </div>

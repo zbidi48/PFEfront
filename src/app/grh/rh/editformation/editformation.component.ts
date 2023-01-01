@@ -57,8 +57,8 @@ editformation()
 }
    getformationdata():void
    {
-     //this.path.snapshot.data.params.id;
-     this.formationservice.getformationid(this.path.snapshot.data.params.id)
+
+     this.formationservice.getformationid(this.path.snapshot.params.id)
        .subscribe((data:HttpResponse<IFormation>)=> {
        this.maformationform.setValue({
          nomdeforamtion:data.body.nomdeforamtion,

@@ -11,6 +11,18 @@
     <table class="table table-dark">
       <thead class="thead-dark">
       <tr>
+        <th scope="col">
+          nom employee
+        </th>
+        <th scope="col">
+          prenom employee
+        </th>
+        <th scope="col">
+          post
+        </th>
+        <th scope="col">
+          jobid
+        </th>
 
         <th scope="col">
           date debut
@@ -24,32 +36,28 @@
         <th scope="col">
          type conge
         </th>
-        <th scope="col">
-          nom employee
-        </th>
-        <th scope="col">
-          prenom employee
-        </th>
-        <th scope="col">
-         post
-        </th>
-        <th scope="col">
-          jobid
-        </th>
+
       </tr >
       </thead  >
       <tbody>
       <tr *ngFor="let i of conges">
-        <td>{{i.datedebut}}</td>
-        <td>{{i.datefin}}</td>
-        <td>{{i.statusConge}}</td>
-        <td>{{i.typeConge}}</td>
         <td>{{i.nom}}</td>
         <td>{{i.prenom}}</td>
         <td>{{i.post}}</td>
         <td>{{i.jobid}}</td>
+        <td>{{i.datedebut}}</td>
+        <td>{{i.datefin}}</td>
+        <td>{{i.statusConge}}</td>
+        <td>{{i.typeConge}}</td>
+
       </tr>
       </tbody>
     </table>
+  </div>
+  <div>
+    <h3 style="color: red">NB:</h3>
+    <p> dans le champ type congé il faut mettre
+      MALADIE ou ANUELLE ou MATERNITE  de cette facon ecrite em majiscule
+    </p>
   </div>
 </div>

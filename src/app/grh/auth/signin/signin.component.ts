@@ -33,7 +33,7 @@ export class SigninComponent implements OnInit {
        this.storageService.saveId(res.body.id);
        this.storageService.getEmail();
 
-       console.log(res.body.roles[0])
+       //console.log(res.body.roles[0])
        if(res.body.roles[0] ==="ROLE_Employee"){
          // this.router.navigateByUrl(""); espace employee
          this.router.navigateByUrl("/espaceemployee/congeemployee")

@@ -19,16 +19,9 @@ export class VisaComponent implements OnInit {
   id:number;
   msg:string = '';
   searchvisaform: FormGroup = this.fb.group({
-
-    jobid: ['',Validators.required]
-
-
+    key: ['',Validators.required]
   })
-  searchvisaformbylastamefirstname: FormGroup = this.fb.group({
-    nom:['',Validators.required],
-    prenom:['',Validators.required]
 
-  })
   constructor(private path:ActivatedRoute,
               private visaservice:VisaService,
               private fb:FormBuilder) { }
@@ -90,33 +83,6 @@ export class VisaComponent implements OnInit {
     })
 
   }
-  searchvisas():void
-  {
-    this.visaservice.searchvisa(this.searchvisaform.value.jobid).subscribe(
-      (value:HttpResponse<IVisa[]>) => {
-        this.visas=value.body
 
-      }
-    )
-  }
-  searchvisalastnamefirstname():void
-  {
-    //console.log(this.searchvisaformbylastnaamefirstname.value.nom,this.searchvisaformbylastnaamefirstname.value.prenom)
-
-   if(this.searchvisaformbylastamefirstname.valid)
-   {
-     this.visaservice.searchvisabylastnamefirstname(this.searchvisaformbylastamefirstname.value
-       .nom,this.searchvisaformbylastamefirstname.value.prenom).subscribe(
-       (data:HttpResponse<IVisa[]>) => {
-         this.visas=data.body
-       }
-     )
-   }
-   else
-   {
-     console.log("input false")
-   }
-
-  }
 
 }

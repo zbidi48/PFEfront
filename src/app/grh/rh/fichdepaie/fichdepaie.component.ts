@@ -16,16 +16,9 @@ import Swal from "sweetalert2";
 export class FichdepaieComponent implements OnInit {
   fiches:IFichdepaie[]=[];
   employees:IEmployee[]=[];
-  cherchficheform: FormGroup = this.fb.group({
 
-    jobid: ['', Validators.required]
-
-  })
   searchficheform: FormGroup = this.fb.group({
-
-    nom: ['', Validators.required],
-    prenom: ['', Validators.required]
-
+    key: ['', Validators.required]
   })
   constructor(private fichedepaieservice:FichedepaieService,
               private employeeservice:EmployeeService,
@@ -65,7 +58,6 @@ export class FichdepaieComponent implements OnInit {
         )
       }
     })
-
   }
   getemploy():void
   {
@@ -74,26 +66,17 @@ export class FichdepaieComponent implements OnInit {
 
     })
   }
-  searchfichedepaie():void
-  {
-    this.fichedepaieservice.searchfiche(this.cherchficheform.value.jobid).subscribe(
-      (value:HttpResponse<IFichdepaie[]>) => {
-        this.fiches=value.body
-      }
-    )
-  }
   searchfiche():void
   {
-    //console.log(this.searchficheform.value.nom,this.searchficheform.value.prenom)
-    if(this.searchficheform.valid)
+    if (this.searchficheform.valid)
     {
-      this.fichedepaieservice.searchfichedepaie(this.searchficheform.value.nom,
-        this.searchficheform.value.prenom).subscribe(
-          (value:HttpResponse<IFichdepaie[]>) => {
-            this.fiches=value.body
-          }
+      this.fichedepaieservice.Searchfichedepaie(this.searchficheform.value.key).subscribe(
+        (value:HttpResponse<IFichdepaie[]>) => {
+          this.fiches=value.body
+        }
       )
     }
   }
+
 
 }
