@@ -1,21 +1,36 @@
 <div class="container-fluid px-4">
-  <h1 class="mt-4">les demandes de visa</h1>
 
+  <div>
+    <form class="form-inline" [formGroup]="searchvisaform" (ngSubmit)="searchvisas()" >
+      <div class="input-group">
+        <div class="form-outline">
+          <input type="text" id="key" class="form-control"  name="key"
+                 placeholder="search"
+                 formControlName="key" />
+        </div>
+        <div>
+          <button type="submit" class="btn btn-primary " style="margin-left:0; height: 33px; padding: 0 20px;
+           margin-top: 5px;" >
+            <i class="mdi mdi-account-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
 
   <div class="card mb-4">
     <div class="table-responsive">
       <table  class="table table-bordered" *ngIf="visas.length>0">
         <thead>
         <tr>
-          <th>nom</th>
-          <th>prenom</th>
-          <th>post</th>
-          <th>jobid</th>
-          <th>date depot</th>
-          <th>status</th>
-          <th>type visa</th>
-
-          <th>Action</th>
+          <th scope="row">NOM</th>
+          <th>PRENOM</th>
+          <th>POST</th>
+          <th>MATRICULE</th>
+          <th>DATE DEPOT</th>
+          <th>STATUS</th>
+          <th>TYPE VISA</th>
+          <th>ACTION</th>
         </tr>
         </thead>
         <tbody>
@@ -29,25 +44,25 @@
           <td>{{visa.typevisa}}</td>
 
           <td>
-            <a class="btn btn-sm btn-danger" (click)="deletevisa(visa.id)" >
+            <a class="btn btn-sm btn-danger" (click)="deletevisa(visa.id)" title="supprimer" >
               <i class="mdi mdi-delete"></i>
             </a>
 
             <ng-container *ngIf="visa.status =='ENCOUR'" >
-              <a class="btn btn-sm btn-success" (click)="changeStatus(visa.id,'accepte')">
+              <a class="btn btn-sm btn-success" (click)="changeStatus(visa.id,'accepte')" >
                 <i class="mdi mdi-marker-check"></i>
               </a>
-              <a class="btn btn-sm btn-warning" (click)="changeStatus(visa.id,'refuse')">
+              <a class="btn btn-sm btn-warning" (click)="changeStatus(visa.id,'refuse')" >
                 <i class="mdi mdi-folder-remove"></i>
               </a>
             </ng-container>
             <ng-container *ngIf="visa.status =='ACCEPTE'" >
-              <a class="btn btn-sm btn-warning" (click)="changeStatus(visa.id,'refuse')">
+              <a class="btn btn-sm btn-warning" (click)="changeStatus(visa.id,'refuse')" title="refuse" >
                 <i class="mdi mdi-folder-remove"></i>
               </a>
             </ng-container>
             <ng-container *ngIf="visa.status =='REFUSE'" >
-              <a class="btn btn-sm btn-success" (click)="changeStatus(visa.id,'accepte')">
+              <a class="btn btn-sm btn-success" (click)="changeStatus(visa.id,'accepte')" title="acceptation" >
                 <i class="mdi mdi-marker-check"></i>
               </a>
 

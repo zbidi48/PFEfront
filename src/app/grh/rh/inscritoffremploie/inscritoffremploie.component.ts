@@ -16,15 +16,10 @@ export class InscritoffremploieComponent implements OnInit {
   inscritoffreemploies:IOffrecondidat[]=[];
   searchinscritoffreform: FormGroup = this.fb.group({
 
-    cin: ['', Validators.required]
+    key: ['', Validators.required]
 
   })
-  searchinscritoffrebylastnamefirstnameform: FormGroup = this.fb.group({
 
-    nom: ['', Validators.required],
-    prenom: ['', Validators.required]
-
-  })
 
 
   msg:string='';
@@ -65,32 +60,22 @@ export class InscritoffremploieComponent implements OnInit {
      }
    })
  }
-searchinscrit()
-{
-this.inscritoffreemploieservice.searchoffrecondidatbycin(this.searchinscritoffreform.value.cin).
-subscribe((value:HttpResponse<IOffrecondidat[]>) => {
-  this.inscritoffreemploies=value.body
 
-})
-}
-  searchbylastnamefirstname():void
+searchinscritoffre()
 {
-/*
-console.log(this.searchinscritoffrebylastnamefirstnameform.value.nom,
-  this.searchinscritoffrebylastnamefirstnameform.value.prenom)
- */
-  if(this.searchinscritoffrebylastnamefirstnameform.valid)
+  if(this.searchinscritoffreform.valid)
   {
-    this.inscritoffreemploieservice.
-    searchoffrecondidatbylastnamefirstname(this.searchinscritoffrebylastnamefirstnameform.value.nom,
-      this.searchinscritoffrebylastnamefirstnameform.value.prenom).subscribe(
-        (value:HttpResponse<IOffrecondidat[]>) => {
-          this.inscritoffreemploies=value.body
-        })
+    this.inscritoffreemploieservice.searchinscritoffre(this.searchinscritoffreform.value.key).subscribe(
+      (value:HttpResponse<IOffrecondidat[]>) => {
+        this.inscritoffreemploies=value.body
+      }
+    )
   }else
   {
-    console.log("eurreur input")
+    this.inscritoffreemploieservice.getoffrecondidat().
+    subscribe((value:HttpResponse<IOffrecondidat[]>) => {
+      this.inscritoffreemploies=value.body
+    })
   }
 }
-
 }

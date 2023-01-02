@@ -37,5 +37,8 @@ export class VisaService {
     return this.http.get<IVisa[]>(this.api_url+'/visa/affichervisaemployee/'+email,
       {observe: 'response'})
   }
-
+searchvisa(query:string):Observable<HttpResponse<IVisa[]>>
+{
+  return this.http.get<IVisa[]>(this.api_url+'/visa/recherchevisa/'+query,{observe: 'response'})
+}
 }

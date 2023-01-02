@@ -76,6 +76,9 @@ export class NotedefraieComponent implements OnInit {
         (value:HttpResponse<INotedefraie[]>) => {
           this.notedefraies=value.body
         })
+    }else
+    {
+      this.getnotedefraie()
     }
   }
 

@@ -1,51 +1,44 @@
 <div class="container-fluid px-4">
-  <h1 class="mt-4">Liste de offre d emploies</h1>
-
-  <div class="card mb-4">
-    <div class="card-body">
-      cliquer sur ce bouton pour ajouter offre emploie
-      <a class="btn btn-outline-primary" routerLink="/rh/addoffreemploie" >Ajouter offre emploie</a>
-    </div>
-  </div>
-
-  <hr>
-  <div >
-
-
-
-    <form [formGroup]="searchoffreempl" (ngSubmit)="search()" >
-      <div class="row">
-        <div class="col-sm-6">
-          <div class="form-group ">
-            <label>offre d emploie par titre d offre:</label>
-            <input type="text" id="titredoffre"  class="form-control"
-                   name="titredoffre" placeholder="titre d offre" formControlName="titredoffre">
-          </div>
+  <div>
+    <form class="form-inline" [formGroup]="searchoffreempl"  (ngSubmit)="search()">
+      <div class="input-group">
+        <div class="form-outline">
+          <input type="search" id="titredoffre" class="form-control"  name="titredoffre"
+                 placeholder="search"
+                 formControlName="titredoffre" />
+        </div>
+        <div>
+          <button type="submit" class="btn btn-primary" style="margin-left:0; height: 32px; padding: 0 20px;
+           margin-top: 5px;" >
+            <i class="mdi mdi-account-search"></i>
+          </button>
         </div>
       </div>
-      <div class="form-group mb-5">
-        <button class="btn btn-info" type="submit">Rechercher</button>
-      </div>
     </form>
+  </div>
+  <div >
     <div class="card mb-4">
       <div class="table-responsive">
-        <table class="table table-hover" *ngIf="offreemploies.length>0">
+        <div class="card-body">
+          <a  class="btn btn-success" routerLink="/rh/addoffreemploie" title="ajouter offre emploie">
+            <i class="mdi mdi-database-plus"></i>
+          </a>
+        </div>
+        <table class="table table-bordered" *ngIf="offreemploies.length>0">
           <thead>
           <tr>
-            <th>#</th>
-            <th>titredoffre</th>
-            <th>datelimite</th>
-            <th>description</th>
-            <th>langue</th>
-            <th> experience</th>
-            <th>exigence d'emploie</th>
-            <th>datecreation</th>
-            <th>Action</th>
+            <th>TYPE OFFRE</th>
+            <th>DATE LIMITE</th>
+            <th>DESCRIPTION</th>
+            <th>LANGUE</th>
+            <th> EXPERIENCE</th>
+            <th>EXIGENCE</th>
+            <th>DATE CREATION</th>
+            <th>ACTION</th>
           </tr>
           </thead>
           <tbody>
           <tr *ngFor="let i of offreemploies">
-            <td>{{i.id}}</td>
             <td>{{i.titredoffre}}</td>
             <td>{{i.datelimite}}</td>
             <td>{{i.description}}</td>
@@ -54,8 +47,8 @@
             <td>{{i.exigenceemploie}}</td>
             <td>{{i.datecreation}}</td>
             <td>
-              <a class="btn btn-sm btn-primary" style="margin-right:5px;" [routerLink]="['/rh/editoffreemploie/'+i.id]">mise a jour</a>
-              <a class="btn btn-sm btn-danger" (click)="deleteoffreempl(i.id)">supprimer</a>
+              <a class="btn btn-sm btn-primary" style="margin-right:5px;" [routerLink]="['/rh/editoffreemploie/'+i.id]" title="miseajour"><i class="mdi mdi-pen"></i></a>
+              <a class="btn btn-sm btn-danger" (click)="deleteoffreempl(i.id)" title="supprimer"><i class="mdi mdi-delete"></i></a>
             </td>
           </tr>
           </tbody>

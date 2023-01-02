@@ -81,7 +81,19 @@ export class VisaComponent implements OnInit {
 
       }
     })
-
+  }
+  searchvisas():void
+  {
+    if(this.searchvisaform.valid)
+    {
+      this.visaservice.searchvisa(this.searchvisaform.value.key).subscribe((value:HttpResponse<IVisa[]>) =>
+      {
+        this.visas=value.body
+      })
+    }else
+    {
+      this.getvisas()
+    }
   }
 
 

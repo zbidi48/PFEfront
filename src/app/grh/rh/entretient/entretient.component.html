@@ -1,68 +1,33 @@
 <div class="container-fluid px-4">
-  <h1 class="mt-4">entretient des candidats</h1>
-
-  <div class="card mb-4">
-    <div class="card-body">
-      cliquer sur ce bouton pour ajouter un entretient au list
-      <a class="btn btn-outline-primary" routerLink="/rh/addentretient" >Ajouter entretient</a>
-    </div>
+  <div>
+    <form class="form-inline" [formGroup]="cherchentretientform"  (ngSubmit)="searchentretient()">
+      <div class="input-group">
+        <div class="form-outline">
+          <input type="search" id="key" class="form-control"  name="key"
+                 placeholder="search"
+                 formControlName="key" />
+        </div>
+        <div>
+          <button type="submit" class="btn btn-primary" style="margin-left:0; height: 32.75px; padding: 0 20px;
+           margin-top: 5px;" >
+            <i class="mdi mdi-account-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
   </div>
 
-  <hr>
   <div >
-    <div>
-      <form [formGroup]="cherchentretientform"  (ngSubmit)="searchentetient()">
-        <div class="row">
-          <div class="col-sm-6">
-            <div class="form-group ">
-              <label>taper le nom de candidat:</label>
-              <input type="text" id="nom"
-                     class="form-control"
-                     name="nom"
-                     placeholder="entrer le nom de candidat"
-                     formControlName="nom">
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="form-group ">
-              <label >taper le prenom de candidat:</label>
-              <input type="text" id="prenom"
-                     class="form-control"
-                     name="prenom"
-                     placeholder="entrer le prenom de candidat"
-                     formControlName="prenom">
-            </div>
-          </div>
 
-        </div>
-        <div class="form-group mb-5">
-          <button  class="btn btn-success" type="submit">chercher par nom et prenom</button>
-        </div>
-      </form>
-      <form [formGroup]="cherchentretientform"  (ngSubmit)="searchbycondcin()">
-        <div class="row">
-          <div class="col-sm-6">
-            <div class="form-group ">
-              <label>taper la carte identité de candidat:</label>
-              <input type="text" id="cin"
-                     class="form-control"
-                     name="cin"
-                     placeholder="numrero carte identité "
-                     formControlName="cin">
-            </div>
-          </div>
-
-
-        </div>
-        <div class="form-group mb-5">
-          <button  class="btn btn-success"type="submit">chercher par cin</button>
-
-        </div>
-      </form>
-    </div>
     <div class="card mb-4">
 
       <div class="card-body">
+
+          <div class="card-body">
+            <a class="btn btn-success" routerLink="/rh/addentretient" >
+              <i class="mdi mdi-database-plus"></i></a>
+          </div>
+
         <table class="table table-bordered" *ngIf="entretients.length>0">
           <thead>
           <tr>
@@ -84,10 +49,10 @@
             <td>{{i.heure}}</td>
             <td>{{i.status}}</td>
             <td>
-              <a class="btn btn-sm btn-primary" style="margin-right:5px;" [routerLink]="['/rh/editentretient/'+i.id]" >
+              <a class="btn btn-sm btn-primary" style="margin-right:5px;" [routerLink]="['/rh/editentretient/'+i.id]" title="miseajour" >
                 <i class="mdi mdi-pen"></i>
               </a>
-              <a class="btn btn-sm btn-danger"  (click)="deleteentret(i.id)">
+              <a class="btn btn-sm btn-danger"  (click)="deleteentret(i.id)" title="supprimer">
                 <i class="mdi mdi-delete"></i>
               </a>
               <ng-container *ngIf="i.status =='ENCOUR'" >
@@ -99,12 +64,12 @@
                 </a>
               </ng-container>
               <ng-container *ngIf="i.status =='ACCEPTE'" >
-                <a class="btn btn-sm btn-warning" (click)="changestatus(i.id,'refuse')">
+                <a class="btn btn-sm btn-warning" (click)="changestatus(i.id,'refuse')" title="refus">
                   <i class="mdi mdi-folder-remove"></i>
                 </a>
               </ng-container>
               <ng-container *ngIf="i.status =='REFUSE'" >
-                <a class="btn btn-sm btn-success" (click)="changestatus(i.id,'accepte')">
+                <a class="btn btn-sm btn-success" (click)="changestatus(i.id,'accepte')" title="acceptation">
                   <i class="mdi mdi-marker-check"></i>
                 </a>
 

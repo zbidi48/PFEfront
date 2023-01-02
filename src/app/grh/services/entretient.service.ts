@@ -37,12 +37,6 @@ deleteentretient(id:number):Observable<HttpResponse<IMessageReponse>>
     {observe: 'response'})
 }
 
-searchentretient(nom:string,prenom:string):Observable<HttpResponse<IEntretient[]>>
-{
-
-  return this.http.post<IEntretient[]>(this.api_url+'/entretient/chercherentretient/'+nom+"/"+prenom,
-    null,{observe: 'response'})
-}
 
 
 
@@ -55,9 +49,9 @@ statusentretient(id:number,status:string):Observable<HttpResponse<IMessageRepons
   return this.http.put<IMessageReponse>(this.api_url+'/entretient/statusentretient/'+id+"/"+status,null,
     {observe: 'response'})
 }
-searchbycin(cin:string):Observable<HttpResponse<IEntretient[]>>
+searchentretient(key:string):Observable<HttpResponse<IEntretient[]>>
 {
-  return this.http.get<IEntretient[]>(this.api_url+'/entretient/chercherentretientparcin/'+cin,
+  return this.http.get<IEntretient[]>(this.api_url+'/entretient/chercherentretient/'+key,
     {observe: 'response'})
 }
 

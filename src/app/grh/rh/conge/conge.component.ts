@@ -17,7 +17,7 @@ export class CongeComponent implements OnInit {
   conges:IConge[]=[];
   cherchcongeform: FormGroup = this.fb.group({
 
-    jobid: ['', Validators.required]
+    key: ['', Validators.required]
 
   })
  searchcongeform: FormGroup = this.fb.group({
@@ -51,22 +51,6 @@ export class CongeComponent implements OnInit {
    })
  }
  }
-searchcongebyjobid():void
-{
-  this.congeservice.searchconge(this.cherchcongeform.value.jobid).
-  subscribe((value:HttpResponse<IConge[]>) => {
-    this.conges=value.body
 
-  })
-}
-searchbyemployee():void
-{
-  this.congeservice.searchcongebyemployee(this.searchcongeform.value.nom,
-    this.searchcongeform.value.prenom).subscribe(
-      (value:HttpResponse<IConge[]>) => {
-        this.conges=value.body
-      }
-  )
-}
 
 }

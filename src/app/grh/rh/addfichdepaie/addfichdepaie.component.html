@@ -5,38 +5,37 @@
   <div class="alert alert-danger" *ngIf="has_error">
     {{error_message}}
   </div>
-  <div class="form-group row">
-    <label  class="col-sm-3 col-form-label">date</label>
-    <div class="col-sm-9">
+  <div class="form-group ">
+    <label  >date</label>
+
       <input type="date" class="form-control" id="date" placeholder="date"
              name="date" formControlName="date">
-    </div>
   </div>
-  <div class="form-group row">
-    <label  class="col-sm-3 col-form-label">salairenet</label>
-    <div class="col-sm-9">
-      <input type="text" class="form-control" id="salairenet" placeholder="salaire net"
+  <div class="form-group ">
+    <label >salairenet</label>
+    <input type="text" class="form-control" id="salairenet" placeholder="salaire net"
              name="salairenet" formControlName="salairenet">
-    </div>
   </div>
-  <div class="form-group row">
-    <label  class="col-sm-3 col-form-label">salairebrut</label>
-    <div class="col-sm-9">
-      <input type="text" class="form-control" id="salairebrut" placeholder="salaire brut"
+  <div class="form-group ">
+    <label  >salairebrut</label>
+
+    <input type="text" class="form-control" id="salairebrut" placeholder="salaire brut"
              name="salairebrut" formControlName="salairebrut">
-    </div>
   </div>
-  <div class="col-sm-6">
+  <div >
     <div class="form-group ">
       <label>nom employee</label>
       <select class="form-control" formControlName="employee_id">
         <option >nom employee</option>
-        <option value="{{e.id}}" *ngFor="let e of employees">{{e.nom}} {{e.prenom}} {{e.post}} {{e.jobid}}</option>
+        <option value="{{e.id}}" *ngFor="let e of employees">
+          NOM:{{e.nom}}
+          PRENOM:{{e.prenom}}
+          POST:{{e.post}}
+          MATRICULE:{{e.jobid}}
+        </option>
       </select>
     </div>
   </div>
-
-
   <button type="submit" class="btn btn-gradient-primary mr-2" >Submit</button>
   <button class="btn btn-light" routerLink="/rh/fichdepaie">Cancel</button>
 </form>

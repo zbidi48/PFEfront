@@ -1,47 +1,4 @@
 <div class="container-fluid px-4">
-  <h1 class="mt-4">liste demande conge de tout les employees</h1>
-
-<div>
-  <form [formGroup]="searchcongeform" (ngSubmit)="searchbyemployee()" >
-    <div class="row">
-      <div class="col-sm-6">
-        <div class="form-group ">
-          <label>taper employee_nom:</label>
-          <input type="text" id="nom"  class="form-control"
-                 name="nom" placeholder="nom" formControlName="nom">
-        </div>
-      </div>
-      <div>
-        <div class="form-group ">
-          <label>taper employee_prenom:</label>
-          <input type="text" id="prenom"  class="form-control"
-                 name="prenom" placeholder="prenom" formControlName="prenom">
-        </div>
-      </div>
-
-
-    </div>
-    <div class="form-group mb-5">
-      <button class="btn btn-info" type="submit">chercher </button>
-    </div>
-  </form>
-  <form [formGroup]="cherchcongeform" (ngSubmit)="searchcongebyjobid()" >
-    <div class="row">
-      <div class="col-sm-6">
-        <div class="form-group ">
-          <label>chercher conge par job id</label>
-          <input type="text" id="jobid"  class="form-control"
-                 name="jobid" placeholder="
-                  entrer jobid de l employee" formControlName="jobid">
-        </div>
-      </div>
-
-    </div>
-    <div class="form-group mb-5">
-      <button class="btn btn-success" type="submit">chercher</button>
-    </div>
-  </form>
-</div>
   <div class="card mb-4">
     <div class="table-responsive pt-3">
       <table class="table table-bordered" *ngIf="conges.length>0">

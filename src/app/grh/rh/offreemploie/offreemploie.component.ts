@@ -56,10 +56,16 @@ export class OffreemploieComponent implements OnInit {
   }
   search():void
   {
-    this.offresemploieservice.searchoffre(this.searchoffreempl.value.titredoffre).
-    subscribe((value:HttpResponse<IOffreemploie[]>) => {
-      this.offreemploies=value.body
-    })
+    if (this.searchoffreempl.valid)
+    {
+      this.offresemploieservice.searchoffre(this.searchoffreempl.value.titredoffre).
+      subscribe((value:HttpResponse<IOffreemploie[]>) => {
+        this.offreemploies=value.body
+      })
+    }else
+    {
+      this.getoffreempl()
+    }
   }
 
 }
