@@ -1,35 +1,53 @@
 <div class="container-fluid px-4">
+  <div>
+    <form class="form-inline" [formGroup]="cherchcongeform"  (ngSubmit)="searchallconge()">
+      <div class="input-group">
+        <div class="form-outline">
+          <input type="search" id="key" class="form-control"  name="key"
+                 placeholder="search"
+                 formControlName="key" />
+        </div>
+        <div>
+          <button type="submit" class="btn btn-primary" style="margin-left:0; height: 33.5px; padding: 0 20px;
+           margin-top: 5px;" >
+            <i class="mdi mdi-account-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
   <div class="card mb-4">
-    <div class="table-responsive pt-3">
+    <div class="card-body">
       <table class="table table-bordered" *ngIf="conges.length>0">
         <thead>
         <tr>
           <th scope="col">
-            nom employee
+           NON
           </th>
           <th scope="col">
-            prenom employee
+            PRENOM
           </th>
           <th scope="col">
-            post
+            POST
           </th>
           <th scope="col">
-            jobid
+            MATRICULE
           </th>
           <th scope="col">
-            date debut
+          DATE DEBUT
           </th>
           <th scope="col">
-            date fin
+            DATE FIN
           </th>
           <th scope="col">
-            status conge
+            TYPE CONGE
           </th>
           <th scope="col">
-            type conge
+           STATUS
           </th>
+
           <th scope="col">
-            action
+            ACTION
           </th>
         </tr >
         </thead>
@@ -41,13 +59,12 @@
           <td>{{i.jobid}}</td>
           <td>{{i.datedebut}}</td>
           <td>{{i.datefin}}</td>
-          <td>{{i.statusConge}}</td>
           <td>{{i.typeConge}}</td>
-
+          <td>{{i.statusConge}}</td>
           <td>
-            <a class="btn btn-sm btn-danger mr-2" style="margin-right:5px;" (click)="deleteconge(i.id)">
+            <a class="btn btn-sm btn-danger mr-2" style="margin-right:5px;" (click)="deleteconge(i.id)" title="supprimer congé">
               <i class="mdi mdi-delete"></i></a>
-            <a class="btn btn-success" style="margin-right:5px;" [routerLink]="['/rh/accordconge/'+i.id]">
+            <a class="btn btn-success mr-2" style="margin-right:5px;" [routerLink]="['/rh/accordconge/'+i.id]" title="accord congé">
               <i class="mdi mdi-marker-check"></i></a>
           </td>
 

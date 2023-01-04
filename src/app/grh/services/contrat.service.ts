@@ -34,21 +34,8 @@ export class ContratService {
   {
     return this.http.delete<IMessageReponse>(this.api_url + '/contrat/supprimercontrat/' + id, {observe: 'response'});
   }
-  searchcontratbycode(code:string):Observable<HttpResponse<IContrat[]>>
-  {
-    return this.http.get<IContrat[]>(this.api_url+'/contrat/cherchercontrat/'+code,
-      {observe: 'response'})
-  }
-searchcontratbyjobid(data:any):Observable<HttpResponse<IContrat[]>>
-{
-  return this.http.get<IContrat[]>(this.api_url+'/contrat/cherchercontratparjobid/'+data,
-    {observe: 'response'} )
-}
-searchcontratbyfirstnamelastname(nom:string,prenom:string):Observable<HttpResponse<IContrat[]>>
-{
-  return this.http.post<IContrat[]>(this.api_url+'/contrat/chercherparnometprenom/'+nom+"/"
-  +prenom,null,{observe: 'response'})
-}
+
+
 getcontratbyemployid(emplid:number):Observable<HttpResponse<IContrat[]>>
 {
   return this.http.get<IContrat[]>(this.api_url+'/contrat/affichercontratparemployeeid/'+emplid,
@@ -58,6 +45,10 @@ exportcontratpdf(id:number,emplid:number):Observable<HttpResponse<IMessageRepons
 {
   return this.http.post<IMessageReponse>(this.api_url+'/contrat/exportcontratpdf/'+id+"/"+emplid,null,
     {observe: 'response'})
+}
+searchcontrat(query:string):Observable<HttpResponse<IContrat[]>>
+{
+  return this.http.get<IContrat[]>(this.api_url+'/contrat/cherchercontrat/'+query,{observe: 'response'})
 }
 
 }

@@ -22,7 +22,7 @@ export class FormationemployeeComponent implements OnInit {
               private path:ActivatedRoute ) { }
   cherchform: FormGroup = this.fb.group({
 
-    typedeformation: ['', Validators.required]
+    key: ['', Validators.required]
 
   })
   ngOnInit(): void {
@@ -30,14 +30,7 @@ export class FormationemployeeComponent implements OnInit {
       this.formations=value.body
     })
   }
-  search()
-  {
-    //console.log(this.cherchform.value.typedeformation)
-    this.formationservice.chercherformation(this.cherchform.value.typedeformation).
-    subscribe((donn:HttpResponse<IFormation[]>) => {
-      this.formations=donn.body
-    })
-  }
+
   applayformation(id:number):void
   {
     const swalWithBootstrapButtons = Swal.mixin({
@@ -79,8 +72,22 @@ export class FormationemployeeComponent implements OnInit {
         )
       }
     })
-    /*
 
-     */
+  }
+  searchformation():void
+  {
+    if(this.cherchform.valid)
+    {
+      this.formationservice.chercherformation(this.cherchform.value.key).subscribe(
+        (value:HttpResponse<IFormation[]>) => {
+          this.formations=value.body
+        }
+      )
+    }else
+    {
+      this.formationservice.getformations().subscribe((value:HttpResponse <IFormation[]>) => {
+        this.formations=value.body
+      })
+    }
   }
 }

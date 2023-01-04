@@ -1,20 +1,13 @@
 <div class="container-fluid px-4">
-  <h1 class="mt-4">Liste de les inscrits des formations </h1>
-  <hr>
-  <div >
-
+  <div class="table-responsive pt-3">
     <div class="card mb-4">
-      <div class="card-header">
-        <i class="fas fa-table me-1"></i>
-        inscrit offre table
-      </div>
       <div class="card-body">
-        <table class="table table-bordered" >
+        <table class="table" >
           <thead>
-          <tr>
+          <tr class="table-success">
             <th>Formation</th>
-            <th>date d'inscription</th>
-            <th>Evalution</th>
+            <th>DATE INSCRIT</th>
+            <th>EVALUATION</th>
           </tr>
           </thead>
           <tbody>
@@ -22,7 +15,7 @@
             <td>{{f.nomdeforamtion}}</td>
             <td>{{f.dateinscrit}}</td>
             <td>
-              <button class="btn btnsm btn-outline-primary" (click)="open(mymodal, f.id)">Votre Evaluation</button>
+              <button class="btn btn-primary" (click)="open(mymodal, f.id)">Evaluation</button>
 
             </td>
 

@@ -6,6 +6,7 @@ import {IEmployee} from "../../models/IEmployee.model";
 import {IConge} from "../../models/IConge.model";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {HttpResponse} from "@angular/common/http";
+import {IMessageReponse} from "../../models/messageReponse.model";
 
 @Component({
   selector: 'app-conge',
@@ -20,12 +21,7 @@ export class CongeComponent implements OnInit {
     key: ['', Validators.required]
 
   })
- searchcongeform: FormGroup = this.fb.group({
 
-    nom: ['', Validators.required],
-    prenom: ['', Validators.required]
-
-  })
   constructor(private path:ActivatedRoute
     ,private router:Router,
               private congeservice:CongeService,
@@ -46,10 +42,23 @@ export class CongeComponent implements OnInit {
  {
    if (confirm('vous ete sure d efface' + id + '!!'))
  {
-   this.congeservice.deleteconge(id).subscribe((value:any) => {
+   this.congeservice.deleteconge(id).subscribe((value:HttpResponse<IMessageReponse>) => {
      this.getallconge()
    })
  }
+ }
+ searchallconge():void
+ {
+  if(this.cherchcongeform.valid)
+  {
+    this.congeservice.searchconge(this.cherchcongeform.value.key).subscribe(
+      (value:HttpResponse<IConge[]>) => {
+        this.conges=value.body
+      })
+  }else
+  {
+    this.getallconge()
+  }
  }
 
 

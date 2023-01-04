@@ -42,9 +42,9 @@ export class FormationService {
     return this.http.delete<IMessageReponse>(this.api_url+'/formation/deleteformation/'+id,
       {observe: 'response'})
   }
-  chercherformation(data):Observable<HttpResponse<IFormation[]>>
+  chercherformation(query:string):Observable<HttpResponse<IFormation[]>>
   {
-    return this.http.get<IFormation[]>(this.api_url+'/formation/listformation/'+data,
+    return this.http.get<IFormation[]>(this.api_url+'/formation/listformation/'+query,
       {observe: 'response'})
   }
 

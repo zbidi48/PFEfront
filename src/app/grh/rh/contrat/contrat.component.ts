@@ -17,19 +17,11 @@ import {IMessageReponse} from "../../models/messageReponse.model";
 export class ContratComponent implements OnInit {
   contras:IContrat[]=[];
   employees:IEmployee[]=[];
-  /*
-  cherchcontratform: FormGroup = this.fb.group({
 
-    code: ['', Validators.required]
 
-  })
-   */
-  chercherparjobid:FormGroup = this.fb.group({
-    jobid: ['', Validators.required]
-  })
   searchcontratform:FormGroup = this.fb.group({
-    nom: ['', Validators.required],
-    prenom: ['', Validators.required]
+    key: ['', Validators.required],
+
   })
   constructor(private contratservice:ContratService,
               private employeeservice:EmployeeService,
@@ -75,38 +67,18 @@ export class ContratComponent implements OnInit {
       )
     }
   })
-
   }
-  /*
-  searchcontratbycode():void
-  {
-    this.contratservice.searchcontratbycode(this.cherchcontratform.value.code).subscribe(
-      (value:HttpResponse<IContrat[]>) => {
-        this.contras=value.body
-
-      }
-    )
-
-  }
-   */
-  searchcontratbyjobid():void
-  {
-    this.contratservice.searchcontratbyjobid(this.chercherparjobid.value.jobid).subscribe(
-      (value:HttpResponse<IContrat[]>) => {
-        this.contras=value.body
-      }
-    )}
   searchcontrat():void
   {
-    //console.log(this.searchcontratform.value.nom,this.searchcontratform.value.prenom)
     if(this.searchcontratform.valid)
     {
-      this.contratservice.searchcontratbyfirstnamelastname(this.searchcontratform.value.nom,
-        this.searchcontratform.value.prenom).subscribe(
-          (value:HttpResponse<IContrat[]>) => {
-            this.contras=value.body
-          }
-      )
+      this.contratservice.searchcontrat(this.searchcontratform.value.key).subscribe(
+        (value:HttpResponse<IContrat[]>) => {
+          this.contras=value.body
+        })
+    }else
+    {
+      this.getcontrat()
     }
   }
 

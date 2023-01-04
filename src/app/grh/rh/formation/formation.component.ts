@@ -15,18 +15,15 @@ export class FormationComponent implements OnInit {
   formations:IFormation[] =[];
  cherchform: FormGroup = this.fb.group({
 
-   typedeformation: ['', Validators.required]
+   key: ['', Validators.required]
 
   })
 
   constructor( private formationservice:FormationService,private fb: FormBuilder) { }
-
-
   ngOnInit(): void {
     this.getformation();
-    //this.data=this.cherchform.value
-  }
-  //data;
+ }
+
   getformation()
   {
    this.formationservice.getformations().subscribe((value:any) => {
@@ -57,14 +54,19 @@ export class FormationComponent implements OnInit {
     })
 
   }
- search()
+ searchformation():void
  {
-   //console.log(this.cherchform.value.typedeformation)
-   this.formationservice.chercherformation(this.cherchform.value.typedeformation).
-   subscribe((donn:HttpResponse<IFormation[]>) => {
-     this.formations=donn.body
-   })
-
+   if(this.cherchform.valid)
+   {
+     this.formationservice.chercherformation(this.cherchform.value.key).subscribe(
+       (value:HttpResponse<IFormation[]>) => {
+         this.formations=value.body
+       }
+     )
+   }else
+   {
+     this.getformation()
+   }
  }
 
 

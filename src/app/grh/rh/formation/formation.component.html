@@ -1,40 +1,27 @@
 <div class="container-fluid px-4">
-  <h1 class="mt-4">Liste de formation</h1>
-
-  <div class="card mb-4">
-    <div class="card-body">
-      cliquer sur ce bouton pour ajouter une formation
-      <a class="btn btn-outline-primary" routerLink="/rh/addformation" >Ajouter formation</a>
-    </div>
-  </div>
-
-  <hr>
-  <div >
-
-
-
-    <form [formGroup]="cherchform" (ngSubmit)="search()" >
-      <div class="row">
-        <div class="col-sm-6">
-          <div class="form-group ">
-            <label>formations:</label>
-            <input type="text" id=" typedeformation"
-                   class="form-control"
-                   name="typedeformation"
-                   placeholder=" type de formation"
-                   formControlName="typedeformation">
-          </div>
+  <div>
+    <form class="form-inline" [formGroup]="cherchform"  (ngSubmit)="searchformation()">
+      <div class="input-group">
+        <div class="form-outline">
+          <input type="search" id="key" class="form-control"  name="key"
+                 placeholder="search"
+                 formControlName="key" />
         </div>
-
-      </div>
-      <div class="form-group mb-5">
-        <button class="btn btn-info" type="submit">Rechercher</button>
+        <div>
+          <button type="submit" class="btn btn-primary" style="margin-left:0; height: 33.5px; padding: 0 20px;
+           margin-top: 5px;" >
+            <i class="mdi mdi-account-search"></i>
+          </button>
+        </div>
       </div>
     </form>
-
-
-   <div  class="card mb-4">
+  </div>
+  <div  class="card mb-4">
+    <div  class="card mb-4">
      <div class="table-responsive">
+       <div class="card-body">
+         <a class="btn btn-success" routerLink="/rh/addformation" title="ajouter formation" ><i class="mdi mdi-database-plus"></i></a>
+       </div>
        <table class="table table-hover" *ngIf="formations.length>0">
          <thead>
          <tr>
@@ -54,8 +41,8 @@
            <td>{{i.datedebut}}</td>
            <td>{{i.heure}}</td>
            <td>
-             <a class="btn btn-sm btn-primary" style="margin-right:5px;" [routerLink]="['/rh/editformation/'+i.id]" >mise a jour</a>
-             <a class="btn btn-sm btn-danger" (click)="deleteformation(i.id)"  >supprimer</a>
+             <a class="btn btn-sm btn-primary" style="margin-right:5px;" [routerLink]="['/rh/editformation/'+i.id]"  title="mise ajour formation"><i class="mdi mdi-pen"></i></a>
+             <a class="btn btn-sm btn-danger" (click)="deleteformation(i.id)" title="supprimer formation" ><i class="mdi mdi-delete"></i></a>
            </td>
 
          </tr>

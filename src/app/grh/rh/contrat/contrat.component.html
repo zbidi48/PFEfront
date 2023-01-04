@@ -1,70 +1,29 @@
 <div class="container-fluid px-4">
-  <h1 class="mt-4">Liste de contrat</h1>
-
-  <div class="card mb-4">
-    <div class="card-body">
-      cliquer sur ce bouton pour ajouter un contrat
-      <a class="btn btn-outline-primary" routerLink="/rh/addcontrat" >Ajouter contrat</a>
-    </div>
+  <div>
+    <form class="form-inline" [formGroup]="searchcontratform" (ngSubmit)="searchcontrat()" >
+      <div class="input-group">
+        <div class="form-outline">
+          <input type="text" id="key" class="form-control"  name="key"
+                 placeholder="search"
+                 formControlName="key" />
+        </div>
+        <div>
+          <button type="submit" class="btn btn-primary " style="margin-left:0; height: 33px; padding: 0 20px;
+           margin-top: 5px;" >
+            <i class="mdi mdi-account-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
   </div>
-
-  <hr>
   <div >
+    <div class="card mb-4">
 
-
-<div>
-  <form  [formGroup]="searchcontratform" (ngSubmit)="searchcontrat()" >
-    <div class="row">
-      <div class="col-sm-6">
-        <div class="form-group ">
-          <label>taper employee_nom:</label>
-          <input type="text" id="nom"
-                 class="form-control"
-                 name="nom"
-                 placeholder="nom employee"
-                 formControlName="nom">
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="form-group ">
-          <label>taper employee_prenom:</label>
-          <input type="text" id="prenom"
-                 class="form-control"
-                 name="prenom"
-                 placeholder="prenom"
-                 formControlName="prenom">
-        </div>
-      </div>
-
-    </div>
-    <div class="form-group mb-5">
-      <button class="btn btn-info" type="submit">chercher</button>
-    </div>
-  </form>
-  <form  [formGroup]="chercherparjobid" (ngSubmit)="searchcontratbyjobid()" >
-    <div class="row">
-      <div class="col-sm-6">
-        <div class="form-group ">
-          <label>taper le jobid employee:</label>
-          <input type="text" id="jobid"
-                 class="form-control"
-                 name="jobid"
-                 placeholder="entrer le job de l employee"
-                 formControlName="jobid">
-        </div>
-      </div>
-
-    </div>
-    <div class="form-group mb-5">
-      <button class="btn btn-info" type="submit">chercher contrat par jobid </button>
-    </div>
-  </form>
-</div>
-
-
-   <div class="card mb-4">
      <div class="table-responsive">
-       <table class="table table-hover" *ngIf="contras.length>0">
+       <div class="card-body">
+         <a class="btn btn-success" routerLink="/rh/addcontrat" title="ajouter contrat" > <i class="mdi mdi-database-plus"></i></a>
+       </div>
+       <table class="table table-bordered" *ngIf="contras.length>0">
          <thead>
          <tr>
            <th>nom employee</th>
@@ -90,10 +49,12 @@
            <td>{{i.datefin}}</td>
 
            <td>
-             <a class="btn btn-sm btn-primary" style="margin-right:5px;" [routerLink]="['/rh/editcontrat/'+i.id]" >
+             <a class="btn btn-sm btn-primary" style="margin-right:5px;" [routerLink]="['/rh/editcontrat/'+i.id]"
+                title="mise ajour contrat" >
                <i class="mdi mdi-pen"></i>
              </a>
-             <a class="btn btn-sm btn-danger" (click)="deletecontrat(i.id)">
+             <a class="btn btn-sm btn-danger" (click)="deletecontrat(i.id)"
+                title="supprimer contrat">
                <i class="mdi mdi-delete"></i>
              </a>
 
@@ -105,9 +66,5 @@
        <span *ngIf="contras.length==0"> table vide</span>
      </div>
    </div>
-
-
-
   </div>
-
 </div>
