@@ -7,6 +7,7 @@ import {CondidatService} from "../../services/condidat.service";
 import {HttpResponse} from "@angular/common/http";
 import Swal from "sweetalert2";
 import {IMessageReponse} from "../../models/messageReponse.model";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-addentretient',
@@ -20,13 +21,15 @@ export class AddentretientComponent implements OnInit {
 
    date: [ Validators.required],
    heure: ['', Validators.required],
-   condidats_id: ['', Validators.required],
+   inscritoffre_id: ['', Validators.required],
 
   })
 
   constructor(private fb: FormBuilder,
               private entretientservice:EntretientService,
-              private candidatservice:CondidatService) { }
+              private candidatservice:CondidatService,
+              private path:ActivatedRoute,
+              private  router:Router) { }
   formSubmitted: boolean = false;
  ngOnInit(): void {
     this.candidatservice.getcondidat().subscribe((value:HttpResponse<ICondidat[]>) => {
@@ -34,21 +37,21 @@ export class AddentretientComponent implements OnInit {
     })
   }
   ajouterentretient(): void {
-    Swal.fire({
+  /*  Swal.fire({
       position: 'top-end',
       icon: 'success',
       title: 'entreteint ajouter avec succée!',
       showConfirmButton: false,
       timer: 1500
-    })
-
+    })*/
+    this.entretientaddform.controls['inscritoffre_id'].setValue(this.path.snapshot.params.id);
+    console.log(this.entretientaddform.value);
     this.formSubmitted = true;
     if (this.entretientaddform.valid) {
-      //console.log(this.entretientaddform.value);
+
       this.entretientservice.addentretient(this.entretientaddform.value).
       subscribe((value:HttpResponse<IMessageReponse>) => {
-        this.entretientaddform.reset(true)
-
+        this.router.navigateByUrl("/rh/entretient");
 
         }
       )

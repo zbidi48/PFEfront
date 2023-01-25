@@ -49,9 +49,10 @@
                 </a>
               </ng-container>
               <ng-container *ngIf="inscrit.status =='ACCEPTE'" >
-                <a class="btn btn-sm btn-warning" (click)="statusinscrit(inscrit.id,'refuse')" title="refus">
+               <!-- <a class="btn btn-sm btn-warning" (click)="statusinscrit(inscrit.id,'refuse')" title="refus">
                   <i class="mdi mdi-folder-remove"></i>
-                </a>
+                </a>-->
+                <a [routerLink]="'/rh/addentretient/'+inscrit.id" *ngIf="inscrit.hasinterview === false">Fixer un RDV</a>
               </ng-container>
               <ng-container *ngIf="inscrit.status =='REFUSE'" >
                 <a class="btn btn-sm btn-success" (click)="statusinscrit(inscrit.id,'accepte')" title="acceptation">

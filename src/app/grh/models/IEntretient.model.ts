@@ -7,5 +7,5 @@ export interface IEntretient{
    status?:string,
    nom?:string,
    prenom?:string,
-   cin?:string
+   titreOffre?:string
 }

@@ -13,4 +13,5 @@ export  interface IOffrecondidat
   experience?:string,
   exigenceemploie:string,
   status?:string
+  hasinterview:boolean;
 }
