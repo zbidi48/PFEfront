@@ -17,15 +17,10 @@ export class ListemployeeComponent implements OnInit {
  //employee:IEmployee=null;
   searchemployee: FormGroup = this.fb.group({
 
-    jobid: ['', Validators.required]
+    key: ['', Validators.required]
 
   })
-  searchemployeeform: FormGroup = this.fb.group({
 
-    nom: ['', Validators.required],
-    prenom: ['', Validators.required]
-
-  })
   constructor(private employeeservice:EmployeeService,
               private fb:FormBuilder,
               private mailingService:MailingService ) { }
@@ -58,27 +53,7 @@ export class ListemployeeComponent implements OnInit {
       }
     })
   }
- serchemployee():void
- {
-   this.employeeservice.searchemployee(this.searchemployee.value.jobid).
-   subscribe((value:HttpResponse<IEmployee[]>) => {
-     this.employees=value.body
 
-   })
- }
-  searchempl():void
-  {
-    if (this.searchemployeeform.valid)
-    {
-      this.employeeservice.searchemployeebylastnamefirstname(this.searchemployeeform.value.nom,
-        this.searchemployeeform.value.prenom).
-      subscribe((value:HttpResponse<IEmployee[]>) => {
-        this.employees=value.body
-
-      })
-    }
-
-  }
  sendemail(id:number,typemail:string)
  {
    Swal.fire({
@@ -97,5 +72,20 @@ export class ListemployeeComponent implements OnInit {
        })
      }
    })
+ }
+ saerchemployee():void
+ {
+if(this.searchemployee.valid)
+{
+  this.employeeservice.searchemployee(this.searchemployee.value.key).subscribe(
+    (value:HttpResponse<IEmployee[]>) => {
+      this.employees=value.body
+    })
+}else
+{
+  this.employeeservice.getemployee().subscribe((value:HttpResponse<IEmployee[]>) => {
+    this.employees=value.body
+  })
+}
  }
 }

@@ -24,18 +24,16 @@
           <tr>
             <th>NOM</th>
             <th>PRENOM</th>
-            <th>CIN</th>
-            <th>POST</th>
+            <th>OFFRE</th>
             <th>STATUS</th>
-            <th >ACTION</th>
+            <th>ACTION</th>
           </tr>
           </thead>
           <tbody>
           <tr *ngFor="let inscrit of inscritoffreemploies">
             <td>{{inscrit.nom}}</td>
             <td>{{inscrit.prenom}}</td>
-            <td>{{inscrit.cin}}</td>
-            <td>{{inscrit.poste}}</td>
+            <td>{{inscrit.titredoffre}}</td>
             <td>{{inscrit.status}}</td>
             <td>
               <a class="btn btn-link" [routerLink]="['/rh/detaillinscritoffre/'+inscrit.id]" >

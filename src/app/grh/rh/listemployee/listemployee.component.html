@@ -1,83 +1,46 @@
 <div class="container-fluid px-4">
   <h1 class="mt-4">Liste de employees</h1>
 
-  <div class="card mb-4">
-    <div class="card-body">
-      cliquer sur ce bouton pour crier un employee
-      <a class="btn btn-outline-primary" routerLink="/rh/creationemployee">creation employee</a>
-    </div>
+  <div>
+    <form class="form-inline" [formGroup]="searchemployee"  (ngSubmit)="saerchemployee()">
+      <div class="input-group">
+        <div class="form-outline">
+          <input type="search" id="key" class="form-control"  name="key"
+                 placeholder="search"
+                 formControlName="key" />
+        </div>
+        <div>
+          <button type="submit" class="btn btn-primary" style="margin-left:0; height: 33px; padding: 0 20px;
+           margin-top: 5px;" >
+            <i class="mdi mdi-account-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
   </div>
-
-  <hr>
-  <div >
-    <div>
-      <form   [formGroup]="searchemployeeform" (ngSubmit)="searchempl()"  >
-        <div class="row">
-          <div class="col-sm-6">
-            <div class="form-group ">
-              <label>taper nom:</label>
-              <input type="text" id="nom"
-                     class="form-control"
-                     name="nom"
-                     placeholder="nom"
-                     formControlName="nom">
-            </div>
-          </div>
-          <div class="form-group ">
-            <label>taper prenom:</label>
-            <input type="text" id="prenom"
-                   class="form-control"
-                   name="prenom"
-                   placeholder="prenom"
-                   formControlName="prenom">
-          </div>
-
-        </div>
-        <div class="form-group mb-5">
-          <button class="btn btn-info" type="submit">chercher </button>
-        </div>
-      </form>
-      <form   [formGroup]="searchemployee" (ngSubmit)="serchemployee()"  >
-        <div class="row">
-          <div class="col-sm-6">
-            <div class="form-group ">
-              <label>employee job id:</label>
-              <input type="text" id=" jobid"
-                     class="form-control"
-                     name="jobid"
-                     placeholder="jobid"
-                     formControlName="jobid">
-            </div>
-          </div>
-
-        </div>
-        <div class="form-group mb-5">
-          <button class="btn btn-info" type="submit">chercher fiche de paie</button>
-        </div>
-      </form>
-
-    </div>
-
-
     <div class="card mb-4">
-      <div class="table-responsive">
+      <div class="card-body">
+        <div class="card-header">
+          <a class="btn btn-outline-primary" routerLink="/rh/creationemployee" title="Crier Employee">
+            <i class="mdi mdi-database-plus"></i></a>
+        </div>
         <table class="table table-bordered" *ngIf="employees.length>0">
           <thead>
           <tr>
-            <th scope="colgroup">nom employee</th>
-            <th scope="col">prenom employee</th>
-            <th scope="col">post</th>
-            <th scope="col">jobid</th>
+            <th scope="colgroup">Nom</th>
+            <th scope="col">Prenom</th>
+            <th scope="col">Matricule</th>
+            <th scope="col">Post</th>
             <th scope="col">Action</th>
-            <th scope="col">mailmeeting</th>
+
           </tr>
           </thead>
           <tbody>
           <tr *ngFor="let i of employees">
             <td>{{i.nom}}</td>
             <td>{{i.prenom}}</td>
-            <td>{{i.post}}</td>
             <td>{{i.jobid}}</td>
+            <td>{{i.post}}</td>
             <td>
               <a class="btn btn-sm btn-link" [routerLink]="['/rh/detailemployee/'+i.id]" ><i class="mdi mdi-eye"></i></a>
               <a class="btn btn-sm btn-primary" style="margin-right:5px;" [routerLink]="['/rh/editemployee/'+i.id]" >
@@ -87,7 +50,7 @@
                 <i class="mdi mdi-delete"></i>
               </a>
             </td>
-            <td>
+            <!--<td>
               <a class="btn btn-link" style="color: #28a745" (click)="sendemail(i.id,'confirm')">
 
                 <i class="mdi mdi-email"></i>
@@ -96,7 +59,7 @@
 
                 <i class="mdi mdi-email"></i>
               </a>
-            </td>
+            </td>-->
           </tr>
           </tbody>
         </table>
@@ -105,11 +68,6 @@
     </div>
   </div>
   <div>
-   <h3 style="color: red">NB:</h3>
-    <p> dans la colone "mailmeeting" coleur vert indique la comfirmation de meet
-      et l autre l annulation
-    </p>
-
   </div>
 
-</div>
+

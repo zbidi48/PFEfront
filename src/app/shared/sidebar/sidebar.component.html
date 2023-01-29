@@ -4,7 +4,20 @@
   </div>
 
   <ul class="nav">
-    
+    <li class="nav-item" [ngClass]="{ 'active': dashboard.isActive }" *ngIf="authority === 'ROLE_serviceRH'">
+      <a class="nav-link" routerLink="/rh/listemployee" routerLinkActive #dashboard="routerLinkActive">
+        <span class="menu-title">Employee Données</span>
+
+        <i class="mdi mdi-account-convert menu-icon"></i>
+      </a>
+    </li>
+    <li class="nav-item" [ngClass]="{ 'active': dashboard.isActive }" *ngIf="authority === 'ROLE_serviceRH'">
+      <a class="nav-link" routerLink="/rh/offreemploie" routerLinkActive #dashboard="routerLinkActive">
+        <span class="menu-title">Offre Emploie</span>
+
+        <i class="mdi mdi-account-convert menu-icon"></i>
+      </a>
+    </li>
     <li class="nav-item" [ngClass]="{ 'active': dashboard.isActive }" *ngIf="authority === 'ROLE_serviceRH'">
       <a class="nav-link" routerLink="/rh/dashboard" routerLinkActive #dashboard="routerLinkActive">
         <span class="menu-title">Evaluation des Formations</span>
@@ -27,13 +40,6 @@
       </a>
     </li>
     <li class="nav-item" [ngClass]="{ 'active': dashboard.isActive }" *ngIf="authority === 'ROLE_serviceRH'">
-      <a class="nav-link" routerLink="/rh/meeting" routerLinkActive #dashboard="routerLinkActive">
-        <span class="menu-title">Meeting</span>
-
-        <i class="mdi mdi-account-convert menu-icon"></i>
-      </a>
-    </li>
-    <li class="nav-item" [ngClass]="{ 'active': dashboard.isActive }" *ngIf="authority === 'ROLE_serviceRH'">
       <a class="nav-link" routerLink="/rh/inscritoffre" routerLinkActive #dashboard="routerLinkActive">
         <span class="menu-title">Inscription Offreemploie</span>
 
@@ -43,13 +49,6 @@
     <li class="nav-item" [ngClass]="{ 'active': dashboard.isActive }" *ngIf="authority === 'ROLE_serviceRH'">
       <a class="nav-link" routerLink="/rh/notedefraie" routerLinkActive #dashboard="routerLinkActive">
         <span class="menu-title">Note de Fraie </span>
-
-        <i class="mdi mdi-account-convert menu-icon"></i>
-      </a>
-    </li>
-    <li class="nav-item" [ngClass]="{ 'active': dashboard.isActive }" *ngIf="authority === 'ROLE_serviceRH'">
-      <a class="nav-link" routerLink="/rh/listemployee" routerLinkActive #dashboard="routerLinkActive">
-        <span class="menu-title">Employee Données</span>
 
         <i class="mdi mdi-account-convert menu-icon"></i>
       </a>
@@ -89,20 +88,7 @@
         <i class="mdi mdi-account-convert menu-icon"></i>
       </a>
     </li>
-    <li class="nav-item" [ngClass]="{ 'active': dashboard.isActive }" *ngIf="authority === 'ROLE_serviceRH'">
-      <a class="nav-link" routerLink="/rh/offreemploie" routerLinkActive #dashboard="routerLinkActive">
-        <span class="menu-title">Offre Emploie</span>
 
-        <i class="mdi mdi-account-convert menu-icon"></i>
-      </a>
-    </li>
-    <li class="nav-item" [ngClass]="{ 'active': dashboard.isActive }" *ngIf="authority === 'ROLE_serviceRH'">
-      <a class="nav-link" routerLink="/rh/candidatinfo" routerLinkActive #dashboard="routerLinkActive">
-        <span class="menu-title">Candidats Donnés</span>
-
-        <i class="mdi mdi-account-convert menu-icon"></i>
-      </a>
-    </li>
     <li class="nav-item" [ngClass]="{ 'active': dashboard.isActive }" *ngIf="authority === 'ROLE_Condidat'">
       <a class="nav-link" routerLink="/espacecondidat/offreemploie/" routerLinkActive #dashboard="routerLinkActive">
         <span class="menu-title">Offre_Emploie</span>

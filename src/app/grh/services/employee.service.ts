@@ -32,15 +32,11 @@ export class EmployeeService {
   {
     return this.http.get<IEmployee>(this.api_url+'/employee/detailempl/'+id,{observe: 'response'})
   }
-  searchemployee(jobid:string):Observable<HttpResponse<IEmployee[]>>
+  searchemployee(key:string):Observable<HttpResponse<IEmployee[]>>
   {
-    return this.http.get<IEmployee[]>(this.api_url+'/employee/chercheremployee/'+jobid,{observe: 'response'})
+    return this.http.get<IEmployee[]>(this.api_url+'/employee/rechercheemployee/'+key,{observe: 'response'})
   }
-  searchemployeebylastnamefirstname(nom:string,prenom:string):Observable<HttpResponse<IEmployee[]>>
-  {
-    return this.http.post<IEmployee[]>(this.api_url+'/employee/chercherparnometprenom/'+nom+
-    "/"+prenom,null,{observe: 'response'})
-  }
+
 
 
 }
