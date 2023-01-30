@@ -4,15 +4,15 @@
       <table  class="table" *ngIf="contrats.length>0">
         <thead >
         <tr class="table-success">
-          <th scope="col">NOM</th>
-          <th scope="col">PRENOM</th>
-          <th scope="col">POST</th>
-          <th scope="col">MATRICULE</th>
-          <th scope="col">CODE</th>
-          <th scope="col">TYPE</th>
-          <th scope="col">DATE DEBUT</th>
-          <th scope="col">DATE FIN</th>
-          <th scope="col">ACTION</th>
+          <th scope="col">Nom</th>
+          <th scope="col">Prenom</th>
+          <th scope="col">Post</th>
+          <th scope="col">Matricule</th>
+          <th scope="col">Code</th>
+          <th scope="col">Type</th>
+          <th scope="col">Date Debut</th>
+          <th scope="col">Date Fin</th>
+          <th scope="col">Action</th>
         </tr>
         </thead>
         <tbody>
@@ -25,9 +25,8 @@
           <td>{{i.type}}</td>
           <td>{{i.datedebut}}</td>
           <td>{{i.datefin}}</td>
-
           <td >
-            <button class="btn btn-link"  (click)="exportcontrat(i.id)"> telecharger
+            <button class="btn btn-link"  (click)="exportcontrat(i.id)"> Telecharger
               <i class="mdi mdi-download"></i>
             </button>
           </td>
@@ -36,9 +35,6 @@
       </table>
       <span *ngIf="contrats.length==0"> table vide</span>
     </div>
-
-
-
   </div>
 
 </div>

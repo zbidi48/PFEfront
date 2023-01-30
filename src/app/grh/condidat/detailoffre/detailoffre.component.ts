@@ -22,7 +22,8 @@ export class DetailoffreComponent implements OnInit {
   constructor(private offreemploieservice:OffreemploieService,
               private path:ActivatedRoute,
               private postuleroffreservice:OffreemploiecondidatService,
-              private storageservice:StorageService
+              private storageservice:StorageService,
+              private  router:Router
                ) { }
 
   ngOnInit(): void {
@@ -59,6 +60,7 @@ export class DetailoffreComponent implements OnInit {
      if (result.isConfirmed) {
        this.postuleroffreservice.addoffrecondidat(this.path.snapshot.params.id,this.storageservice.getId())
          .subscribe((value:HttpResponse<IMessageReponse>) => {
+           this.router.navigateByUrl("/espacecondidat/offreemploie");
 
            }
 

@@ -4,6 +4,7 @@ import {StorageService} from "../../services/storage.service";
 import {NotedefraieService} from "../../services/notedefraie.service";
 import {HttpErrorResponse, HttpResponse} from "@angular/common/http";
 import {IMessageReponse} from "../../models/messageReponse.model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-addnotedefraie',
@@ -24,7 +25,8 @@ export class AddnotedefraieComponent implements OnInit {
   error_message:string ='';
   constructor(private fb: FormBuilder,
               private storageservice:StorageService,
-              private notedefraiservice:NotedefraieService) { }
+              private notedefraiservice:NotedefraieService,
+              private  router:Router) { }
 
   ngOnInit(): void {
   }
@@ -37,7 +39,8 @@ addnotedefraie():void
     this.notedefraiservice.addnotedefraie(this.notedefraieaddform.value).subscribe(
       (value:HttpResponse<IMessageReponse>) => {
         this.showMsg = true;
-        this.notedefraieaddform.reset(true);
+        this.router.navigateByUrl("/espaceemployee/notedefraie");
+        //this.notedefraieaddform.reset(true);
 
       },(error: HttpErrorResponse)=>{
         this.showMsg = false;

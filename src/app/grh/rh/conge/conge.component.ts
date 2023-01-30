@@ -5,8 +5,9 @@ import {CongeService} from "../../services/conge.service";
 import {IEmployee} from "../../models/IEmployee.model";
 import {IConge} from "../../models/IConge.model";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {HttpResponse} from "@angular/common/http";
+import {HttpErrorResponse, HttpResponse} from "@angular/common/http";
 import {IMessageReponse} from "../../models/messageReponse.model";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-conge',
@@ -16,6 +17,8 @@ import {IMessageReponse} from "../../models/messageReponse.model";
 export class CongeComponent implements OnInit {
   employee:IEmployee[]=[];
   conges:IConge[]=[];
+  id:number;
+  msg:string = '';
   cherchcongeform: FormGroup = this.fb.group({
 
     key: ['', Validators.required]
@@ -59,6 +62,29 @@ export class CongeComponent implements OnInit {
   {
     this.getallconge()
   }
+ }
+ changestatus(id:number,status:string)
+ {
+   Swal.fire({
+     title:'Êtes-vous sûr '+status+' cette visa?',
+     showCancelButton:true,
+     confirmButtonText: 'ok',
+   }).then((result) =>{
+     if(result.isConfirmed) {
+       this.congeservice.statusconge(id,status).subscribe({
+         next:(msg:HttpResponse<IMessageReponse>)=> this.msg=msg.body.message,
+         error:(err:HttpErrorResponse) => {
+           //Swal.fire('erreur ','','error')
+           this.msg = ''
+         },
+         complete:() => {
+           Swal.fire(this.msg,'','success')
+          this.getallconge()
+         }
+       })
+
+     }
+   })
  }
 
 

@@ -5,7 +5,9 @@ import {CongeService} from "../../services/conge.service";
 import {IEmployee} from "../../models/IEmployee.model";
 import {EmployeeService} from "../../services/employee.service";
 import {StorageService} from "../../services/storage.service";
-import {HttpErrorResponse} from "@angular/common/http";
+import {HttpErrorResponse, HttpResponse} from "@angular/common/http";
+import {Router} from "@angular/router";
+import {IMessageReponse} from "../../models/messageReponse.model";
 
 @Component({
   selector: 'app-addconge',
@@ -33,7 +35,8 @@ data;
   constructor(private fb: FormBuilder,
               private congeservice:CongeService,
               private  employeeservice:EmployeeService,
-              private storageservice:StorageService) { }
+              private storageservice:StorageService,
+              private  router:Router) { }
 
   ngOnInit(): void {
     this.getemploy()
@@ -45,11 +48,11 @@ data;
     this.formSubmitted = true;
 if (this.congeform.valid)
 {
-  this.congeservice.addconge(this.congeform.value).subscribe((value:any) => {
+  this.congeservice.addconge(this.congeform.value).subscribe((value:HttpResponse<IMessageReponse>) => {
 
 
-    this.congeform.reset(true);
-
+    //this.congeform.reset(true);
+      this.router.navigateByUrl("/espaceemployee/congeemployee");
     this.showMsg = true;
   }
 ,(error: HttpErrorResponse)=>{

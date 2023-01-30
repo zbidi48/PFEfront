@@ -44,9 +44,9 @@ export class CongeService {
   }
 
 
-  statusconge(data,id):Observable<HttpResponse<IMessageReponse>>
+  statusconge(id:number,status:string):Observable<HttpResponse<IMessageReponse>>
   {
-    return this.http.put<IMessageReponse>(this.api_url+'/Conge/statusconge/'+id,data, {observe: 'response'})
+    return this.http.put<IMessageReponse>(this.api_url+'/Conge/statusconge/'+id+"/"+status,null, {observe: 'response'})
   }
 searchconge(query:string):Observable<HttpResponse<IConge[]>>
 {
