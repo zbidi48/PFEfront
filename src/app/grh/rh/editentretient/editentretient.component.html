@@ -1,18 +1,18 @@
 <form class="forms-sample" [formGroup]="miseajourentreteintform" (ngSubmit)="updateentretient()">
   <div class="form-group row">
-    <label  class="col-sm-3 col-form-label">date entretient:</label>
+    <label  class="col-sm-3 col-form-label">Date Entretient:</label>
     <div class="col-sm-9">
       <input type="date" class="form-control" id="date" placeholder="date"
              name="date" formControlName="date">
     </div>
   </div>
   <div class="form-group row">
-    <label  class="col-sm-3 col-form-label">heure entretient</label>
+    <label  class="col-sm-3 col-form-label">Heure Entretient</label>
     <div class="col-sm-9">
-      <input type="text" class="form-control" id="heure" placeholder="heure entreteint"
+      <input type="time" class="form-control" id="heure" placeholder="heure entreteint"
              name="heure" formControlName="heure" step="2">
     </div>
   </div>
-  <button type="submit" class="btn btn-gradient-primary mr-2" >edit</button>
-  <button class="btn btn-light" routerLink="/rh/entretient">Cancel</button>
+  <button type="submit" class="btn btn-gradient-primary mr-2" >Envoye</button>
+  <button class="btn btn-light" routerLink="/rh/entretient">Retour</button>
 </form>

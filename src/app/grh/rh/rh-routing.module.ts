@@ -72,7 +72,9 @@ const routes: Routes = [
   {path:'editmeeting/:id',loadChildren: () => import('./editmeeting/editmeeting.module').
     then(m => m.EditmeetingModule)},
   {path:'dashboard',loadChildren: () => import('./dashboard/dashboard.module').
-    then(m => m.DashboardModule)}
+    then(m => m.DashboardModule)},
+  {path:'dashboardinfo',loadChildren: () => import('./daschboradinfo/daschboradinfo.module').
+    then(m => m.DaschboradinfoModule)}
 ];
 
 @NgModule({

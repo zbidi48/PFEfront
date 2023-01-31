@@ -5,6 +5,13 @@
 
   <ul class="nav">
     <li class="nav-item" [ngClass]="{ 'active': dashboard.isActive }" *ngIf="authority === 'ROLE_serviceRH'">
+      <a class="nav-link" routerLink="/rh/dashboardinfo" routerLinkActive #dashboard="routerLinkActive">
+        <span class="menu-title">Daschboard</span>
+
+        <i class="mdi mdi-account-convert menu-icon"></i>
+      </a>
+    </li>
+    <li class="nav-item" [ngClass]="{ 'active': dashboard.isActive }" *ngIf="authority === 'ROLE_serviceRH'">
       <a class="nav-link" routerLink="/rh/listemployee" routerLinkActive #dashboard="routerLinkActive">
         <span class="menu-title">Employee Données</span>
 

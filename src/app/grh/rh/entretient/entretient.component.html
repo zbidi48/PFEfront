@@ -8,7 +8,7 @@
                  formControlName="key" />
         </div>
         <div>
-          <button type="submit" class="btn btn-primary" style="margin-left:0; height: 33.5px; padding: 0 20px;
+          <button type="submit" class="btn btn-primary" style="margin-left:0; height: 32px; padding: 0 20px;
            margin-top: 5px;" >
             <i class="mdi mdi-account-search"></i>
           </button>
@@ -31,12 +31,12 @@
         <table class="table table-bordered" *ngIf="entretients.length>0">
           <thead>
           <tr>
-            <th>nom</th>
-            <th>prenom</th>
-            <th>offre</th>
-            <th>date</th>
-            <th>heure</th>
-            <th>status</th>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Offre</th>
+            <th>Date</th>
+            <th>Heure</th>
+            <th>Status</th>
             <th>Action</th>
           </tr>
           </thead>
@@ -49,10 +49,8 @@
             <td>{{i.heure}}</td>
             <td>{{i.status}}</td>
             <td>
-             <!-- <a class="btn btn-sm btn-primary" style="margin-right:5px;" [routerLink]="['/rh/editentretient/'+i.id]" title="miseajour" >
-                <i class="mdi mdi-pen"></i>
-              </a>
-              <a class="btn btn-sm btn-danger"  (click)="deleteentret(i.id)" title="supprimer">
+
+              <!--<a class="btn btn-sm btn-danger"  (click)="deleteentret(i.id)" title="supprimer">
                 <i class="mdi mdi-delete"></i>
               </a>-->
               <ng-container *ngIf="i.status =='ENCOUR'" >
@@ -61,6 +59,9 @@
                 </a>
                 <a class="btn btn-sm btn-warning" (click)="changestatus(i.id,'refuse')">
                   <i class="mdi mdi-folder-remove"></i>
+                </a>
+                <a class="btn btn-sm btn-primary" style="margin-right:5px;" [routerLink]="['/rh/editentretient/'+i.id]" title="Miseajour" >
+                  <i class="mdi mdi-pen"></i>
                 </a>
               </ng-container>
              <!-- <ng-container *ngIf="i.status =='ACCEPTE'" >
