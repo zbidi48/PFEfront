@@ -14,7 +14,7 @@ import {IMessageReponse} from "../../models/messageReponse.model";
 export class AddcontratComponent implements OnInit {
   employees:IEmployee[]=[];
  contratform: FormGroup = this.fb.group({
-    code:['', Validators.required],
+
     type:['', Validators.required],
     datedebut:['', Validators.required],
     datefin:['', Validators.required],

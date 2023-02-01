@@ -1,4 +1,5 @@
 <div class="container-fluid px-4">
+  <h1 class="mt-4">Liste Contrat</h1>
   <div>
     <form class="form-inline" [formGroup]="searchcontratform" (ngSubmit)="searchcontrat()" >
       <div class="input-group">
@@ -8,7 +9,7 @@
                  formControlName="key" />
         </div>
         <div>
-          <button type="submit" class="btn btn-primary " style="margin-left:0; height: 33px; padding: 0 20px;
+          <button type="submit" class="btn btn-primary " style="margin-left:0; height: 32px; padding: 0 20px;
            margin-top: 5px;" >
             <i class="mdi mdi-account-search"></i>
           </button>
@@ -26,14 +27,13 @@
        <table class="table table-bordered" *ngIf="contras.length>0">
          <thead>
          <tr>
-           <th>nom employee</th>
-           <th>prenom employee</th>
-           <th>post</th>
-           <th>jobid</th>
-           <th>code</th>
-           <th>type</th>
-           <th>date debut</th>
-           <th>date fin</th>
+           <th>Nom</th>
+           <th>Prenom</th>
+           <th>Post</th>
+           <th>Matricule</th>
+           <th>Type</th>
+           <th>Date Debut</th>
+           <th>Date Fin</th>
            <th>Action</th>
          </tr>
          </thead>
@@ -43,7 +43,6 @@
            <td>{{i.prenom}}</td>
            <td>{{i.post}}</td>
            <td>{{i.jobid}}</td>
-           <td>{{i.code}}</td>
            <td>{{i.type}}</td>
            <td>{{i.datedebut}}</td>
            <td>{{i.datefin}}</td>

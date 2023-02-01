@@ -21,6 +21,7 @@ export  interface IOffrecondidat
   langue?:string,
   experience?:string,
   exigenceemploie:string,
-  status?:string
+  status?:string,
+  competences?:string,
   hasinterview:boolean;
 }

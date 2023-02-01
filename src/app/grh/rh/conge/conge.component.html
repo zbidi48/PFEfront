@@ -1,4 +1,5 @@
 <div class="container-fluid px-4">
+  <h1 class="mt-4">Liste Congé</h1>
   <div>
     <form class="form-inline" [formGroup]="cherchcongeform"  (ngSubmit)="searchallconge()">
       <div class="input-group">
@@ -22,32 +23,32 @@
         <thead>
         <tr>
           <th scope="col">
-           NON
+           Nom
           </th>
           <th scope="col">
-            PRENOM
+            Prenom
           </th>
           <th scope="col">
-            POST
+            Post
           </th>
           <th scope="col">
-            MATRICULE
+            Matricule
           </th>
           <th scope="col">
-          DATE DEBUT
+          Date Debut
           </th>
           <th scope="col">
-            DATE FIN
+            Date Fin
           </th>
           <th scope="col">
-            TYPE CONGE
+            Type Congé
           </th>
           <th scope="col">
-           STATUS
+           Status
           </th>
 
           <th scope="col">
-            ACTION
+            Action
           </th>
         </tr >
         </thead>
@@ -65,14 +66,14 @@
             <a class="btn btn-sm btn-danger mr-2" style="margin-right:5px;" (click)="deleteconge(i.id)" title="Supprimer Congé">
               <i class="mdi mdi-delete"></i></a>
             <ng-container *ngIf="i.statusConge =='DEMANDEENCOUR'" >
-              <a class="btn btn-sm btn-success" (click)="changestatus(i.id,'accepte')" >
+              <a class="btn btn-sm btn-success" (click)="changestatus(i.id,'accepte')"  title="Acceptation">
                 <i class="mdi mdi-marker-check"></i>
               </a>
-              <a class="btn btn-sm btn-warning" (click)="changestatus(i.id,'refuse')" >
+              <a class="btn btn-sm btn-warning" (click)="changestatus(i.id,'refuse')" title="Refus" >
                 <i class="mdi mdi-folder-remove"></i>
               </a>
             </ng-container>
-            <ng-container *ngIf="i.statusConge =='ACCEPTEDEMANDE'" >
+           <!-- <ng-container *ngIf="i.statusConge =='ACCEPTEDEMANDE'" >
               <a class="btn btn-sm btn-warning" (click)="changestatus(i.id,'refuse')" title="refuse" >
                 <i class="mdi mdi-folder-remove"></i>
               </a>
@@ -82,7 +83,7 @@
                 <i class="mdi mdi-marker-check"></i>
               </a>
 
-            </ng-container>
+            </ng-container>-->
           </td>
 
 

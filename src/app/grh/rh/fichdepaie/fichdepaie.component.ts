@@ -75,6 +75,9 @@ export class FichdepaieComponent implements OnInit {
           this.fiches=value.body
         }
       )
+    }else
+    {
+      this.getfichedepaie()
     }
   }
 

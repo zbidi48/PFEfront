@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {FormationService} from "../../services/formation.service";
 import {error} from "protractor";
 import {HttpErrorResponse} from "@angular/common/http";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-addformation',
@@ -23,7 +24,8 @@ export class AddformationComponent implements OnInit {
   has_error:boolean = false;
   error_message:string ='';
 
-  constructor(private fb: FormBuilder,private formationService:FormationService) { }
+  constructor(private fb: FormBuilder,private formationService:FormationService,
+              private  router:Router) { }
 
   ngOnInit(): void {
 
@@ -37,6 +39,8 @@ export class AddformationComponent implements OnInit {
          //console.log(res.body.message);
          this.showMsg = true;
          this.formationform.reset(true);
+         this.router.navigateByUrl("/rh/formation");
+
 
        },(error: HttpErrorResponse)=>{
          this.showMsg = false;

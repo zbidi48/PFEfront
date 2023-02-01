@@ -36,7 +36,8 @@ export class SignupComponent implements OnInit {
       university:['', Validators.required],
       niveauExp:['', Validators.required],
       experience:['', Validators.required],
-      cin:['', Validators.required]
+      cin:['', Validators.required],
+      competences:['', Validators.required]
     })
   }
   onregister(){

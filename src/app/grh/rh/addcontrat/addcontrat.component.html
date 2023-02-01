@@ -5,10 +5,7 @@
   <div class="alert alert-danger" *ngIf="has_error">
     {{error_message}}
   </div>
-  <div class="form-group">
-    <label >Code</label>
-    <input type="text" class="form-control" id="code" placeholder="code" name="code" formControlName="code">
-  </div>
+
   <div class="form-group">
     <label >Type Contrat</label>
     <input type="text" class="form-control" id="type" placeholder="type" name="type" formControlName="type">
@@ -28,6 +25,6 @@
     </select>
 
   </div>
-  <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
-  <button class="btn btn-light" routerLink="/rh/contrat">Cancel</button>
+  <button type="submit" class="btn btn-gradient-primary mr-2">Envoye</button>
+  <button class="btn btn-light" routerLink="/rh/contrat">Anulle</button>
 </form>

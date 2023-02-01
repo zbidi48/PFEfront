@@ -5,6 +5,7 @@ import {IEmployee} from "../../models/IEmployee.model";
 import {FichedepaieService} from "../../services/fichedepaie.service";
 import {HttpErrorResponse, HttpResponse} from "@angular/common/http";
 import {IMessageReponse} from "../../models/messageReponse.model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-addfichdepaie',
@@ -27,7 +28,8 @@ export class AddfichdepaieComponent implements OnInit {
   error_message:string ='';
   constructor(private fb: FormBuilder
               ,private  employeeservice:EmployeeService
-              ,private  fichedepaieService:FichedepaieService) { }
+              ,private  fichedepaieService:FichedepaieService,
+              private  router:Router) { }
 
   ngOnInit(): void {
     this.getemploy()
@@ -42,6 +44,7 @@ export class AddfichdepaieComponent implements OnInit {
         //console.log(value.body.message)
         this.showMsg = true;
         this.fichepform.reset(true);
+        this.router.navigateByUrl("/rh/fichdepaie");
 
       },(error: HttpErrorResponse)=>{
         this.showMsg = false;

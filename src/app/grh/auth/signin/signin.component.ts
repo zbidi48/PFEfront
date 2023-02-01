@@ -38,7 +38,7 @@ export class SigninComponent implements OnInit {
          // this.router.navigateByUrl(""); espace employee
          this.router.navigateByUrl("/espaceemployee/congeemployee")
        }else if(res.body.roles[0] ==="ROLE_serviceRH") {
-         this.router.navigateByUrl("/rh/visa");
+         this.router.navigateByUrl("/rh/dashboardinfo");
          //this.router.navigateByUrl("")
        }else
        {

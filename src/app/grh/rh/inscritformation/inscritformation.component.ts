@@ -15,15 +15,10 @@ export class InscritformationComponent implements OnInit {
   inscritformtions:Iinscritformation[]=[];
   inscritsearchform: FormGroup = this.fb.group({
 
-    jobid: ['', Validators.required],
+    key: ['', Validators.required],
 
   })
-  inscritsearchbylasrnamefirstnameform: FormGroup = this.fb.group({
 
-    nom: ['', Validators.required],
-    prenom: ['', Validators.required]
-
-  })
   constructor(private inscritformationservice:InscritformationService,
               private fb:FormBuilder) { }
   msg:string = '';
@@ -58,30 +53,19 @@ export class InscritformationComponent implements OnInit {
       }
     })
   }
-  searchinscrit()
+searchiinscform():void
+{
+  if(this.inscritsearchform.valid)
   {
-    this.inscritformationservice.searchinscritformation(this.inscritsearchform.value.jobid).
-    subscribe((value:HttpResponse<Iinscritformation[]>) => {
-      this.inscritformtions=value.body
-    })
-  }
-  searchinscritbylastnamefirstname():void
-  {
-    /*
-    console.log(
-      this.inscritsearchbylasrnamefirstnameform.value.nom,
-      this.inscritsearchbylasrnamefirstnameform.value.prenom
-    )
-     */
-    if (this.inscritsearchbylasrnamefirstnameform.valid)
-    {
-      this.inscritformationservice.searchbylastnamefirstname(this.inscritsearchbylasrnamefirstnameform.value.nom,
-        this.inscritsearchbylasrnamefirstnameform.value.prenom).subscribe(
-          (value:HttpResponse<Iinscritformation[]>) => {
-            this.inscritformtions=value.body
-          }
-      )
-    }
-  }
+    this.inscritformationservice.Searchinscrit(this.inscritsearchform.value.key).subscribe(
+      (value:HttpResponse<Iinscritformation[]>) => {
+        this.inscritformtions=value.body
+      })
+  }else { this.inscritformationservice.getinscritformation().
+  subscribe((value:HttpResponse<Iinscritformation[]>) => {
+    this.inscritformtions=value.body
+  })
 
+  }
+}
 }

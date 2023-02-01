@@ -1,5 +1,5 @@
 <div class="container-fluid px-4">
-
+  <h1 class="mt-4">Liste Demande Visa</h1>
   <div>
     <form class="form-inline" [formGroup]="searchvisaform" (ngSubmit)="searchvisas()" >
       <div class="input-group">
@@ -49,24 +49,24 @@
             </a>
 
             <ng-container *ngIf="visa.status =='ENCOUR'" >
-              <a class="btn btn-sm btn-success" (click)="changeStatus(visa.id,'accepte')" >
+              <a class="btn btn-sm btn-success" (click)="changeStatus(visa.id,'accepte')" title="Acceptation" >
                 <i class="mdi mdi-marker-check"></i>
               </a>
-              <a class="btn btn-sm btn-warning" (click)="changeStatus(visa.id,'refuse')" >
+              <a class="btn btn-sm btn-warning" (click)="changeStatus(visa.id,'refuse')" title="Refus" >
                 <i class="mdi mdi-folder-remove"></i>
               </a>
             </ng-container>
-            <ng-container *ngIf="visa.status =='ACCEPTE'" >
-              <a class="btn btn-sm btn-warning" (click)="changeStatus(visa.id,'refuse')" title="refuse" >
-                <i class="mdi mdi-folder-remove"></i>
-              </a>
-            </ng-container>
+           <!-- <ng-container *ngIf="visa.status =='ACCEPTE'" >
+            <a class="btn btn-sm btn-warning" (click)="changeStatus(visa.id,'refuse')" title="refuse" >
+              <i class="mdi mdi-folder-remove"></i>
+            </a>
+          </ng-container>
             <ng-container *ngIf="visa.status =='REFUSE'" >
               <a class="btn btn-sm btn-success" (click)="changeStatus(visa.id,'accepte')" title="acceptation" >
                 <i class="mdi mdi-marker-check"></i>
               </a>
 
-            </ng-container>
+            </ng-container>-->
 
             <!--<a class="btn btn-sm btn-primary" [routerLink]="['/rh/accordvisa/'+visa.id]" >statusvisa</a>-->
           </td>

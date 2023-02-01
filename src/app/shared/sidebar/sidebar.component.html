@@ -2,7 +2,6 @@
   <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
     <a class="navbar-brand brand-logo" ><img width="100" src="assets/images/logogrh.png" alt="logo" /></a>
   </div>
-
   <ul class="nav">
     <li class="nav-item" [ngClass]="{ 'active': dashboard.isActive }" *ngIf="authority === 'ROLE_serviceRH'">
       <a class="nav-link" routerLink="/rh/dashboardinfo" routerLinkActive #dashboard="routerLinkActive">
@@ -26,27 +25,6 @@
       </a>
     </li>
     <li class="nav-item" [ngClass]="{ 'active': dashboard.isActive }" *ngIf="authority === 'ROLE_serviceRH'">
-      <a class="nav-link" routerLink="/rh/dashboard" routerLinkActive #dashboard="routerLinkActive">
-        <span class="menu-title">Evaluation des Formations</span>
-
-        <i class="mdi mdi-account-convert menu-icon"></i>
-      </a>
-    </li>
-    <li class="nav-item" [ngClass]="{ 'active': dashboard.isActive }" *ngIf="authority === 'ROLE_serviceRH'">
-    <a class="nav-link" routerLink="/rh/visa" routerLinkActive #dashboard="routerLinkActive">
-        <span class="menu-title">Visa</span>
-
-        <i class="mdi mdi-account-convert menu-icon"></i>
-      </a>
-    </li>
-    <li class="nav-item" [ngClass]="{ 'active': dashboard.isActive }" *ngIf="authority === 'ROLE_serviceRH'">
-      <a class="nav-link" routerLink="/rh/inscritformation" routerLinkActive #dashboard="routerLinkActive">
-        <span class="menu-title">Inscription Formation</span>
-
-        <i class="mdi mdi-account-convert menu-icon"></i>
-      </a>
-    </li>
-    <li class="nav-item" [ngClass]="{ 'active': dashboard.isActive }" *ngIf="authority === 'ROLE_serviceRH'">
       <a class="nav-link" routerLink="/rh/inscritoffre" routerLinkActive #dashboard="routerLinkActive">
         <span class="menu-title">Inscription Offreemploie</span>
 
@@ -54,8 +32,8 @@
       </a>
     </li>
     <li class="nav-item" [ngClass]="{ 'active': dashboard.isActive }" *ngIf="authority === 'ROLE_serviceRH'">
-      <a class="nav-link" routerLink="/rh/notedefraie" routerLinkActive #dashboard="routerLinkActive">
-        <span class="menu-title">Note de Fraie </span>
+      <a class="nav-link" routerLink="/rh/entretient" routerLinkActive #dashboard="routerLinkActive">
+        <span class="menu-title">Entretient</span>
 
         <i class="mdi mdi-account-convert menu-icon"></i>
       </a>
@@ -63,6 +41,13 @@
     <li class="nav-item" [ngClass]="{ 'active': dashboard.isActive }" *ngIf="authority === 'ROLE_serviceRH'">
       <a class="nav-link" routerLink="rh/fichdepaie" routerLinkActive #dashboard="routerLinkActive">
         <span class="menu-title">Fiche de Paie</span>
+
+        <i class="mdi mdi-account-convert menu-icon"></i>
+      </a>
+    </li>
+    <li class="nav-item" [ngClass]="{ 'active': dashboard.isActive }" *ngIf="authority === 'ROLE_serviceRH'">
+      <a class="nav-link" routerLink="/rh/contrat" routerLinkActive #dashboard="routerLinkActive">
+        <span class="menu-title">Contrat</span>
 
         <i class="mdi mdi-account-convert menu-icon"></i>
       </a>
@@ -82,20 +67,33 @@
       </a>
     </li>
     <li class="nav-item" [ngClass]="{ 'active': dashboard.isActive }" *ngIf="authority === 'ROLE_serviceRH'">
-      <a class="nav-link" routerLink="/rh/entretient" routerLinkActive #dashboard="routerLinkActive">
-        <span class="menu-title">Entretient</span>
+      <a class="nav-link" routerLink="/rh/inscritformation" routerLinkActive #dashboard="routerLinkActive">
+        <span class="menu-title">Inscription Formation</span>
 
         <i class="mdi mdi-account-convert menu-icon"></i>
       </a>
     </li>
     <li class="nav-item" [ngClass]="{ 'active': dashboard.isActive }" *ngIf="authority === 'ROLE_serviceRH'">
-      <a class="nav-link" routerLink="/rh/contrat" routerLinkActive #dashboard="routerLinkActive">
-        <span class="menu-title">Contrat</span>
+      <a class="nav-link" routerLink="/rh/dashboard" routerLinkActive #dashboard="routerLinkActive">
+        <span class="menu-title">Evaluation des Formations</span>
 
         <i class="mdi mdi-account-convert menu-icon"></i>
       </a>
     </li>
+    <li class="nav-item" [ngClass]="{ 'active': dashboard.isActive }" *ngIf="authority === 'ROLE_serviceRH'">
+    <a class="nav-link" routerLink="/rh/visa" routerLinkActive #dashboard="routerLinkActive">
+        <span class="menu-title">Visa</span>
 
+        <i class="mdi mdi-account-convert menu-icon"></i>
+      </a>
+    </li>
+    <li class="nav-item" [ngClass]="{ 'active': dashboard.isActive }" *ngIf="authority === 'ROLE_serviceRH'">
+      <a class="nav-link" routerLink="/rh/notedefraie" routerLinkActive #dashboard="routerLinkActive">
+        <span class="menu-title">Note de Fraie </span>
+
+        <i class="mdi mdi-account-convert menu-icon"></i>
+      </a>
+    </li>
     <li class="nav-item" [ngClass]="{ 'active': dashboard.isActive }" *ngIf="authority === 'ROLE_Condidat'">
       <a class="nav-link" routerLink="/espacecondidat/offreemploie/" routerLinkActive #dashboard="routerLinkActive">
         <span class="menu-title">Offre_Emploie</span>
@@ -133,7 +131,7 @@
     </li>
     <li class="nav-item" [ngClass]="{ 'active': dashboard.isActive }" *ngIf="authority === 'ROLE_Employee'">
       <a class="nav-link" routerLink="/espaceemployee/formationemployee" routerLinkActive #dashboard="routerLinkActive">
-        <span class="menu-title">Formation Sociéte </span>
+        <span class="menu-title">Formation</span>
 
         <i class="mdi mdi-account-convert menu-icon"></i>
       </a>

@@ -1,53 +1,32 @@
 <div class="container-fluid px-4">
-  <h1 class="mt-4">Liste de les inscrits des formations des employees</h1>
-  <hr>
+  <h1 class="mt-4">Liste Inscit Formation</h1>
+  <div>
+    <form class="form-inline" [formGroup]="inscritsearchform"  (ngSubmit)="searchiinscform()">
+      <div class="input-group">
+        <div class="form-outline">
+          <input type="search" id="key" class="form-control"  name="key"
+                 placeholder="search"
+                 formControlName="key" />
+        </div>
+        <div>
+          <button type="submit" class="btn btn-primary" style="margin-left:0; height: 32px; padding: 0 20px;
+           margin-top: 5px;" >
+            <i class="mdi mdi-account-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
   <div >
-    <form  [formGroup]="inscritsearchbylasrnamefirstnameform"
-           (ngSubmit)="searchinscritbylastnamefirstname()" >
-      <div class="row">
-        <div class="col-sm-6">
-          <div class="form-group ">
-            <label>taper employee_nom</label>
-            <input type="text" id="nom"  class="form-control"
-                   name="nom" placeholder="nom employee" formControlName="nom">
-          </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="form-group ">
-            <label>taper employee_prenom:</label>
-            <input type="text" id="prenom"  class="form-control"
-                   name="prenom" placeholder="prenom employee" formControlName="prenom">
-          </div>
-        </div>
-      </div>
-      <div class="form-group mb-5">
-        <button class="btn btn-info" type="submit">chercher</button>
-      </div>
-    </form>
-    <form  [formGroup]="inscritsearchform" (ngSubmit)="searchinscrit()" >
-      <div class="row">
-        <div class="col-sm-6">
-          <div class="form-group ">
-            <label>inscrit formation par jobid</label>
-            <input type="text" id="jobid"  class="form-control"
-                   name="jobid" placeholder="jobid" formControlName="jobid">
-          </div>
-        </div>
-      </div>
-      <div class="form-group mb-5">
-        <button class="btn btn-info" type="submit">chercher</button>
-      </div>
-    </form>
     <div class="card mb-4">
-
       <div class="card-body">
         <table class="table table-bordered" *ngIf="inscritformtions.length>0">
           <thead>
           <tr>
-            <th>nom employee</th>
-            <th>prenom employee</th>
-            <th>jobid</th>
-            <th>status</th>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Matricule</th>
+            <th>Status</th>
             <th>Action</th>
           </tr>
           </thead>
@@ -67,7 +46,7 @@
                   <i class="mdi mdi-folder-remove"></i>
                 </a>
               </ng-container>
-              <ng-container *ngIf="inscrit.status =='ACCEPTE'" >
+              <!--<ng-container *ngIf="inscrit.status =='ACCEPTE'" >
                 <a class="btn btn-sm btn-warning" (click)="changestatus(inscrit.id,'refuse')">
                   <i class="mdi mdi-folder-remove"></i>
                 </a>
@@ -77,7 +56,7 @@
                   <i class="mdi mdi-marker-check"></i>
                 </a>
 
-              </ng-container>
+              </ng-container>-->
             </td>
           </tr>
           </tbody>

@@ -13,7 +13,7 @@ import {IMessageReponse} from "../../models/messageReponse.model";
 })
 export class EditcontratComponent implements OnInit {
   macontratform: FormGroup = this.fb.group({
-    code:['', Validators.required],
+
     type:['', Validators.required],
     datedebut:[ Validators.required],
     datefin:[Validators.required]
@@ -43,7 +43,7 @@ export class EditcontratComponent implements OnInit {
     subscribe((data:HttpResponse<IContrat>)=>{
       this.macontratform.setValue(
         {
-          code:data.body.code,
+
           type:data.body.type,
           datedebut:data.body.datedebut,
           datefin:data.body.datefin

@@ -1,4 +1,5 @@
 <div class="container-fluid px-4">
+  <h1  >Liste Offre Emploie</h1>
   <div>
     <form class="form-inline" [formGroup]="searchoffreempl"  (ngSubmit)="search()">
       <div class="input-group">
@@ -20,21 +21,21 @@
     <div class="card mb-4">
       <div class="table-responsive">
         <div class="card-body">
-          <a  class="btn btn-success" routerLink="/rh/addoffreemploie" title="ajouter offre emploie">
+          <a  class="btn btn-success" routerLink="/rh/addoffreemploie" title="Ajouter Offre Emploie">
             <i class="mdi mdi-database-plus"></i>
           </a>
         </div>
         <table class="table table-bordered" *ngIf="offreemploies.length>0">
           <thead>
           <tr>
-            <th>TYPE OFFRE</th>
-            <th>DATE LIMITE</th>
-            <th>DESCRIPTION</th>
-            <th>LANGUE</th>
-            <th> EXPERIENCE</th>
-            <th>EXIGENCE</th>
-            <th>DATE CREATION</th>
-            <th>ACTION</th>
+            <th>Offre</th>
+            <th>Date Limite</th>
+            <th>Description</th>
+            <th>Langue</th>
+            <th>Experience</th>
+            <th>Exigence</th>
+            <th>Date Creation</th>
+            <th>Action</th>
           </tr>
           </thead>
           <tbody>
@@ -47,8 +48,8 @@
             <td>{{i.exigenceemploie}}</td>
             <td>{{i.datecreation}}</td>
             <td>
-              <a class="btn btn-sm btn-primary" style="margin-right:5px;" [routerLink]="['/rh/editoffreemploie/'+i.id]" title="miseajour"><i class="mdi mdi-pen"></i></a>
-              <a class="btn btn-sm btn-danger" (click)="deleteoffreempl(i.id)" title="supprimer"><i class="mdi mdi-delete"></i></a>
+              <a class="btn btn-sm btn-primary" style="margin-right:5px;" [routerLink]="['/rh/editoffreemploie/'+i.id]" title="Mise a jour"><i class="mdi mdi-pen"></i></a>
+              <a class="btn btn-sm btn-danger" (click)="deleteoffreempl(i.id)" title="Supprimer"><i class="mdi mdi-delete"></i></a>
             </td>
           </tr>
           </tbody>

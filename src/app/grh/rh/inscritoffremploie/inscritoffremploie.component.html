@@ -1,5 +1,5 @@
 <div class="container-fluid px-4">
-
+<h1  class="mt-4"> Liste Postulation Des Offres</h1>
   <div>
     <form class="form-inline" [formGroup]="searchinscritoffreform"  (ngSubmit)="searchinscritoffre()">
       <div class="input-group">
@@ -22,11 +22,11 @@
         <table class="table table-bordered" *ngIf="inscritoffreemploies.length>0">
           <thead>
           <tr>
-            <th>NOM</th>
-            <th>PRENOM</th>
-            <th>OFFRE</th>
-            <th>STATUS</th>
-            <th>ACTION</th>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Offre</th>
+            <th>Status</th>
+            <th>Action</th>
           </tr>
           </thead>
           <tbody>
