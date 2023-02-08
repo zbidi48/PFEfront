@@ -1,20 +1,20 @@
 <form class="forms-sample" [formGroup]="mafichepform" (ngSubmit)="updatefiche()">
   <div class="form-group row">
-    <label  class="col-sm-3 col-form-label">date</label>
+    <label  class="col-sm-3 col-form-label">Date</label>
     <div class="col-sm-9">
       <input type="date" class="form-control" id="date" placeholder="date"
              name="date" formControlName="date">
     </div>
   </div>
   <div class="form-group row">
-    <label  class="col-sm-3 col-form-label">salairenet</label>
+    <label  class="col-sm-3 col-form-label">Salaire Net</label>
     <div class="col-sm-9">
       <input type="text" class="form-control" id="salairenet" placeholder="salaire net"
              name="salairenet" formControlName="salairenet">
     </div>
   </div>
   <div class="form-group row">
-    <label  class="col-sm-3 col-form-label">salairebrut</label>
+    <label  class="col-sm-3 col-form-label">Salaire Brut</label>
     <div class="col-sm-9">
       <input type="text" class="form-control" id="salairebrut" placeholder="salaire brut"
              name="salairebrut" formControlName="salairebrut">
@@ -22,6 +22,6 @@
   </div>
 
 
-  <button type="submit" class="btn btn-gradient-primary mr-2" >edit</button>
-  <button class="btn btn-light" routerLink="/rh/fichdepaie">Cancel</button>
+  <button type="submit" class="btn btn-gradient-primary mr-2" >Envoyer</button>
+  <button class="btn btn-light" routerLink="/rh/fichdepaie">Annuler</button>
 </form>

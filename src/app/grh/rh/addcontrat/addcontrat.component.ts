@@ -5,6 +5,7 @@ import {EmployeeService} from "../../services/employee.service";
 import {IEmployee} from "../../models/IEmployee.model";
 import {HttpErrorResponse, HttpResponse} from "@angular/common/http";
 import {IMessageReponse} from "../../models/messageReponse.model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-addcontrat',
@@ -17,14 +18,15 @@ export class AddcontratComponent implements OnInit {
 
     type:['', Validators.required],
     datedebut:['', Validators.required],
-    datefin:['', Validators.required],
+
    employee_id:[Validators.required]
 
 
   })
   constructor( private fb:FormBuilder,
                private contratservice:ContratService ,
-               private  employeeservice:EmployeeService) { }
+               private  employeeservice:EmployeeService,
+               private  router:Router) { }
   formSubmitted: boolean = false;
   message="Ajout avec success!";
   showMsg:boolean = false;
@@ -48,6 +50,7 @@ Addcontrat():void
         //console.log(res.body.message);
         this.showMsg = true;
         this.contratform.reset(true);
+        this.router.navigateByUrl("/rh/contrat");
       },(error: HttpErrorResponse)=>{
         this.showMsg = false;
         this.has_error = true;

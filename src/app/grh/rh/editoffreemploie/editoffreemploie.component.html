@@ -1,21 +1,21 @@
 <form class="forms-sample" [formGroup]="maoffreemplform" (ngSubmit)="editoffreemploie()">
   <div class="form-group">
-    <label >titredoffre</label>
+    <label >Offre</label>
     <input type="text" class="form-control" id="titre d offre" placeholder="titredoffre"
            name="titredoffre" formControlName="titredoffre">
   </div>
   <div class="form-group">
-    <label >datelimite</label>
+    <label >Date Limite</label>
     <input type="date" class="form-control" id="datelimite"  placeholder="dd-mm-yyyy"
            name="datelimite" formControlName="datelimite">
   </div>
   <div class="form-group">
-    <label >description</label>
+    <label >Description</label>
     <input type="text" class="form-control" id="description" placeholder="description"
            name="description" formControlName="description">
   </div>
   <div class="form-group">
-    <label >langue</label>
+    <label >Langue</label>
     <input type="text" class="form-control" id="langue" placeholder="langue"
            name="langue" formControlName="langue">
   </div>
@@ -25,10 +25,10 @@
            name="experience" formControlName="experience">
   </div>
   <div class="form-group">
-    <label >exigenceemploie</label>
+    <label >Exigence Emploie</label>
     <input type="text" class="form-control" id="exigenceemploie" placeholder="exigence emploie"
            name="exigenceemploie" formControlName="exigenceemploie">
   </div>
-  <button type="submit" class="btn btn-gradient-primary mr-2">edit</button>
-  <button class="btn btn-light" routerLink="/rh/offreemploie">Cancel</button>
+  <button type="submit" class="btn btn-gradient-primary mr-2">Envoyer</button>
+  <button class="btn btn-light" routerLink="/rh/offreemploie">Annuler</button>
 </form>

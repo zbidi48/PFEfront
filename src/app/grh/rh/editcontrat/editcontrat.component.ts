@@ -16,7 +16,7 @@ export class EditcontratComponent implements OnInit {
 
     type:['', Validators.required],
     datedebut:[ Validators.required],
-    datefin:[Validators.required]
+
 
 
   })
@@ -45,8 +45,8 @@ export class EditcontratComponent implements OnInit {
         {
 
           type:data.body.type,
-          datedebut:data.body.datedebut,
-          datefin:data.body.datefin
+          datedebut:data.body.datedebut
+
         }
 
       )

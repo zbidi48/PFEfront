@@ -4,6 +4,7 @@ import {AuthService} from "../../services/auth.service";
 import Swal from 'sweetalert2'
 import {HttpErrorResponse, HttpResponse} from "@angular/common/http";
 import {IMessageReponse} from "../../models/messageReponse.model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-signup',
@@ -14,7 +15,8 @@ export class SignupComponent implements OnInit {
   signupForm: FormGroup;
   msg:string = '';
 
-  constructor(private fb: FormBuilder, private authservice: AuthService) { }
+  constructor(private fb: FormBuilder, private authservice: AuthService
+             ) { }
 
   ngOnInit(): void {
     this.createSignupForm();
@@ -35,7 +37,7 @@ export class SignupComponent implements OnInit {
       titreDiplome:['', Validators.required],
       university:['', Validators.required],
       niveauExp:['', Validators.required],
-      experience:['', Validators.required],
+
       cin:['', Validators.required],
       competences:['', Validators.required]
     })
@@ -51,6 +53,7 @@ export class SignupComponent implements OnInit {
           next:(msg:HttpResponse<IMessageReponse>)=> this.msg=msg.body.message,
           error:(err:HttpErrorResponse) => {
             this.signupForm.reset(true)
+
             //Swal.fire('erreur ','','error')
             this.msg = ''
           },

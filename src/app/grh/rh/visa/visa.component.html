@@ -23,14 +23,14 @@
       <table  class="table table-bordered" *ngIf="visas.length>0">
         <thead>
         <tr>
-          <th scope="row">NOM</th>
-          <th>PRENOM</th>
-          <th>POST</th>
-          <th>MATRICULE</th>
-          <th>DATE DEPOT</th>
-          <th>STATUS</th>
-          <th>TYPE VISA</th>
-          <th>ACTION</th>
+          <th scope="row">Nom</th>
+          <th>Prénom</th>
+          <th>Post</th>
+          <th>Matricule</th>
+          <th>Date Depot</th>
+          <th>Status</th>
+          <th>Type Visa</th>
+          <th>Action</th>
         </tr>
         </thead>
         <tbody>
@@ -44,7 +44,7 @@
           <td>{{visa.typevisa}}</td>
 
           <td>
-            <a class="btn btn-sm btn-danger" (click)="deletevisa(visa.id)" title="supprimer" >
+            <a class="btn btn-sm btn-danger" (click)="deletevisa(visa.id)" title="Supprimer" >
               <i class="mdi mdi-delete"></i>
             </a>
 

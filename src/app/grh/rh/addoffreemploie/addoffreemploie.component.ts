@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {OffreemploieService} from "../../services/offreemploie.service";
 import {HttpErrorResponse, HttpResponse} from "@angular/common/http";
 import {IMessageReponse} from "../../models/messageReponse.model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-addoffreemploie',
@@ -20,7 +21,8 @@ export class AddoffreemploieComponent implements OnInit {
 
 
   })
-  constructor(private fb: FormBuilder,private offreemploieservice:OffreemploieService) { }
+  constructor(private fb: FormBuilder,private offreemploieservice:OffreemploieService,
+              private  router:Router) { }
 
   ngOnInit(): void {
   }
@@ -35,6 +37,8 @@ export class AddoffreemploieComponent implements OnInit {
     this.offreemploieservice.addoffre(this.offreemplform.value).subscribe((value:HttpResponse<IMessageReponse>) => {
       this.showMsg = true;
       this.offreemplform.reset(true);
+      this.router.navigateByUrl("/rh/offreemploie");
+
 
 
     },(error: HttpErrorResponse)=>{

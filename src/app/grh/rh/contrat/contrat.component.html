@@ -22,18 +22,18 @@
 
      <div class="table-responsive">
        <div class="card-body">
-         <a class="btn btn-success" routerLink="/rh/addcontrat" title="ajouter contrat" > <i class="mdi mdi-database-plus"></i></a>
+         <a class="btn btn-success" routerLink="/rh/addcontrat" title="Ajouter Contrat" > <i class="mdi mdi-database-plus"></i></a>
        </div>
        <table class="table table-bordered" *ngIf="contras.length>0">
          <thead>
          <tr>
            <th>Nom</th>
-           <th>Prenom</th>
+           <th>Prénom</th>
            <th>Post</th>
            <th>Matricule</th>
            <th>Type</th>
-           <th>Date Debut</th>
-           <th>Date Fin</th>
+           <th>Date Début</th>
+
            <th>Action</th>
          </tr>
          </thead>
@@ -45,15 +45,15 @@
            <td>{{i.jobid}}</td>
            <td>{{i.type}}</td>
            <td>{{i.datedebut}}</td>
-           <td>{{i.datefin}}</td>
+
 
            <td>
              <a class="btn btn-sm btn-primary" style="margin-right:5px;" [routerLink]="['/rh/editcontrat/'+i.id]"
-                title="mise ajour contrat" >
+                title="Mise ajour Contrat" >
                <i class="mdi mdi-pen"></i>
              </a>
              <a class="btn btn-sm btn-danger" (click)="deletecontrat(i.id)"
-                title="supprimer contrat">
+                title="Supprimer Contrat">
                <i class="mdi mdi-delete"></i>
              </a>
 

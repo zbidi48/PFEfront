@@ -1,11 +1,11 @@
 <form class="forms-sample" [formGroup]="entretientaddform" (ngSubmit)="ajouterentretient()">
   <div class="form-group">
-    <label >date entretient:</label>
+    <label >Date Entretient:</label>
     <input type="date" class="form-control" id="date" placeholder="date entretient"
            name="date" formControlName="date">
   </div>
   <div class="form-group">
-    <label >heure entretient:</label>
+    <label >Heure Entretient:</label>
     <input type="time" class="form-control" id="heure" placeholder="heure entretient"
            name="heure" formControlName="heure" step="2">
   </div>
@@ -20,7 +20,7 @@
     </select>
 
   </div>-->
-  <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
-  <button class="btn btn-light" routerLink="/rh/entretient">Cancel</button>
+  <button type="submit" class="btn btn-gradient-primary mr-2">Envoyer</button>
+  <button class="btn btn-light" routerLink="/rh/entretient">Annuler</button>
 </form>
 
