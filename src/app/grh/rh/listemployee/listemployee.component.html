@@ -28,7 +28,7 @@
           <thead>
           <tr>
             <th scope="colgroup">Nom</th>
-            <th scope="col">Prenom</th>
+            <th scope="col">Prénom</th>
             <th scope="col">Matricule</th>
             <th scope="col">Post</th>
             <th scope="col">Action</th>
@@ -43,23 +43,14 @@
             <td>{{i.post}}</td>
             <td>
               <a class="btn btn-sm btn-link" [routerLink]="['/rh/detailemployee/'+i.id]" ><i class="mdi mdi-eye"></i></a>
-              <a class="btn btn-sm btn-primary" style="margin-right:5px;" [routerLink]="['/rh/editemployee/'+i.id]" >
+              <a class="btn btn-sm btn-primary" style="margin-right:5px;" [routerLink]="['/rh/editemployee/'+i.id]" title="Mise a jour" >
                 <i class="mdi mdi-pen"></i>
               </a>
               <a class="btn btn-sm btn-danger" (click)="deleteemployee(i.id)" title="Supprimer">
                 <i class="mdi mdi-delete"></i>
               </a>
             </td>
-            <!--<td>
-              <a class="btn btn-link" style="color: #28a745" (click)="sendemail(i.id,'confirm')">
 
-                <i class="mdi mdi-email"></i>
-              </a>
-              <a class="btn btn-link" style="color: red" (click)="sendemail(i.id,'anulle')">
-
-                <i class="mdi mdi-email"></i>
-              </a>
-            </td>-->
           </tr>
           </tbody>
         </table>

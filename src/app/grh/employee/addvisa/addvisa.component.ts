@@ -4,6 +4,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {StorageService} from "../../services/storage.service";
 import {HttpErrorResponse, HttpResponse} from "@angular/common/http";
 import {IMessageReponse} from "../../models/messageReponse.model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-addvisa',
@@ -17,7 +18,8 @@ export class AddvisaComponent implements OnInit {
   })
   constructor(private visaservice:VisaService
               ,private fb:FormBuilder
-              ,private storageservice:StorageService) { }
+              ,private storageservice:StorageService,
+              private router:Router) { }
   formSubmitted:boolean=false;
   message="Ajout avec success!";
   showMsg:boolean = false;
@@ -33,6 +35,7 @@ export class AddvisaComponent implements OnInit {
       this.visaservice.addvisa(this.visaaddform.value).subscribe((value:HttpResponse<IMessageReponse>) => {
         this.showMsg = true;
         this.visaaddform.reset(true)
+        this.router.navigateByUrl("/espaceemployee/addvisa");
       },(error: HttpErrorResponse)=>{
       this.showMsg = false;
       this.has_error = true;

@@ -54,25 +54,7 @@ export class ListemployeeComponent implements OnInit {
     })
   }
 
- sendemail(id:number,typemail:string)
- {
-   Swal.fire({
-     title: 'Sweet!',
-     text: 'voulez vous envoyé un email?',
-     imageUrl: 'https://upload.wikimedia.org/wikipedia/fr/a/a7/Mail_%28Apple%29_logo.png',
-     imageWidth: 400,
-     imageHeight: 200,
-     imageAlt: 'Custom image',
-   }).then(value => {
-     if(typemail === 'confirm'){
-       this.mailingService.sendconfirmmeet(id).subscribe((value:HttpResponse<IMessageReponse>) => {
-       })
-     } else  if (typemail === 'anulle'){
-       this.mailingService.sendcancledmeet(id).subscribe((value:HttpResponse<IMessageReponse>) => {
-       })
-     }
-   })
- }
+
  saerchemployee():void
  {
 if(this.searchemployee.valid)

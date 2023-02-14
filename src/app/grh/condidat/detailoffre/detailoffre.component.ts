@@ -8,6 +8,7 @@ import {OffreemploiecondidatService} from "../../services/offreemploiecondidat.s
 import {StorageService} from "../../services/storage.service";
 import {IMessageReponse} from "../../models/messageReponse.model";
 import Swal from 'sweetalert2'
+import {IOffrecondidat} from "../../models/IOffrecondidat.model";
 
 @Component({
   selector: 'app-detailoffre',
@@ -17,6 +18,7 @@ import Swal from 'sweetalert2'
 export class DetailoffreComponent implements OnInit {
   offresemploie:IOffreemploie = null;
   msg:string = '';
+
 
 
   constructor(private offreemploieservice:OffreemploieService,
@@ -72,14 +74,7 @@ export class DetailoffreComponent implements OnInit {
        )
      }
    })
-   /*
-  this.postuleroffreservice.addoffrecondidat(this.path.snapshot.params.id,this.storageservice.getId())
-    .subscribe((value:HttpResponse<IMessageReponse>) => {
 
-    }
-
-  )
-  */
  }
 
 }

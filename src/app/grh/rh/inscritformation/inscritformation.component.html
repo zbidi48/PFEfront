@@ -39,10 +39,10 @@
             <td>
               <a class="btn btn-link" style="margin-right:5px;" [routerLink]="['/rh/detaillinscritformation/'+inscrit.id]" ><i class="mdi mdi-eye"></i></a>
               <ng-container *ngIf="inscrit.status =='ENCOUR'" >
-                <a class="btn btn-sm btn-success" (click)="changestatus(inscrit.id,'accepte')">
+                <a class="btn btn-sm btn-success" (click)="changestatus(inscrit.id,'accepte')" title="Accéptation">
                   <i class="mdi mdi-marker-check"></i>
                 </a>
-                <a class="btn btn-sm btn-warning" (click)="changestatus(inscrit.id,'refuse')">
+                <a class="btn btn-sm btn-warning" (click)="changestatus(inscrit.id,'refuse')" title="Refus">
                   <i class="mdi mdi-folder-remove"></i>
                 </a>
               </ng-container>

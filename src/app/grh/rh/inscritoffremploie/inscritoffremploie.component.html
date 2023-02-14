@@ -23,7 +23,7 @@
           <thead>
           <tr>
             <th>Nom</th>
-            <th>Prenom</th>
+            <th>Prénom</th>
             <th>Offre</th>
             <th>Status</th>
             <th>Action</th>
@@ -39,10 +39,10 @@
               <a class="btn btn-link" [routerLink]="['/rh/detaillinscritoffre/'+inscrit.id]" >
                 <i class="mdi mdi-eye"></i></a>
               <ng-container *ngIf="inscrit.status =='ENCOUR'" >
-                <a class="btn btn-sm btn-success" (click)="statusinscrit(inscrit.id,'accepte')">
+                <a class="btn btn-sm btn-success" (click)="statusinscrit(inscrit.id,'accepte')" title="Accéptation">
                   <i class="mdi mdi-marker-check"></i>
                 </a>
-                <a class="btn btn-sm btn-warning" (click)="statusinscrit(inscrit.id,'refuse')">
+                <a class="btn btn-sm btn-warning" (click)="statusinscrit(inscrit.id,'refuse')" title="Refus">
                   <i class="mdi mdi-folder-remove"></i>
                 </a>
               </ng-container>
@@ -52,12 +52,12 @@
                 </a>-->
                 <a [routerLink]="'/rh/addentretient/'+inscrit.id" *ngIf="inscrit.hasinterview === false">Fixer un RDV</a>
               </ng-container>
-              <ng-container *ngIf="inscrit.status =='REFUSE'" >
+             <!-- <ng-container *ngIf="inscrit.status =='REFUSE'" >
                 <a class="btn btn-sm btn-success" (click)="statusinscrit(inscrit.id,'accepte')" title="acceptation">
                   <i class="mdi mdi-marker-check"></i>
                 </a>
 
-              </ng-container>
+              </ng-container>-->
             </td>
           </tr>
           </tbody>

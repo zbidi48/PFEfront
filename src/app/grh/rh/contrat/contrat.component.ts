@@ -62,7 +62,7 @@ export class ContratComponent implements OnInit {
       })
       Swal.fire(
         'supprimer!',
-        'offre emploie est supprimé.',
+        'contrat est supprimé.',
         'success'
       )
     }

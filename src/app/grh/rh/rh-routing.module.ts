@@ -3,8 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
  {path:'visa',loadChildren: () => import('./visa/visa.module').then(m => m.VisaModule)},
-  {path:'accordvisa/:id',loadChildren: () => import('./accordvisa/accordvisa.module')
-      .then(m => m.AccordvisaModule)},
+
  //{path:'addvisa',loadChildren: () => import('./addvisa/addvisa.module').then(m => m.AddvisaModule)},
   {path:'fichdepaie',loadChildren: () => import('./fichdepaie/fichdepaie.module').
     then(m => m.FichdepaieModule)},
@@ -41,18 +40,14 @@ const routes: Routes = [
   {path:'editoffreemploie/:id',loadChildren: () => import('./editoffreemploie/editoffreemploie.module').
     then(m => m.EditoffreemploieModule)},
   {path:'conge',loadChildren: () => import('./conge/conge.module').then(m => m.CongeModule)},
-  {path:'accordconge/:id',loadChildren: () => import('./accordconge/accordconge.module')
-      .then(m => m.AccordcongeModule)},
+
   {path:'notedefraie',loadChildren: () => import('./notedefraie/notedefraie.module').
     then(m => m.NotedefraieModule)},
   {path:'candidatinfo',loadChildren: () => import('./candidatinfo/candidatinfo.module').
     then(m => m.CandidatinfoModule)},
   {path:'candidatdetail/:id',loadChildren: () => import('./candidatdetail/candidatdetail.module').
     then(m => m.CandidatdetailModule)},
-  {path:'sendmail/:id',loadChildren: () => import('./sendmail/sendmail.module').
-    then(m => m.SendmailModule)},
-  {path:'sendrefumail/:id',loadChildren: () => import('./sendmailrefus/sendmailrefus.module').
-    then(m => m.SendmailrefusModule)},
+
   {path:'creationemployee',loadChildren: () => import('./creationemployee/creationemployee.module').
     then(m => m.CreationemployeeModule)},
   {path:'listemployee',loadChildren: () => import('./listemployee/listemployee.module').
@@ -65,12 +60,7 @@ const routes: Routes = [
     then(m => m.InscritoffremploieModule)},
   {path:'detaillinscritoffre/:id',loadChildren: () => import('./detailloffreinscrit/detailloffreinscrit.module').
     then(m => m.DetailloffreinscritModule)},
-  {path:'meeting',loadChildren: () => import('./meeting/meeting.module').
-    then(m => m.MeetingModule)},
-  {path:'addmeeting',loadChildren: () => import('./addmeeting/addmeeting.module').
-    then(m => m.AddmeetingModule)},
-  {path:'editmeeting/:id',loadChildren: () => import('./editmeeting/editmeeting.module').
-    then(m => m.EditmeetingModule)},
+
   {path:'dashboard',loadChildren: () => import('./dashboard/dashboard.module').
     then(m => m.DashboardModule)},
   {path:'dashboardinfo',loadChildren: () => import('./daschboradinfo/daschboradinfo.module').

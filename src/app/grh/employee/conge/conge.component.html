@@ -4,7 +4,7 @@
 
       <a  class="btn btn-success" routerLink="/espaceemployee/addconge">Ajouter Demande congé </a>
     </div>
-    <table class="table">
+    <table class="table" *ngIf="conges.length>0">
       <thead >
       <tr class="table-success">
         <th scope="col">
@@ -36,7 +36,7 @@
       </tr >
       </thead  >
       <tbody>
-      <tr *ngFor="let i of conges">
+      <tr *ngFor="let i of conges" >
         <td>{{i.nom}}</td>
         <td>{{i.prenom}}</td>
         <td>{{i.post}}</td>
@@ -49,6 +49,7 @@
       </tr>
       </tbody>
     </table>
+    <span *ngIf="conges.length==0"> Table Vide</span>
   </div>
   <div>
 

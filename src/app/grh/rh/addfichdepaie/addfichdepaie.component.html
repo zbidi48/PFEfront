@@ -23,9 +23,8 @@
   </div>
   <div >
     <div class="form-group ">
-      <label>nom employee</label>
-      <select class="form-control" formControlName="employee_id">
-        <option >Employee</option>
+      <label> Employee</label>
+      <select class="form-control" formControlName="employee_id" >
         <option value="{{e.id}}" *ngFor="let e of employees">
           NOM:{{e.nom}}
           PRENOM:{{e.prenom}}
@@ -35,6 +34,6 @@
       </select>
     </div>
   </div>
-  <button type="submit" class="btn btn-gradient-primary mr-2" >Envoyer</button>
+  <button type="submit" class="btn btn-gradient-primary mr-2" >Enregistrer</button>
   <button class="btn btn-light" routerLink="/rh/fichdepaie">Annuler</button>
 </form>

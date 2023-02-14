@@ -55,10 +55,10 @@
                 <i class="mdi mdi-delete"></i>
               </a>-->
               <ng-container *ngIf="i.status =='ENCOUR'" >
-                <a class="btn btn-sm btn-success" (click)="changestatus(i.id,'accepte')">
+                <a class="btn btn-sm btn-success" (click)="changestatus(i.id,'accepte')" title="Accéptation">
                   <i class="mdi mdi-marker-check"></i>
                 </a>
-                <a class="btn btn-sm btn-warning" (click)="changestatus(i.id,'refuse')">
+                <a class="btn btn-sm btn-warning" (click)="changestatus(i.id,'refuse')" title="Refus">
                   <i class="mdi mdi-folder-remove"></i>
                 </a>
                 <a class="btn btn-sm btn-primary" style="margin-right:5px;" [routerLink]="['/rh/editentretient/'+i.id]" title="Miseajour" >
