@@ -45,7 +45,7 @@ getdatbyid()
         salary:value.body.salary,
         cnss:value.body.cnss,
         departement:value.body.departement,
-        jobid:value.body.departement
+        jobid:value.body.jobid
       })
     })
 }

@@ -5,13 +5,13 @@
         <table class="table "*ngIf="fiches.length>0">
           <thead >
           <tr class="table-success">
-            <th scope="col">NOM</th>
-            <th scope="col">PRENOM</th>
-            <th scope="col">POST</th>
-            <th scope="col">MATRICULE</th>
-            <th scope="col">DATE</th>
-            <th scope="col">SALAIREBRUT</th>
-            <th scope="col">SALAIRENET</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Prénom</th>
+            <th scope="col">Post</th>
+            <th scope="col">Matricule</th>
+            <th scope="col">Date</th>
+            <th scope="col">Salaire Brut</th>
+            <th scope="col">Salaire Net</th>
 
             <th>ACTION</th>
           </tr>
@@ -28,7 +28,7 @@
 
             <td>
               <button class="btn btn-link" (click)="exporterfiche(i.id)">
-                telecharger
+                Télecharger
                 <i class="mdi mdi-download"></i>
               </button>
             </td>

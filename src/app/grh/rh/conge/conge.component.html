@@ -63,8 +63,9 @@
           <td>{{i.typeConge}}</td>
           <td>{{i.statusConge}}</td>
           <td>
-            <a class="btn btn-sm btn-danger mr-2" style="margin-right:5px;" (click)="deleteconge(i.id)" title="Supprimer Congé">
-              <i class="mdi mdi-delete"></i></a>
+           <!-- <a class="btn btn-sm btn-danger mr-2" style="margin-right:5px;" (click)="deleteconge(i.id)" title="Supprimer Congé">
+              <i class="mdi mdi-delete"></i>
+            </a>-->
             <ng-container *ngIf="i.statusConge =='DEMANDEENCOUR'" >
               <a class="btn btn-sm btn-success" (click)="changestatus(i.id,'accepte')"  title="Accéptation">
                 <i class="mdi mdi-marker-check"></i>

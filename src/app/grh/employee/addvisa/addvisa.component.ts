@@ -35,7 +35,7 @@ export class AddvisaComponent implements OnInit {
       this.visaservice.addvisa(this.visaaddform.value).subscribe((value:HttpResponse<IMessageReponse>) => {
         this.showMsg = true;
         this.visaaddform.reset(true)
-        this.router.navigateByUrl("/espaceemployee/addvisa");
+        this.router.navigateByUrl("/espaceemployee/visa");
       },(error: HttpErrorResponse)=>{
       this.showMsg = false;
       this.has_error = true;

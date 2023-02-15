@@ -3,6 +3,7 @@ import {EmployeeService} from "../../services/employee.service";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {HttpErrorResponse, HttpResponse} from "@angular/common/http";
 import {IMessageReponse} from "../../models/messageReponse.model";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-creationemployee',
@@ -28,7 +29,7 @@ export class CreationemployeeComponent implements OnInit {
   has_error:boolean = false;
   error_message:string ='';
   constructor(private employeeservice:EmployeeService,
-              private fb:FormBuilder
+              private fb:FormBuilder,private router:Router
                ) { }
 
   ngOnInit(): void {
@@ -43,6 +44,7 @@ createemployee():void
     subscribe((value:HttpResponse<IMessageReponse>) => {
       this.showMsg = true;
       this.employeecreateform.reset(true);
+      this.router.navigateByUrl("/rh/listemployee");
 
 
     },(error: HttpErrorResponse)=>{
