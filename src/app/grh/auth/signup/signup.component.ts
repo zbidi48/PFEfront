@@ -15,8 +15,8 @@ export class SignupComponent implements OnInit {
   signupForm: FormGroup;
   msg:string = '';
 
-  constructor(private fb: FormBuilder, private authservice: AuthService
-             ) { }
+  constructor(private fb: FormBuilder, private authservice: AuthService,
+            private router:Router) { }
 
   ngOnInit(): void {
     this.createSignupForm();
@@ -59,6 +59,7 @@ export class SignupComponent implements OnInit {
           },
           complete:() => {
             Swal.fire(this.msg,'','success')
+            this.router.navigate(['/auth/login'])
 
           }
         })
