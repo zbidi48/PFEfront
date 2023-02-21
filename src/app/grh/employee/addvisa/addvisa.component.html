@@ -14,6 +14,6 @@
       <option value="MISSION">MISSION</option>
     </select>
   </div>
-  <button class="btn btn-gradient-primary mr-2" type="submit">Enregistrer</button>
+  <button class="btn btn-gradient-primary mr-2" type="submit" *ngIf="visaaddform.valid">Enregistrer</button>
   <button class="btn btn-light" routerLink="/espaceemployee/visa">Annuler</button>
 </form>

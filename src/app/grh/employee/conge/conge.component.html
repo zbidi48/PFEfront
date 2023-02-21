@@ -32,7 +32,9 @@
         <th scope="col">
         Type
         </th>
-
+        <th scope="col">
+          Action
+        </th>
       </tr >
       </thead  >
       <tbody>
@@ -45,6 +47,11 @@
         <td>{{i.datefin}}</td>
         <td>{{i.statusConge}}</td>
         <td>{{i.typeConge}}</td>
+        <td>
+          <ng-container *ngIf="i.statusConge =='DEMANDEENCOUR' ">
+            <a class="btn btn-sm btn-link" [routerLink]="['/espaceemployee/editconge/'+i.id]" >modifier</a>
+          </ng-container>
+        </td>
 
       </tr>
       </tbody>

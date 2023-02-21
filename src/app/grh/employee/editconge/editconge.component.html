@@ -1,24 +1,24 @@
-<form class="forms-sample" [formGroup]="congeform"(ngSubmit)="Addconge()">
+<form class="forms-sample" [formGroup]="updateconge" (ngSubmit)="editcongee()">
   <div class="alert-success" *ngIf="showMsg">
     {{message}}
   </div>
-  <div class="alert alert-danger" *ngIf="has_error">
+  <div class="alert-success" *ngIf="has_error">
     {{error_message}}
   </div>
-  <div class="form-group ">
-    <label  >Date Debut</label>
+  <div class="form-group row">
+    <label  class="col-sm-3 col-form-label">Date Debut</label>
     <div class="col-sm-9">
       <input type="date" class="form-control" id="datedebut" placeholder="datedebut"
              formControlName="datedebut" >
     </div>
   </div>
-  <div class="form-group ">
-    <label  >Date Fin</label>
+  <div class="form-group row">
+    <label  class="col-sm-3 col-form-label">Date Fin</label>
     <div class="col-sm-9">
-      <input type="date" class="form-control" id="datefin" placeholder="datefin" formControlName="datefin" >
+      <input type="date" class="form-control" id="datefin" placeholder="datefin"
+             formControlName="datefin" >
     </div>
   </div>
-
   <div class="form-group ">
     <label >Type Conge</label>
     <select class="form-control" id="typeConge" name="typeConge" placeholder="type de Conge"  formControlName="typeConge">
@@ -27,6 +27,7 @@
       <option value="MATERNITE">MATERNITE</option>
     </select>
   </div>
-  <button class="btn btn-gradient-primary mr-2" type="submit" *ngIf="congeform.valid">Enregistrer</button>
+
+  <button class="btn btn-gradient-primary mr-2" type="submit">Enregistrer</button>
   <button class="btn btn-light" routerLink="/espaceemployee/congeemployee">Annuler</button>
 </form>

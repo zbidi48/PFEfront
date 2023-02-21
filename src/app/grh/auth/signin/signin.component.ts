@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../services/auth.service";
 import {Router} from "@angular/router";
 import {StorageService} from "../../services/storage.service";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-signin',
@@ -11,6 +12,10 @@ import {StorageService} from "../../services/storage.service";
 })
 export class SigninComponent implements OnInit {
    signinForm: FormGroup;
+  message="Authenitfication avec sucé!";
+  showMsg:boolean = false;
+  has_error:boolean = false;
+  error_message:string ='';
   constructor(private fb: FormBuilder,
               private authservice: AuthService,
               private router: Router,
@@ -32,6 +37,7 @@ export class SigninComponent implements OnInit {
        this.storageService.saveEmail(res.body.email);
        this.storageService.saveId(res.body.id);
        this.storageService.getEmail();
+       this.showMsg = true;
 
        //console.log(res.body.roles[0])
        if(res.body.roles[0] ==="ROLE_Employee"){
@@ -46,8 +52,12 @@ export class SigninComponent implements OnInit {
        }
 
 
-     }, error => {
-       console.log(error)
+     }, (error:HttpErrorResponse) => {
+       //console.log(error)
+       this.showMsg = false;
+       this.has_error = true;
+       this.error_message = error.message
+
      })
    }
 

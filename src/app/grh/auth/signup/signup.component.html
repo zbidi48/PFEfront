@@ -80,7 +80,7 @@
 
           </div>
           <div class="mt-3">
-            <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" >SIGN UP</button>
+            <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" *ngIf="signupForm.valid" >SIGN UP</button>
           </div>
           <div class="text-center mt-4 font-weight-light">
             Avez vous Déja un compte? <a routerLink="/auth/login" class="text-primary">Login</a>

@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {path:'congeemployee',loadChildren: () => import('./conge/conge.module').then(m => m.CongeModule)},
   {path:'addconge',loadChildren: () => import('./addconge/addconge.module').then(m => m.AddcongeModule)},
+  {path:'editconge/:id',loadChildren: () => import('./editconge/editconge.module').then(m => m.EditcongeModule)},
   {path:'visa',loadChildren: () => import('./visa/visa.module').then(m => m.VisaModule)},
   {path:'notedefraie',loadChildren: () => import('./notedefraie/notedefraie.module')
       .then(m => m.NotedefraieModule)},

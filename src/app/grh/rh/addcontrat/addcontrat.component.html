@@ -26,6 +26,6 @@
     </select>
 
   </div>
-  <button type="submit" class="btn btn-gradient-primary mr-2">Enregistrer</button>
+  <button type="submit" class="btn btn-gradient-primary mr-2" *ngIf="contratform.valid">Enregistrer</button>
   <button class="btn btn-light" routerLink="/rh/contrat">Annuler</button>
 </form>

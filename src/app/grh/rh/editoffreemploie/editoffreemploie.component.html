@@ -29,6 +29,6 @@
     <input type="text" class="form-control" id="exigenceemploie" placeholder="exigence emploie"
            name="exigenceemploie" formControlName="exigenceemploie">
   </div>
-  <button type="submit" class="btn btn-gradient-primary mr-2">Enregistrer</button>
+  <button type="submit" class="btn btn-gradient-primary mr-2" *ngIf="maoffreemplform.valid">Enregistrer</button>
   <button class="btn btn-light" routerLink="/rh/offreemploie">Annuler</button>
 </form>

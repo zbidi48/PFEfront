@@ -34,8 +34,7 @@ export class EditnotedefraieComponent implements OnInit {
     this.formSubmitted = true;
     if (this.updatenotedefraieform.valid)
     {
-
-    this.notedefraieservice.updatenotedefraie(this.path.snapshot.params.id,this.updatenotedefraieform.value)
+      this.notedefraieservice.updatenotedefraie(this.path.snapshot.params.id,this.updatenotedefraieform.value)
       .subscribe((value:HttpResponse<IMessageReponse>) => {
         this.router.navigate(['/espaceemployee/notedefraie'])
         this.showMsg = true;

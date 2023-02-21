@@ -64,7 +64,7 @@
              formControlName="salary" >
     </div>
   </div>
-  <button class="btn btn-gradient-primary mr-2" type="submit">Enregistrer</button>
+  <button class="btn btn-gradient-primary mr-2" type="submit" *ngIf="employeeeditform.valid">Enregistrer</button>
   <button class="btn btn-light" routerLink="/rh/listemployee">Annuler</button>
 </form>
 

@@ -20,7 +20,7 @@
     </div>
   </div>
 
-  <button class="btn btn-gradient-primary mr-2" type="submit">Enregistrer</button>
+  <button class="btn btn-gradient-primary mr-2" type="submit" *ngIf="notedefraieaddform.valid">Enregistrer</button>
   <button class="btn btn-light" routerLink="/espaceemployee/notedefraie">Annuler</button>
 </form>
 
